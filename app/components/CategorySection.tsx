@@ -6,7 +6,7 @@ import { ChevronDown } from "lucide-react";
 import { brandMap } from "../data/brands";
 import SubsectionCard from "./SubsectionCard";
 import BrandLogo from "./BrandLogo";
-import FadeIn from "./motion/FadeIn";
+import ScrollReveal from "./motion/ScrollReveal";
 import type { Category } from "../data/hub-content";
 
 type CategorySectionProps = {
@@ -47,7 +47,12 @@ export default function CategorySection({
   const accentColor = primaryBrand?.color ?? "#10b981";
 
   return (
-    <FadeIn delay={index * 0.08}>
+    <ScrollReveal
+      delay={index * 0.05}
+      direction={index % 2 === 0 ? "up" : "right"}
+      distance={56}
+      replay
+    >
       <div id={category.id} className="scroll-mt-24">
         <motion.button
           type="button"
@@ -156,6 +161,6 @@ export default function CategorySection({
           )}
         </AnimatePresence>
       </div>
-    </FadeIn>
+    </ScrollReveal>
   );
 }

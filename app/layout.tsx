@@ -5,6 +5,7 @@ import AnimatedBackground from "./components/AnimatedBackground";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import ScrollProgress from "./components/ScrollProgress";
+import { ScrollFloatingDecor, ScrollTimeline } from "./components/ScrollEffects";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -73,6 +74,8 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-zinc-950 text-zinc-200`}
       >
         <AnimatedBackground />
+        <ScrollFloatingDecor />
+        <ScrollTimeline />
         <ScrollProgress />
         <Navbar />
         <main className="relative">{children}</main>

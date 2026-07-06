@@ -8,7 +8,8 @@ import HeroSection from "./components/HeroSection";
 import SectionHeader from "./components/SectionHeader";
 import ToolsShowcase from "./components/ToolsShowcase";
 import SubsectionCard from "./components/SubsectionCard";
-import FadeIn from "./components/motion/FadeIn";
+import ScrollParallax from "./components/motion/ScrollParallax";
+import ScrollReveal from "./components/motion/ScrollReveal";
 import {
   flashovanieCategories,
   diagnostikaCategories,
@@ -40,7 +41,8 @@ export default function FlashDiagnosticsHub() {
       <ToolsShowcase />
 
       {/* FLASHOVANIE */}
-      <section id="flashovanie" className="py-16 border-t border-zinc-800/80 scroll-mt-24">
+      <ScrollParallax y={[50, -50]} className="py-16 border-t border-zinc-800/80 scroll-mt-24" >
+      <section id="flashovanie">
         <SectionHeader
           title="Flashovanie zariadení"
           description="Vyber značku alebo metódu flashovania. Každá kategória obsahuje prehľad, podrobný postup krok za krokom, tipy, upozornenia a priame odkazy na stiahnutie nástrojov a firmvéru."
@@ -52,9 +54,11 @@ export default function FlashDiagnosticsHub() {
           ))}
         </div>
       </section>
+      </ScrollParallax>
 
       {/* DIAGNOSTIKA */}
-      <section id="diagnostika" className="py-16 border-t border-zinc-800/80 scroll-mt-24">
+      <ScrollParallax y={[-40, 60]} className="py-16 border-t border-zinc-800/80 scroll-mt-24">
+      <section id="diagnostika">
         <SectionHeader
           title={
             <>
@@ -71,7 +75,7 @@ export default function FlashDiagnosticsHub() {
           ))}
         </div>
 
-        <FadeIn delay={0.2}>
+        <ScrollReveal direction="up" delay={0.1} replay>
           <motion.div
             className="card-interactive mt-8 border-emerald-500/20 bg-emerald-500/5"
             whileHover={reduceMotion ? {} : { scale: 1.01 }}
@@ -85,11 +89,13 @@ export default function FlashDiagnosticsHub() {
               Zálohuj dôležité dáta pred akýmkoľvek zásahom. Nesprávny flash môže trvalo poškodiť zariadenie.
             </p>
           </motion.div>
-        </FadeIn>
+        </ScrollReveal>
       </section>
+      </ScrollParallax>
 
       {/* NÁSTROJE */}
-      <section id="nastroje" className="py-16 border-t border-zinc-800/80 scroll-mt-24">
+      <ScrollParallax y={[60, -40]} className="py-16 border-t border-zinc-800/80 scroll-mt-24">
+      <section id="nastroje">
         <SectionHeader
           title="Nástroje a firmvér"
           description="Oficiálne flash nástroje (RSA, LMSA, Odin, Mi Flash, SP Flash), USB drivery a katalógy firmvéru pre Motorola, Samsung, Xiaomi a Google Pixel."
@@ -101,9 +107,11 @@ export default function FlashDiagnosticsHub() {
           ))}
         </div>
       </section>
+      </ScrollParallax>
 
       {/* BEZPEČNÉ ZDIEĽANIE */}
-      <section id="zdielanie" className="py-16 border-t border-zinc-800/80 scroll-mt-24">
+      <ScrollParallax y={[-50, 50]} opacity={[0.4, 1, 1, 0.4]} className="py-16 border-t border-zinc-800/80 scroll-mt-24">
+      <section id="zdielanie">
         <SectionHeader
           title={
             <>
@@ -116,13 +124,18 @@ export default function FlashDiagnosticsHub() {
 
         <div className="grid lg:grid-cols-2 gap-6 mb-10">
           {zdielanieSubsections.map((subsection, index) => (
-            <FadeIn key={subsection.id} delay={index * 0.1}>
+            <ScrollReveal
+              key={subsection.id}
+              delay={index * 0.08}
+              direction={index % 2 === 0 ? "left" : "right"}
+              replay
+            >
               <SubsectionCard subsection={subsection} index={index} />
-            </FadeIn>
+            </ScrollReveal>
           ))}
         </div>
 
-        <FadeIn>
+        <ScrollReveal direction="up" replay>
           <motion.div
             className="card-interactive max-w-2xl relative overflow-hidden"
             whileHover={reduceMotion ? {} : { borderColor: "rgba(16,185,129,0.3)" }}
@@ -247,10 +260,11 @@ export default function FlashDiagnosticsHub() {
               )}
             </AnimatePresence>
           </motion.div>
-        </FadeIn>
+        </ScrollReveal>
       </section>
+      </ScrollParallax>
 
-      <FadeIn>
+      <ScrollReveal direction="up" replay>
         <div className="text-center py-12 text-xs text-zinc-500">
           Projekt je open-source. Prispieť môžeš na{" "}
           <a
@@ -263,7 +277,7 @@ export default function FlashDiagnosticsHub() {
           </a>
           .
         </div>
-      </FadeIn>
+      </ScrollReveal>
     </div>
   );
 }
