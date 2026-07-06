@@ -66,7 +66,7 @@ export default function OpenGraphImage() {
         </div>
 
         <div style={{ display: "flex", gap: 16 }}>
-          {["Fastboot / ADB", "Odin", "SP Flash", "Diagnostika", "Bezpečné zdieľanie"].map(
+          {["Motorola", "Fastboot", "Odin", "SP Flash", "Diagnostika"].map(
             (tag) => (
               <div
                 key={tag}

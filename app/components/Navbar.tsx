@@ -9,7 +9,7 @@ export default function Navbar() {
 
   const navLinks = [
     { href: "#flashovanie", label: "Flashovanie" },
-    { href: "#fastboot-adb", label: "Fastboot" },
+    { href: "#motorola", label: "Motorola" },
     { href: "#odin-samsung", label: "Odin" },
     { href: "#diagnostika", label: "Diagnostika" },
     { href: "#nastroje", label: "Nástroje" },

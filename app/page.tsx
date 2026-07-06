@@ -35,9 +35,10 @@ export default function FlashDiagnosticsHub() {
         <h1 className="text-5xl md:text-6xl font-semibold tracking-tighter mb-6">
           Flash Diagnostics Hub
         </h1>
-        <p className="max-w-2xl mx-auto text-xl text-zinc-400">
-          Centrum pre flashovanie mobilných zariadení, diagnostiku problémov s firmvérom
-          a bezpečné zdieľanie chránených súborov.
+        <p className="max-w-3xl mx-auto text-xl text-zinc-400 leading-relaxed">
+          Kompletné centrum pre flashovanie mobilných zariadení — Samsung, Motorola, Xiaomi, Pixel,
+          MediaTek a Qualcomm. Podrobné návody, diagnostika bootloopu, odomknutie bootloadera
+          a bezpečné zdieľanie firmvéru s odkazmi na oficiálne súbory.
         </p>
         <div className="flex flex-wrap gap-4 justify-center mt-10">
           <a
@@ -55,6 +56,9 @@ export default function FlashDiagnosticsHub() {
         </div>
 
         <div className="flex flex-wrap justify-center gap-3 mt-8 text-sm">
+          <a href="#motorola" className="px-4 py-2 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/20 transition-colors">
+            Motorola
+          </a>
           <a href="#fastboot-adb" className="px-4 py-2 rounded-xl bg-zinc-900 border border-zinc-800 hover:border-emerald-500/40 transition-colors">
             Fastboot
           </a>
@@ -73,8 +77,9 @@ export default function FlashDiagnosticsHub() {
       {/* FLASHOVANIE */}
       <section id="flashovanie" className="py-16 border-t border-zinc-800">
         <h2 className="section-title">Flashovanie zariadení</h2>
-        <p className="text-zinc-400 max-w-2xl mb-10">
-          Klikni na kategóriu pre rozbalenie podsekcií s postupom a odkazmi na súbory.
+        <p className="text-zinc-400 max-w-3xl mb-10 leading-relaxed">
+          Vyber značku alebo metódu flashovania. Každá kategória obsahuje prehľad, podrobný postup
+          krok za krokom, tipy, upozornenia a priame odkazy na stiahnutie nástrojov a firmvéru.
         </p>
 
         <div className="space-y-6">
@@ -90,8 +95,9 @@ export default function FlashDiagnosticsHub() {
           <Wrench className="text-emerald-400" size={28} />
           Diagnostika problémov
         </h2>
-        <p className="text-zinc-400 max-w-2xl mb-10">
-          Bežné problémy pri flashovaní — identifikácia režimu, obnova a riešenie driverov.
+        <p className="text-zinc-400 max-w-3xl mb-10 leading-relaxed">
+          Diagnostika bootloopu, bricku, EDL režimu a USB problémov. Samostatná sekcia pre Motorola
+          špecifické chyby vrátane radio, IMEI a bootloader warning.
         </p>
 
         <div className="space-y-6">
@@ -115,8 +121,9 @@ export default function FlashDiagnosticsHub() {
       {/* NÁSTROJE */}
       <section id="nastroje" className="py-16 border-t border-zinc-800">
         <h2 className="section-title">Nástroje a firmvér</h2>
-        <p className="text-zinc-400 max-w-2xl mb-10">
-          Stiahnuťelný softvér, drivery a katalógy ROM balíkov podľa platformy.
+        <p className="text-zinc-400 max-w-3xl mb-10 leading-relaxed">
+          Oficiálne flash nástroje (RSA, LMSA, Odin, Mi Flash, SP Flash), USB drivery a katalógy
+          firmvéru pre Motorola, Samsung, Xiaomi a Google Pixel.
         </p>
 
         <div className="space-y-6">
