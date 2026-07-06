@@ -20,7 +20,7 @@ export function ScrollFloatingDecor() {
   return (
     <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden hidden lg:block" aria-hidden>
       <motion.div
-        className="absolute left-6 top-[20%] w-16 h-16 rounded-2xl border border-emerald-500/20 bg-emerald-500/5 backdrop-blur-sm"
+        className="absolute left-6 top-[20%] w-20 h-20 rounded-2xl border-2 border-emerald-500/40 bg-emerald-500/10 backdrop-blur-sm shadow-lg shadow-emerald-500/20"
         style={{ y: leftY, rotate: leftRotate }}
       />
       <motion.div

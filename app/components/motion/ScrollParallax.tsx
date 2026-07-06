@@ -18,7 +18,7 @@ type ScrollParallaxProps = {
 export default function ScrollParallax({
   children,
   className,
-  y = [60, -60],
+  y = [120, -120],
   scale,
   rotate,
   opacity,

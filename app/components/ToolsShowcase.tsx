@@ -10,11 +10,11 @@ export default function ToolsShowcase() {
   const reduceMotion = useReducedMotion();
 
   return (
-    <ScrollParallax y={[80, -80]} opacity={[0.3, 1, 1, 0.3]}>
-      <section className="py-16 border-t border-zinc-800/80">
-        <ScrollReveal direction="up" replay>
+    <ScrollParallax y={[140, -140]} opacity={[0.2, 1, 1, 0.2]}>
+      <section className="py-16 border-t-2 border-emerald-500/20 bg-zinc-900/30 rounded-3xl my-4 px-4">
+        <ScrollReveal direction="up" replay distance={70}>
           <div className="text-center mb-12">
-            <h2 className="section-title">Nástroje a značky</h2>
+            <h2 className="section-title text-emerald-400">🛠 Nástroje a značky</h2>
             <p className="text-zinc-400 max-w-2xl mx-auto mt-3 leading-relaxed">
               Klikni na logo a preskoč priamo na návod alebo sekciu s odkazmi na stiahnutie.
             </p>
