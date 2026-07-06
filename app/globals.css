@@ -36,9 +36,9 @@ body {
 }
 
 .accent {
-  color: #34d399;
+  @apply text-emerald-400;
 }
 
-.accent {
-  @apply text-emerald-400;
+html {
+  scroll-behavior: smooth;
 }

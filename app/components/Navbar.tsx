@@ -9,9 +9,11 @@ export default function Navbar() {
 
   const navLinks = [
     { href: "#flashovanie", label: "Flashovanie" },
+    { href: "#fastboot-adb", label: "Fastboot" },
+    { href: "#odin-samsung", label: "Odin" },
     { href: "#diagnostika", label: "Diagnostika" },
-    { href: "#nastroje", label: "Nástroje & Firmvér" },
-    { href: "#zdielanie", label: "Bezpečné zdieľanie" },
+    { href: "#nastroje", label: "Nástroje" },
+    { href: "#zdielanie", label: "Zdieľanie" },
   ];
 
   return (
@@ -31,9 +33,10 @@ export default function Navbar() {
               {link.label}
             </a>
           ))}
-          <a 
-            href="https://github.com" 
+          <a
+            href="https://github.com/JVVMEDIA/flash-diagnostics-hub"
             target="_blank"
+            rel="noopener noreferrer"
             className="px-4 py-2 bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 rounded-xl text-sm transition-colors"
           >
             GitHub
