@@ -1,46 +1,19 @@
-"use client";
-
-import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
-
 export default function AnimatedBackground() {
-  const reduceMotion = useReducedMotion();
-  const { scrollYProgress } = useScroll();
-
-  const orb1Y = useTransform(scrollYProgress, [0, 1], [0, -300]);
-  const orb2Y = useTransform(scrollYProgress, [0, 1], [0, 200]);
-  const orb3Y = useTransform(scrollYProgress, [0, 1], [0, -450]);
-  const gridY = useTransform(scrollYProgress, [0, 1], [0, 150]);
-  const centerScale = useTransform(scrollYProgress, [0, 0.5, 1], [1, 1.2, 0.9]);
-
-  if (reduceMotion) {
-    return (
-      <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden" aria-hidden>
-        <div className="absolute inset-0 bg-grid opacity-[0.35]" />
-        <div className="absolute inset-0 bg-gradient-to-b from-zinc-950/20 via-transparent to-zinc-950" />
-      </div>
-    );
-  }
-
   return (
     <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden" aria-hidden>
-      <motion.div className="absolute inset-0 bg-grid opacity-[0.35]" style={{ y: gridY }} />
-      <motion.div
-        className="absolute -top-32 left-1/4 h-[28rem] w-[28rem] rounded-full bg-emerald-500/15 blur-[100px]"
-        style={{ y: orb1Y }}
-      />
-      <motion.div
-        className="absolute top-1/3 -right-20 h-[24rem] w-[24rem] rounded-full bg-blue-500/10 blur-[90px]"
-        style={{ y: orb2Y }}
-      />
-      <motion.div
-        className="absolute -bottom-40 left-1/3 h-[32rem] w-[32rem] rounded-full bg-teal-500/12 blur-[110px]"
-        style={{ y: orb3Y }}
-      />
-      <motion.div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[40rem] w-[40rem] rounded-full bg-emerald-500/5 blur-[120px]"
-        style={{ scale: centerScale }}
-      />
-      <div className="absolute inset-0 bg-gradient-to-b from-zinc-950/20 via-transparent to-zinc-950" />
+      <div className="absolute inset-0 bg-grid bg-grid-drift opacity-[0.55]" />
+
+      <div className="absolute -top-24 left-[5%] h-[34rem] w-[34rem] rounded-full bg-emerald-400/30 blur-[90px] animate-orb-drift-1" />
+      <div className="absolute top-[35%] -right-24 h-[30rem] w-[30rem] rounded-full bg-cyan-400/25 blur-[100px] animate-orb-drift-2" />
+      <div className="absolute -bottom-28 left-[20%] h-[38rem] w-[38rem] rounded-full bg-teal-400/22 blur-[110px] animate-orb-drift-3" />
+      <div className="absolute top-[15%] right-[28%] h-[22rem] w-[22rem] rounded-full bg-blue-400/20 blur-[80px] animate-orb-drift-4" />
+      <div className="absolute top-[60%] left-[55%] h-[18rem] w-[18rem] rounded-full bg-emerald-300/18 blur-[70px] animate-orb-drift-5" />
+
+      <div className="absolute inset-0 bg-circuit opacity-[0.12]" />
+      <div className="absolute inset-0 bg-scanline animate-scanline opacity-[0.06]" />
+
+      <div className="absolute inset-0 bg-gradient-to-b from-zinc-950/40 via-transparent to-zinc-950/90" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_-10%,rgba(16,185,129,0.18),transparent_60%)]" />
     </div>
   );
 }

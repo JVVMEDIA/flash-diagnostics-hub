@@ -22,10 +22,30 @@ html {
 /* Grid pozadie */
 .bg-grid {
   background-image:
-    linear-gradient(rgba(63, 63, 70, 0.12) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(63, 63, 70, 0.12) 1px, transparent 1px);
+    linear-gradient(rgba(52, 211, 153, 0.14) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(52, 211, 153, 0.14) 1px, transparent 1px);
   background-size: 48px 48px;
-  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 20%, transparent 70%);
+  mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, black 30%, transparent 75%);
+}
+
+.bg-grid-drift {
+  animation: grid-drift 24s linear infinite;
+}
+
+.bg-circuit {
+  background-image: radial-gradient(circle, rgba(52, 211, 153, 0.35) 1px, transparent 1px);
+  background-size: 32px 32px;
+  mask-image: radial-gradient(ellipse 100% 80% at 50% 50%, black 10%, transparent 80%);
+}
+
+.bg-scanline {
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(52, 211, 153, 0.15) 2px,
+    rgba(52, 211, 153, 0.15) 4px
+  );
 }
 
 /* Gradient text */
@@ -122,6 +142,105 @@ html {
 
 .logo-glow {
   animation: glow-pulse 3s ease-in-out infinite;
+}
+
+/* Aurora orby v pozadí */
+@keyframes orb-drift-1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(60px, 40px) scale(1.12); }
+  66% { transform: translate(-30px, 70px) scale(0.95); }
+}
+
+@keyframes orb-drift-2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-80px, -50px) scale(1.15); }
+}
+
+@keyframes orb-drift-3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  40% { transform: translate(50px, -60px) scale(1.08); }
+  80% { transform: translate(-40px, 30px) scale(0.92); }
+}
+
+@keyframes orb-drift-4 {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.8; }
+  50% { transform: translate(-40px, 50px) scale(1.2); opacity: 1; }
+}
+
+@keyframes orb-drift-5 {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(30px, -40px); }
+}
+
+@keyframes grid-drift {
+  0% { background-position: 0 0; }
+  100% { background-position: 48px 48px; }
+}
+
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+@keyframes float-slow-reverse {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(20px, -30px) rotate(8deg); }
+}
+
+@keyframes float-delayed-reverse {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(-30px, 20px); }
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.8); }
+}
+
+@keyframes timeline-glow {
+  0%, 100% { opacity: 0.5; height: 25%; }
+  50% { opacity: 1; height: 40%; }
+}
+
+@keyframes marquee-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes scroll-hint-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(12px); }
+}
+
+@keyframes hero-ring-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.08); opacity: 0.85; }
+}
+
+@keyframes hero-glow-breathe {
+  0%, 100% { transform: scale(1); opacity: 0.45; }
+  50% { transform: scale(1.15); opacity: 0.75; }
+}
+
+.animate-orb-drift-1 { animation: orb-drift-1 20s ease-in-out infinite; }
+.animate-orb-drift-2 { animation: orb-drift-2 26s ease-in-out infinite 2s; }
+.animate-orb-drift-3 { animation: orb-drift-3 22s ease-in-out infinite 1s; }
+.animate-orb-drift-4 { animation: orb-drift-4 18s ease-in-out infinite 3s; }
+.animate-orb-drift-5 { animation: orb-drift-5 16s ease-in-out infinite; }
+.animate-scanline { animation: scanline 8s linear infinite; }
+.animate-float-slow-reverse { animation: float-slow-reverse 16s ease-in-out infinite; }
+.animate-float-delayed-reverse { animation: float-delayed-reverse 12s ease-in-out infinite 1.5s; }
+.animate-pulse-dot { animation: pulse-dot 2.5s ease-in-out infinite; }
+.animate-pulse-dot-delayed { animation: pulse-dot 2.5s ease-in-out infinite 1.2s; }
+.animate-timeline-glow { animation: timeline-glow 3s ease-in-out infinite; }
+.animate-marquee { animation: marquee-scroll 30s linear infinite; }
+.animate-scroll-hint { animation: scroll-hint-bounce 1.8s ease-in-out infinite; }
+.animate-hero-ring { animation: hero-ring-pulse 4s ease-in-out infinite; }
+.animate-hero-glow { animation: hero-glow-breathe 5s ease-in-out infinite; }
+
+.brand-card {
+  border-width: 2px;
+  box-shadow: 0 0 32px color-mix(in srgb, var(--brand-color) 30%, transparent);
 }
 
 /* Focus ring pre inputy */

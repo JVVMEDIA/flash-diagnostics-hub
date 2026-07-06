@@ -1,7 +1,5 @@
 "use client";
 
-import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
 import { ArrowRight } from "lucide-react";
 import { brandMap, mobileBrands } from "../data/brands";
 import BrandLogo from "./BrandLogo";
@@ -18,58 +16,37 @@ const quickLinks = [
 ];
 
 export default function HeroSection() {
-  const ref = useRef<HTMLElement>(null);
-  const reduceMotion = useReducedMotion();
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start start", "end start"],
-  });
-
-  const titleY = useTransform(scrollYProgress, [0, 1], [0, -180]);
-  const contentY = useTransform(scrollYProgress, [0, 1], [0, -90]);
-  const heroOpacity = useTransform(scrollYProgress, [0, 0.75], [1, 0.2]);
-  const ringScale = useTransform(scrollYProgress, [0, 1], [1, 1.6]);
-
   return (
-    <section ref={ref} className="relative pt-16 pb-8 text-center overflow-hidden min-h-[90vh] flex flex-col justify-center">
+    <section className="relative pt-16 pb-8 text-center overflow-hidden min-h-[92vh] flex flex-col justify-center">
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <motion.div
-          className="h-80 w-80 rounded-full border-2 border-emerald-500/30"
-          style={reduceMotion ? {} : { scale: ringScale }}
-        />
-        <motion.div
-          className="absolute h-[28rem] w-[28rem] rounded-full bg-emerald-500/10 blur-3xl"
-          animate={reduceMotion ? {} : { scale: [1, 1.2, 1], opacity: [0.5, 0.8, 0.5] }}
-          transition={{ duration: 5, repeat: Infinity }}
-        />
+        <div className="h-96 w-96 rounded-full border-[3px] border-emerald-400/50 animate-hero-ring" />
+        <div className="absolute h-[32rem] w-[32rem] rounded-full bg-emerald-400/20 blur-3xl animate-hero-glow" />
       </div>
 
-      <motion.div style={reduceMotion ? {} : { opacity: heroOpacity, y: contentY }}>
+      <div className="relative">
         <ScrollReveal direction="down" distance={20} immediate>
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/15 border border-emerald-500/40 text-emerald-400 text-sm mb-8 shadow-lg shadow-emerald-500/10">
-            <span className="relative flex h-2 w-2">
+          <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-emerald-500/20 border-2 border-emerald-400/50 text-emerald-300 text-sm mb-8 shadow-xl shadow-emerald-500/20">
+            <span className="relative flex h-2.5 w-2.5">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-400" />
             </span>
-            <span className="px-2 py-0.5 rounded-md bg-emerald-500/25 text-emerald-300 font-semibold text-xs">
-              v2.1
+            <span className="px-2.5 py-1 rounded-lg bg-emerald-500 text-zinc-950 font-bold text-xs tracking-wide">
+              v2.2
             </span>
             Open Source • Zadarmo • Profesionálne
           </div>
         </ScrollReveal>
 
-        <motion.div style={reduceMotion ? {} : { y: titleY }}>
-          <ScrollReveal direction="up" distance={50} delay={0.1} immediate>
-            <h1 className="text-5xl md:text-7xl font-semibold tracking-tighter mb-6">
-              <span className="text-gradient">Flash Diagnostics</span>
-              <br />
-              <span className="text-zinc-100">Hub</span>
-            </h1>
-          </ScrollReveal>
-        </motion.div>
+        <ScrollReveal direction="up" distance={50} delay={0.1} immediate>
+          <h1 className="text-5xl md:text-8xl font-bold tracking-tighter mb-6">
+            <span className="text-gradient">Flash Diagnostics</span>
+            <br />
+            <span className="text-white drop-shadow-[0_0_40px_rgba(52,211,153,0.35)]">Hub</span>
+          </h1>
+        </ScrollReveal>
 
         <ScrollReveal direction="up" delay={0.2} distance={36} immediate>
-          <p className="max-w-3xl mx-auto text-lg md:text-xl text-zinc-400 leading-relaxed px-4">
+          <p className="max-w-3xl mx-auto text-lg md:text-xl text-zinc-300 leading-relaxed px-4">
             Kompletné centrum pre flashovanie mobilných zariadení — Samsung, Motorola, Xiaomi, Pixel,
             MediaTek a Qualcomm.
           </p>
@@ -77,73 +54,70 @@ export default function HeroSection() {
 
         <ScrollReveal direction="up" delay={0.3} immediate>
           <div className="flex flex-wrap gap-4 justify-center mt-10 px-4">
-            <motion.a
+            <a
               href="#zdielanie"
-              className="group relative px-8 py-4 bg-emerald-500 text-zinc-950 font-semibold rounded-2xl overflow-hidden shadow-xl shadow-emerald-500/30"
-              whileHover={reduceMotion ? {} : { scale: 1.06, y: -3 }}
-              whileTap={reduceMotion ? {} : { scale: 0.98 }}
+              className="group px-8 py-4 bg-emerald-400 text-zinc-950 font-bold rounded-2xl shadow-2xl shadow-emerald-500/40 hover:bg-emerald-300 hover:scale-105 transition-all duration-200"
             >
-              <span className="relative flex items-center gap-2">
+              <span className="flex items-center gap-2">
                 Začať s bezpečným zdieľaním
-                <ArrowRight size={18} />
+                <ArrowRight size={20} />
               </span>
-            </motion.a>
-            <motion.a
+            </a>
+            <a
               href="#flashovanie"
-              className="px-8 py-4 border-2 border-emerald-500/40 rounded-2xl font-medium hover:bg-emerald-500/10"
-              whileHover={reduceMotion ? {} : { scale: 1.06, y: -3 }}
+              className="px-8 py-4 border-2 border-emerald-400/60 rounded-2xl font-semibold text-emerald-300 hover:bg-emerald-500/15 hover:scale-105 transition-all duration-200"
             >
               Prehliadnuť postupy
-            </motion.a>
+            </a>
           </div>
         </ScrollReveal>
 
         <ScrollReveal direction="up" delay={0.4} immediate>
-          <div className="flex flex-wrap justify-center gap-3 mt-10 px-4">
+          <div className="flex flex-wrap justify-center gap-4 mt-10 px-4">
             {quickLinks.map((link) => {
               const brand = brandMap[link.brandId];
               return (
-                <motion.a
+                <a
                   key={link.href}
                   href={link.href}
-                  className={`flex items-center gap-2.5 px-4 py-2.5 rounded-2xl border-2 transition-colors ${
+                  className={`flex items-center gap-3 px-5 py-3 rounded-2xl border-2 transition-all duration-200 hover:scale-105 ${
                     link.featured
-                      ? "bg-emerald-500/20 border-emerald-500/50 text-emerald-300"
-                      : "bg-zinc-900/80 border-zinc-700 text-zinc-300 hover:border-emerald-500/50"
+                      ? "bg-emerald-500/25 border-emerald-400 text-emerald-200 shadow-lg shadow-emerald-500/25"
+                      : "bg-zinc-900/90 border-zinc-600 text-zinc-200 hover:border-emerald-400/60"
                   }`}
-                  whileHover={reduceMotion ? {} : { scale: 1.08, y: -4 }}
+                  style={link.featured ? { boxShadow: `0 0 28px ${brand.color}40` } : undefined}
                 >
-                  <BrandLogo brand={brand} size="sm" animate={false} />
-                  <span className="text-sm font-semibold">{brand.name}</span>
-                </motion.a>
+                  <BrandLogo brand={brand} size="md" />
+                  <span className="text-sm font-bold">{brand.name}</span>
+                </a>
               );
             })}
           </div>
         </ScrollReveal>
 
-        <ScrollReveal direction="up" delay={0.5} replay>
-          <p className="text-sm uppercase tracking-[0.2em] text-emerald-500/80 mt-14 mb-3 font-medium">
-            ⬇ Podporované značky — posúvajúci sa pás
+        <ScrollReveal direction="up" delay={0.5} immediate>
+          <p className="text-sm uppercase tracking-[0.25em] text-emerald-400 mt-14 mb-4 font-bold">
+            ⬇ Podporované značky
           </p>
           <BrandMarquee />
         </ScrollReveal>
 
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl mx-auto mt-8 px-4">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-5 max-w-4xl mx-auto mt-10 px-4">
           {mobileBrands.slice(0, 4).map((brand, i) => (
-            <ScrollReveal key={brand.id} direction="up" delay={0.1 * i} replay>
-              <motion.a
+            <ScrollReveal key={brand.id} direction="up" delay={0.1 * i} immediate>
+              <a
                 href={brand.href}
-                className="flex flex-col items-center gap-2 p-4 rounded-2xl border border-zinc-800 bg-zinc-900/50 hover:border-emerald-500/40 hover:bg-zinc-900"
-                whileHover={reduceMotion ? {} : { y: -6, scale: 1.03 }}
+                className="flex flex-col items-center gap-3 p-5 rounded-2xl border-2 border-zinc-700 bg-zinc-900/70 hover:border-emerald-400/50 hover:bg-zinc-900 transition-all duration-200 hover:scale-105"
+                style={{ boxShadow: `0 0 20px ${brand.color}20` }}
               >
-                <BrandLogo brand={brand} size="lg" showName />
-              </motion.a>
+                <BrandLogo brand={brand} size="xl" showName />
+              </a>
             </ScrollReveal>
           ))}
         </div>
 
         <ScrollHint />
-      </motion.div>
+      </div>
     </section>
   );
 }
