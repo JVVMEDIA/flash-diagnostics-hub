@@ -1,24 +1,39 @@
+"use client";
+
+import { motion, useReducedMotion } from "framer-motion";
 import FileLinkList from "./FileLinkList";
 import type { Subsection } from "../data/hub-content";
 
 type SubsectionCardProps = {
   subsection: Subsection;
   index: number;
+  animateEntry?: boolean;
+  entryDelay?: number;
 };
 
-export default function SubsectionCard({ subsection, index }: SubsectionCardProps) {
-  return (
+export default function SubsectionCard({
+  subsection,
+  index,
+  animateEntry = false,
+  entryDelay = 0,
+}: SubsectionCardProps) {
+  const reduceMotion = useReducedMotion();
+
+  const content = (
     <article
       id={subsection.id}
-      className="scroll-mt-24 rounded-2xl border border-zinc-800 bg-zinc-950/40 p-5 md:p-6"
+      className="scroll-mt-24 rounded-2xl border border-zinc-800 bg-zinc-950/40 p-5 md:p-6 transition-colors hover:border-zinc-700 hover:bg-zinc-900/30"
     >
       <div className="flex items-start gap-3 mb-3">
-        <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-emerald-500/10 text-xs font-semibold text-emerald-400">
+        <motion.span
+          className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-emerald-500/10 text-xs font-semibold text-emerald-400 border border-emerald-500/20"
+          whileHover={reduceMotion ? {} : { scale: 1.1, backgroundColor: "rgba(16,185,129,0.2)" }}
+        >
           {index + 1}
-        </span>
+        </motion.span>
         <div>
           <h4 className="font-semibold text-lg text-zinc-100">{subsection.title}</h4>
-          <p className="text-sm text-zinc-400 mt-1">{subsection.description}</p>
+          <p className="text-sm text-zinc-400 mt-1 leading-relaxed">{subsection.description}</p>
         </div>
       </div>
 
@@ -29,8 +44,13 @@ export default function SubsectionCard({ subsection, index }: SubsectionCardProp
           </h5>
           <ol className="space-y-2.5 pl-1">
             {subsection.steps.map((step, i) => (
-              <li key={i} className="flex gap-3 text-sm text-zinc-300 leading-relaxed">
-                <span className="text-emerald-500/80 font-mono text-xs mt-0.5 shrink-0">{i + 1}.</span>
+              <li
+                key={i}
+                className="flex gap-3 text-sm text-zinc-300 leading-relaxed group/step"
+              >
+                <span className="text-emerald-500/80 font-mono text-xs mt-0.5 shrink-0 group-hover/step:text-emerald-400 transition-colors">
+                  {i + 1}.
+                </span>
                 <span>{step}</span>
               </li>
             ))}
@@ -55,13 +75,29 @@ export default function SubsectionCard({ subsection, index }: SubsectionCardProp
       )}
 
       {subsection.warning && (
-        <div className="mt-4 rounded-xl border border-amber-500/30 bg-amber-500/5 px-4 py-3 text-sm text-amber-200/90">
+        <motion.div
+          className="mt-4 rounded-xl border border-amber-500/30 bg-amber-500/5 px-4 py-3 text-sm text-amber-200/90"
+          animate={reduceMotion ? {} : { borderColor: ["rgba(245,158,11,0.3)", "rgba(245,158,11,0.5)", "rgba(245,158,11,0.3)"] }}
+          transition={{ duration: 2.5, repeat: Infinity }}
+        >
           <span className="font-semibold text-amber-400">Upozornenie: </span>
           {subsection.warning}
-        </div>
+        </motion.div>
       )}
 
       <FileLinkList links={subsection.links} />
     </article>
+  );
+
+  if (!animateEntry || reduceMotion) return content;
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 16 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: entryDelay, duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+    >
+      {content}
+    </motion.div>
   );
 }

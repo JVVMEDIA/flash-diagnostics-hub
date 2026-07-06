@@ -1,9 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import { Shield, Wrench } from "lucide-react";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { Check, Copy, Shield, Sparkles, Wrench } from "lucide-react";
 import CategorySection from "./components/CategorySection";
+import HeroSection from "./components/HeroSection";
+import SectionHeader from "./components/SectionHeader";
 import SubsectionCard from "./components/SubsectionCard";
+import FadeIn from "./components/motion/FadeIn";
 import {
   flashovanieCategories,
   diagnostikaCategories,
@@ -14,211 +18,249 @@ import {
 export default function FlashDiagnosticsHub() {
   const [password, setPassword] = useState("");
   const [generated, setGenerated] = useState(false);
+  const [copied, setCopied] = useState(false);
+  const reduceMotion = useReducedMotion();
 
   const generateInstructions = () => {
     if (!password) return;
     setGenerated(true);
   };
 
-  const copyToClipboard = (text: string) => {
-    navigator.clipboard.writeText(text);
-    alert("Skopírované do schránky");
+  const copyToClipboard = async (text: string) => {
+    await navigator.clipboard.writeText(text);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-6">
-      {/* HERO */}
-      <section className="pt-20 pb-16 text-center">
-        <div className="inline-block px-4 py-1.5 rounded-full bg-emerald-500/10 text-emerald-400 text-sm mb-6">
-          Open Source • Zadarmo • Profesionálne
-        </div>
-        <h1 className="text-5xl md:text-6xl font-semibold tracking-tighter mb-6">
-          Flash Diagnostics Hub
-        </h1>
-        <p className="max-w-3xl mx-auto text-xl text-zinc-400 leading-relaxed">
-          Kompletné centrum pre flashovanie mobilných zariadení — Samsung, Motorola, Xiaomi, Pixel,
-          MediaTek a Qualcomm. Podrobné návody, diagnostika bootloopu, odomknutie bootloadera
-          a bezpečné zdieľanie firmvéru s odkazmi na oficiálne súbory.
-        </p>
-        <div className="flex flex-wrap gap-4 justify-center mt-10">
-          <a
-            href="#zdielanie"
-            className="px-8 py-4 bg-emerald-500 hover:bg-emerald-600 text-zinc-950 font-medium rounded-2xl transition-colors"
-          >
-            Začať s bezpečným zdieľaním
-          </a>
-          <a
-            href="#flashovanie"
-            className="px-8 py-4 border border-zinc-700 hover:bg-zinc-900 rounded-2xl transition-colors"
-          >
-            Prehliadnuť postupy
-          </a>
-        </div>
-
-        <div className="flex flex-wrap justify-center gap-3 mt-8 text-sm">
-          <a href="#motorola" className="px-4 py-2 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/20 transition-colors">
-            Motorola
-          </a>
-          <a href="#fastboot-adb" className="px-4 py-2 rounded-xl bg-zinc-900 border border-zinc-800 hover:border-emerald-500/40 transition-colors">
-            Fastboot
-          </a>
-          <a href="#odin-samsung" className="px-4 py-2 rounded-xl bg-zinc-900 border border-zinc-800 hover:border-emerald-500/40 transition-colors">
-            Odin
-          </a>
-          <a href="#sp-flash" className="px-4 py-2 rounded-xl bg-zinc-900 border border-zinc-800 hover:border-emerald-500/40 transition-colors">
-            SP Flash
-          </a>
-          <a href="#bootloop-brick" className="px-4 py-2 rounded-xl bg-zinc-900 border border-zinc-800 hover:border-emerald-500/40 transition-colors">
-            Diagnostika
-          </a>
-        </div>
-      </section>
+    <div className="max-w-7xl mx-auto px-6 relative">
+      <HeroSection />
 
       {/* FLASHOVANIE */}
-      <section id="flashovanie" className="py-16 border-t border-zinc-800">
-        <h2 className="section-title">Flashovanie zariadení</h2>
-        <p className="text-zinc-400 max-w-3xl mb-10 leading-relaxed">
-          Vyber značku alebo metódu flashovania. Každá kategória obsahuje prehľad, podrobný postup
-          krok za krokom, tipy, upozornenia a priame odkazy na stiahnutie nástrojov a firmvéru.
-        </p>
+      <section id="flashovanie" className="py-16 border-t border-zinc-800/80 scroll-mt-24">
+        <SectionHeader
+          title="Flashovanie zariadení"
+          description="Vyber značku alebo metódu flashovania. Každá kategória obsahuje prehľad, podrobný postup krok za krokom, tipy, upozornenia a priame odkazy na stiahnutie nástrojov a firmvéru."
+        />
 
         <div className="space-y-6">
           {flashovanieCategories.map((category, index) => (
-            <CategorySection key={category.id} category={category} defaultOpen={index === 0} />
+            <CategorySection key={category.id} category={category} defaultOpen={index === 0} index={index} />
           ))}
         </div>
       </section>
 
       {/* DIAGNOSTIKA */}
-      <section id="diagnostika" className="py-16 border-t border-zinc-800">
-        <h2 className="section-title flex items-center gap-3">
-          <Wrench className="text-emerald-400" size={28} />
-          Diagnostika problémov
-        </h2>
-        <p className="text-zinc-400 max-w-3xl mb-10 leading-relaxed">
-          Diagnostika bootloopu, bricku, EDL režimu a USB problémov. Samostatná sekcia pre Motorola
-          špecifické chyby vrátane radio, IMEI a bootloader warning.
-        </p>
+      <section id="diagnostika" className="py-16 border-t border-zinc-800/80 scroll-mt-24">
+        <SectionHeader
+          title={
+            <>
+              <Wrench className="text-emerald-400 shrink-0" size={28} />
+              Diagnostika problémov
+            </>
+          }
+          description="Diagnostika bootloopu, bricku, EDL režimu a USB problémov. Samostatná sekcia pre Motorola špecifické chyby vrátane radio, IMEI a bootloader warning."
+        />
 
         <div className="space-y-6">
-          {diagnostikaCategories.map((category) => (
-            <CategorySection key={category.id} category={category} />
+          {diagnostikaCategories.map((category, index) => (
+            <CategorySection key={category.id} category={category} index={index} />
           ))}
         </div>
 
-        <div className="card mt-8 border-emerald-500/20 bg-emerald-500/5">
-          <h3 className="font-semibold mb-2 flex items-center gap-2">
-            <Shield className="text-emerald-400" size={18} />
-            Bezpečnostné upozornenie
-          </h3>
-          <p className="text-sm text-zinc-400">
-            Vždy používaj len oficiálne alebo overené nástroje a firmvér pre presný model zariadenia.
-            Zálohuj dôležité dáta pred akýmkoľvek zásahom. Nesprávny flash môže trvalo poškodiť zariadenie.
-          </p>
-        </div>
+        <FadeIn delay={0.2}>
+          <motion.div
+            className="card-interactive mt-8 border-emerald-500/20 bg-emerald-500/5"
+            whileHover={reduceMotion ? {} : { scale: 1.01 }}
+          >
+            <h3 className="font-semibold mb-2 flex items-center gap-2">
+              <Shield className="text-emerald-400" size={18} />
+              Bezpečnostné upozornenie
+            </h3>
+            <p className="text-sm text-zinc-400 leading-relaxed">
+              Vždy používaj len oficiálne alebo overené nástroje a firmvér pre presný model zariadenia.
+              Zálohuj dôležité dáta pred akýmkoľvek zásahom. Nesprávny flash môže trvalo poškodiť zariadenie.
+            </p>
+          </motion.div>
+        </FadeIn>
       </section>
 
       {/* NÁSTROJE */}
-      <section id="nastroje" className="py-16 border-t border-zinc-800">
-        <h2 className="section-title">Nástroje a firmvér</h2>
-        <p className="text-zinc-400 max-w-3xl mb-10 leading-relaxed">
-          Oficiálne flash nástroje (RSA, LMSA, Odin, Mi Flash, SP Flash), USB drivery a katalógy
-          firmvéru pre Motorola, Samsung, Xiaomi a Google Pixel.
-        </p>
+      <section id="nastroje" className="py-16 border-t border-zinc-800/80 scroll-mt-24">
+        <SectionHeader
+          title="Nástroje a firmvér"
+          description="Oficiálne flash nástroje (RSA, LMSA, Odin, Mi Flash, SP Flash), USB drivery a katalógy firmvéru pre Motorola, Samsung, Xiaomi a Google Pixel."
+        />
 
         <div className="space-y-6">
-          {nastrojeCategories.map((category) => (
-            <CategorySection key={category.id} category={category} />
+          {nastrojeCategories.map((category, index) => (
+            <CategorySection key={category.id} category={category} index={index} />
           ))}
         </div>
       </section>
 
       {/* BEZPEČNÉ ZDIEĽANIE */}
-      <section id="zdielanie" className="py-16 border-t border-zinc-800">
-        <h2 className="section-title flex items-center gap-3">
-          Bezpečné zdieľanie <Shield className="text-emerald-400" />
-        </h2>
-        <p className="text-zinc-400 max-w-2xl mb-8">
-          Interaktívny nástroj na vytvorenie password-protected ZIP archívu (AES-256) a bezpečné zdieľanie.
-        </p>
+      <section id="zdielanie" className="py-16 border-t border-zinc-800/80 scroll-mt-24">
+        <SectionHeader
+          title={
+            <>
+              Bezpečné zdieľanie
+              <Shield className="text-emerald-400 shrink-0" />
+            </>
+          }
+          description="Interaktívny nástroj na vytvorenie password-protected ZIP archívu (AES-256) a bezpečné zdieľanie firmvéru a citlivých súborov."
+        />
 
         <div className="grid lg:grid-cols-2 gap-6 mb-10">
           {zdielanieSubsections.map((subsection, index) => (
-            <SubsectionCard key={subsection.id} subsection={subsection} index={index} />
+            <FadeIn key={subsection.id} delay={index * 0.1}>
+              <SubsectionCard subsection={subsection} index={index} />
+            </FadeIn>
           ))}
         </div>
 
-        <div className="card max-w-2xl">
-          <div className="mb-6">
-            <label className="block text-sm mb-2 text-zinc-400">Zadaj heslo pre ZIP archív</label>
-            <input
-              type="text"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder="napr. MojeSilneHeslo2026!"
-              className="w-full bg-zinc-950 border border-zinc-700 rounded-xl px-4 py-3 font-mono focus:outline-none focus:border-emerald-500"
-            />
-          </div>
-
-          <button
-            onClick={generateInstructions}
-            disabled={!password}
-            className="w-full py-3.5 bg-emerald-500 hover:bg-emerald-600 disabled:bg-zinc-700 disabled:text-zinc-400 text-zinc-950 font-medium rounded-2xl transition-colors"
+        <FadeIn>
+          <motion.div
+            className="card-interactive max-w-2xl relative overflow-hidden"
+            whileHover={reduceMotion ? {} : { borderColor: "rgba(16,185,129,0.3)" }}
           >
-            Vygenerovať bezpečné inštrukcie
-          </button>
+            <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/5 rounded-full blur-2xl pointer-events-none" />
 
-          {generated && password && (
-            <div className="mt-8 border-t border-zinc-800 pt-8 space-y-6 text-sm">
-              <div>
-                <h4 className="font-semibold mb-3">1. Vytvor password-protected ZIP (7-Zip)</h4>
-                <div className="bg-zinc-950 p-4 rounded-xl font-mono text-xs border border-zinc-800">
-                  Pravý klik na priečinok → 7-Zip → Add to archive<br />
-                  Archive format: <strong>zip</strong><br />
-                  Encryption method: <strong>AES-256</strong><br />
-                  Password: <strong>{password}</strong>
-                </div>
-                <button
-                  onClick={() =>
-                    copyToClipboard(
-                      `Pravý klik → 7-Zip → Add to archive → AES-256 + heslo: ${password}`
-                    )
-                  }
-                  className="text-xs mt-2 text-emerald-400 hover:underline"
+            <div className="mb-6 relative">
+              <label className="block text-sm mb-2 text-zinc-400 flex items-center gap-2">
+                <Sparkles size={14} className="text-emerald-400" />
+                Zadaj heslo pre ZIP archív
+              </label>
+              <motion.input
+                type="text"
+                value={password}
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                  setGenerated(false);
+                }}
+                placeholder="napr. MojeSilneHeslo2026!"
+                className="w-full bg-zinc-950 border border-zinc-700 rounded-xl px-4 py-3 font-mono focus:outline-none focus:border-emerald-500 transition-colors"
+                whileFocus={reduceMotion ? {} : { scale: 1.01 }}
+              />
+              {password.length > 0 && (
+                <motion.div
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  className="mt-2 flex gap-1"
                 >
-                  Skopírovať inštrukciu
-                </button>
-              </div>
-
-              <div>
-                <h4 className="font-semibold mb-2">2. Odporúčané spôsoby zdieľania</h4>
-                <ul className="list-disc pl-5 space-y-1 text-zinc-400">
-                  <li>SwissTransfer.com alebo WeTransfer (s heslom v samostatnej správe)</li>
-                  <li>Súkromný GitHub repo + heslo cez Signal/Threema</li>
-                  <li>Proton Drive / Mega.nz s end-to-end šifrovaním</li>
-                </ul>
-              </div>
-
-              <div className="text-emerald-400 text-xs">
-                Bezpečnostný tip: Heslo nikdy neposielaj rovnakým kanálom ako súbor.
-              </div>
+                  {[1, 2, 3, 4].map((level) => (
+                    <div
+                      key={level}
+                      className={`h-1 flex-1 rounded-full transition-colors duration-300 ${
+                        password.length >= level * 4
+                          ? password.length >= 12
+                            ? "bg-emerald-500"
+                            : password.length >= 8
+                              ? "bg-amber-500"
+                              : "bg-red-500"
+                          : "bg-zinc-800"
+                      }`}
+                    />
+                  ))}
+                </motion.div>
+              )}
             </div>
-          )}
-        </div>
+
+            <motion.button
+              onClick={generateInstructions}
+              disabled={!password}
+              className="w-full py-3.5 bg-emerald-500 disabled:bg-zinc-700 disabled:text-zinc-400 text-zinc-950 font-medium rounded-2xl relative overflow-hidden"
+              whileHover={reduceMotion || !password ? {} : { scale: 1.02 }}
+              whileTap={reduceMotion || !password ? {} : { scale: 0.98 }}
+            >
+              <span className="relative z-10">Vygenerovať bezpečné inštrukcie</span>
+              {password && !reduceMotion && (
+                <motion.span
+                  className="absolute inset-0 bg-gradient-to-r from-emerald-400 to-teal-400"
+                  initial={{ x: "-100%" }}
+                  whileHover={{ x: 0 }}
+                  transition={{ duration: 0.3 }}
+                />
+              )}
+            </motion.button>
+
+            <AnimatePresence>
+              {generated && password && (
+                <motion.div
+                  initial={reduceMotion ? {} : { opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={reduceMotion ? {} : { opacity: 0, height: 0 }}
+                  transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                  className="mt-8 border-t border-zinc-800 pt-8 space-y-6 text-sm overflow-hidden"
+                >
+                  <motion.div
+                    initial={reduceMotion ? {} : { opacity: 0, y: 12 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.1 }}
+                  >
+                    <h4 className="font-semibold mb-3">1. Vytvor password-protected ZIP (7-Zip)</h4>
+                    <div className="bg-zinc-950 p-4 rounded-xl font-mono text-xs border border-zinc-800">
+                      Pravý klik na priečinok → 7-Zip → Add to archive<br />
+                      Archive format: <strong>zip</strong><br />
+                      Encryption method: <strong>AES-256</strong><br />
+                      Password: <strong>{password}</strong>
+                    </div>
+                    <motion.button
+                      onClick={() =>
+                        copyToClipboard(
+                          `Pravý klik → 7-Zip → Add to archive → AES-256 + heslo: ${password}`
+                        )
+                      }
+                      className="flex items-center gap-2 text-xs mt-3 text-emerald-400 hover:text-emerald-300 transition-colors"
+                      whileTap={reduceMotion ? {} : { scale: 0.95 }}
+                    >
+                      {copied ? <Check size={14} /> : <Copy size={14} />}
+                      {copied ? "Skopírované!" : "Skopírovať inštrukciu"}
+                    </motion.button>
+                  </motion.div>
+
+                  <motion.div
+                    initial={reduceMotion ? {} : { opacity: 0, y: 12 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2 }}
+                  >
+                    <h4 className="font-semibold mb-2">2. Odporúčané spôsoby zdieľania</h4>
+                    <ul className="list-disc pl-5 space-y-1 text-zinc-400">
+                      <li>SwissTransfer.com alebo WeTransfer (s heslom v samostatnej správe)</li>
+                      <li>Súkromný GitHub repo + heslo cez Signal/Threema</li>
+                      <li>Proton Drive / Mega.nz s end-to-end šifrovaním</li>
+                    </ul>
+                  </motion.div>
+
+                  <motion.p
+                    className="text-emerald-400 text-xs"
+                    initial={reduceMotion ? {} : { opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.3 }}
+                  >
+                    Bezpečnostný tip: Heslo nikdy neposielaj rovnakým kanálom ako súbor.
+                  </motion.p>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </motion.div>
+        </FadeIn>
       </section>
 
-      <div className="text-center py-12 text-xs text-zinc-500">
-        Projekt je open-source. Prispieť môžeš na{" "}
-        <a
-          href="https://github.com/JVVMEDIA/flash-diagnostics-hub"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-emerald-400 hover:underline"
-        >
-          GitHub-e
-        </a>
-        .
-      </div>
+      <FadeIn>
+        <div className="text-center py-12 text-xs text-zinc-500">
+          Projekt je open-source. Prispieť môžeš na{" "}
+          <a
+            href="https://github.com/JVVMEDIA/flash-diagnostics-hub"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-emerald-400 hover:underline"
+          >
+            GitHub-e
+          </a>
+          .
+        </div>
+      </FadeIn>
     </div>
   );
 }
