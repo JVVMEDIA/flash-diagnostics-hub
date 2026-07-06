@@ -19,6 +19,8 @@ export type Category = {
   id: string;
   title: string;
   description: string;
+  brandId?: string;
+  brandIds?: string[];
   overview?: string[];
   subsections: Subsection[];
 };
@@ -26,6 +28,7 @@ export type Category = {
 export const flashovanieCategories: Category[] = [
   {
     id: "fastboot-adb",
+    brandIds: ["android", "google", "oneplus", "xiaomi"],
     title: "Fastboot / ADB",
     description:
       "Univerzálna metóda pre Google Pixel, Xiaomi, OnePlus, Motorola a ďalšie zariadenia s odomknutým bootloaderom. Vyžaduje USB ladenie, správne drivery a overený firmvér.",
@@ -147,6 +150,7 @@ export const flashovanieCategories: Category[] = [
   },
   {
     id: "motorola",
+    brandId: "motorola",
     title: "Motorola (Moto)",
     description:
       "Kompletný sprievodca pre Moto G, Moto Edge, Moto Razr a ďalšie modely (XT-xxxx). Motorola používa fastboot, vlastný unlock proces a oficiálne nástroje RSA/LMSA.",
@@ -315,6 +319,7 @@ export const flashovanieCategories: Category[] = [
   },
   {
     id: "odin-samsung",
+    brandId: "samsung",
     title: "Odin (Samsung)",
     description:
       "Oficiálny spôsob flashovania Samsung Galaxy v Download móde. Vyžaduje správny firmware (AP, BL, CP, CSC), Samsung USB driver a Odin3.",
@@ -427,6 +432,7 @@ export const flashovanieCategories: Category[] = [
   },
   {
     id: "sp-flash",
+    brandId: "mediatek",
     title: "SP Flash Tool (MediaTek)",
     description:
       "Flash MediaTek (MTK) čipsetov cez scatter súbor a Download Agent. Používa sa u mnohých budget a mid-range zariadení vrátane niektorých Motorola (MTK varianty).",
@@ -508,6 +514,7 @@ export const flashovanieCategories: Category[] = [
 export const diagnostikaCategories: Category[] = [
   {
     id: "bootloop-brick",
+    brandIds: ["motorola", "samsung", "android"],
     title: "Bootloop / Brick",
     description:
       "Zariadenie sa neustále reštartuje, zasekne na logu alebo vôbec nereaguje. Diagnostika začína identifikáciou dostupného režimu.",
@@ -607,6 +614,7 @@ export const diagnostikaCategories: Category[] = [
   },
   {
     id: "edl-qualcomm",
+    brandId: "qualcomm",
     title: "EDL / Qualcomm (9008)",
     description:
       "Emergency Download Mode pre Snapdragon zariadenia — Xiaomi, OnePlus, niektoré Motorola, Samsung (vzácne).",
@@ -713,6 +721,7 @@ export const diagnostikaCategories: Category[] = [
 export const nastrojeCategories: Category[] = [
   {
     id: "flash-nastroje",
+    brandIds: ["fastboot", "odin", "spflash", "miflash", "rsa", "qpst"],
     title: "Flash nástroje",
     description: "Oficiálne a overené nástroje pre jednotlivé platformy — vždy sťahuj z dôveryhodných zdrojov.",
     subsections: [
@@ -823,6 +832,7 @@ export const nastrojeCategories: Category[] = [
   },
   {
     id: "firmver-baliky",
+    brandIds: ["motorola", "samsung", "xiaomi", "google"],
     title: "Firmvér balíky podľa značky",
     description: "Katalógy oficiálnych a overených ROM — vždy over modelové označenie pred sťahovaním.",
     subsections: [

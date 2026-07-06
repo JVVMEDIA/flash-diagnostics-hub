@@ -6,6 +6,7 @@ import { Check, Copy, Shield, Sparkles, Wrench } from "lucide-react";
 import CategorySection from "./components/CategorySection";
 import HeroSection from "./components/HeroSection";
 import SectionHeader from "./components/SectionHeader";
+import ToolsShowcase from "./components/ToolsShowcase";
 import SubsectionCard from "./components/SubsectionCard";
 import FadeIn from "./components/motion/FadeIn";
 import {
@@ -35,6 +36,8 @@ export default function FlashDiagnosticsHub() {
   return (
     <div className="max-w-7xl mx-auto px-6 relative">
       <HeroSection />
+
+      <ToolsShowcase />
 
       {/* FLASHOVANIE */}
       <section id="flashovanie" className="py-16 border-t border-zinc-800/80 scroll-mt-24">
