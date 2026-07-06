@@ -17,9 +17,45 @@ const geistMono = Geist_Mono({
   weight: ["400", "500", "700"],
 });
 
+const siteUrl = "https://flash-diagnostics-hub.vercel.app";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: "Flash Diagnostics Hub | Flashovanie & Diagnostika",
-  description: "Profesionálne centrum pre flashovanie mobilných zariadení, diagnostiku problémov s firmvérom a bezpečné zdieľanie chránených súborov.",
+  description:
+    "Profesionálne centrum pre flashovanie mobilných zariadení, diagnostiku problémov s firmvérom a bezpečné zdieľanie chránených súborov.",
+  keywords: [
+    "flashovanie",
+    "diagnostika",
+    "firmvér",
+    "fastboot",
+    "odin",
+    "SP Flash Tool",
+    "mobilné zariadenia",
+    "Android",
+  ],
+  authors: [{ name: "Flash Diagnostics Hub" }],
+  creator: "JVVMEDIA",
+  openGraph: {
+    type: "website",
+    locale: "sk_SK",
+    url: siteUrl,
+    siteName: "Flash Diagnostics Hub",
+    title: "Flash Diagnostics Hub | Flashovanie & Diagnostika",
+    description:
+      "Centrum pre flashovanie mobilných zariadení, diagnostiku problémov s firmvérom a bezpečné zdieľanie chránených súborov.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Flash Diagnostics Hub | Flashovanie & Diagnostika",
+    description:
+      "Centrum pre flashovanie mobilných zariadení, diagnostiku a bezpečné zdieľanie súborov.",
+    creator: "@jvvmedia",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
   icons: {
     icon: "/favicon.ico",
   },
