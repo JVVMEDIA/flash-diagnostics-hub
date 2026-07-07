@@ -76,7 +76,7 @@ export const metadata: Metadata = {
   },
 };
 
-const perfBootstrapScript = `(function(){try{var ua=navigator.userAgent;var inApp=/FBAN|FBAV|Instagram|Messenger|MicroMessenger/i.test(ua);var m=window.matchMedia('(max-width:768px)').matches;var t='ontouchstart'in window;if(inApp||(m&&t))document.documentElement.classList.add('perf-lite');}catch(e){}})();`;
+const perfBootstrapScript = `(function(){try{var ua=navigator.userAgent;var inApp=/FBAN|FBAV|Instagram|Messenger|MicroMessenger/i.test(ua);var m=window.matchMedia('(max-width:768px)').matches;var t='ontouchstart'in window;if(inApp||m||t)document.documentElement.classList.add('perf-lite');}catch(e){}})();`;
 
 export default function RootLayout({
   children,
@@ -96,7 +96,7 @@ export default function RootLayout({
           <AnimatedBackground />
           <PerfDecor />
           <Navbar />
-          <main className="relative">{children}</main>
+          <main className="relative w-full max-w-full overflow-x-hidden">{children}</main>
           <Footer />
         </PerformanceProvider>
       </body>

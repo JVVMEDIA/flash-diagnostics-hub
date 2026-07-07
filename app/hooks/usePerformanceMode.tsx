@@ -16,7 +16,7 @@ export function detectPerformanceMode(): boolean {
   const mem = (navigator as Navigator & { deviceMemory?: number }).deviceMemory;
   const lowMemory = mem !== undefined && mem < 4;
 
-  return inApp || (narrow && touch) || saveData || lowMemory;
+  return inApp || narrow || (touch && narrow) || saveData || lowMemory;
 }
 
 type PerformanceContextValue = {

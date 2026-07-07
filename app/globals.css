@@ -43,6 +43,42 @@ html.perf-lite .perf-show-lite:not(.grid):not(.flex) {
   contain-intrinsic-size: auto 600px;
 }
 
+@media (max-width: 768px) {
+  .content-section {
+    content-visibility: visible;
+    contain-intrinsic-size: auto;
+  }
+
+  .perf-hide-lite {
+    display: none !important;
+  }
+
+  .perf-show-lite.grid {
+    display: grid !important;
+  }
+
+  .perf-show-lite.flex {
+    display: flex !important;
+  }
+
+  .perf-show-lite:not(.grid):not(.flex) {
+    display: block !important;
+  }
+
+  .bg-scanline,
+  .animate-scanline {
+    display: none !important;
+  }
+
+  .animate-marquee {
+    animation: none !important;
+  }
+
+  .card-interactive {
+    overflow: visible;
+  }
+}
+
 html.perf-lite .animate-orb-drift-1,
 html.perf-lite .animate-orb-drift-2,
 html.perf-lite .animate-orb-drift-3,
@@ -155,9 +191,17 @@ html.perf-lite [class*="blur-"] {
   background-color: rgba(24, 24, 27, 0.8);
   border: 1px solid #27272a;
   border-radius: 1rem;
-  padding: 1.5rem;
+  padding: 1rem;
   backdrop-filter: blur(8px);
   transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+@media (min-width: 640px) {
+  .card-interactive {
+    padding: 1.5rem;
+  }
 }
 
 .card-interactive:hover {

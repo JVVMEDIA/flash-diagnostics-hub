@@ -22,7 +22,7 @@ export default function SubsectionCard({
   const content = (
     <article
       id={subsection.id}
-      className="scroll-mt-24 rounded-2xl border border-zinc-800 bg-zinc-950/40 p-5 md:p-6 transition-colors hover:border-zinc-700 hover:bg-zinc-900/30"
+      className="scroll-mt-24 rounded-2xl border border-zinc-800 bg-zinc-950/40 p-4 sm:p-5 md:p-6 transition-colors hover:border-zinc-700 hover:bg-zinc-900/30 w-full max-w-full break-words"
     >
       <div className="flex items-start gap-3 mb-3">
         <motion.span
@@ -31,9 +31,11 @@ export default function SubsectionCard({
         >
           {index + 1}
         </motion.span>
-        <div>
-          <h4 className="font-semibold text-lg text-zinc-100">{subsection.title}</h4>
-          <p className="text-sm text-zinc-400 mt-1 leading-relaxed">{subsection.description}</p>
+        <div className="min-w-0 flex-1">
+          <h4 className="font-semibold text-lg text-zinc-100 break-words">{subsection.title}</h4>
+          <p className="text-sm text-zinc-400 mt-1 leading-relaxed break-words [overflow-wrap:anywhere]">
+            {subsection.description}
+          </p>
         </div>
       </div>
 
@@ -51,7 +53,7 @@ export default function SubsectionCard({
                 <span className="text-emerald-500/80 font-mono text-xs mt-0.5 shrink-0 group-hover/step:text-emerald-400 transition-colors">
                   {i + 1}.
                 </span>
-                <span>{step}</span>
+                <span className="min-w-0 break-words [overflow-wrap:anywhere]">{step}</span>
               </li>
             ))}
           </ol>

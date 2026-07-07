@@ -35,7 +35,7 @@ export default function FlashDiagnosticsHub() {
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 relative">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 relative w-full max-w-full overflow-x-hidden">
       <HeroSection />
 
       <ToolsShowcase />
