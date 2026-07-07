@@ -48,7 +48,7 @@ html.perf-lite .perf-show-lite:not(.grid):not(.flex) {
   width: 100%;
   max-width: 52rem;
   margin-inline: auto;
-  padding-inline: 2cm;
+  padding-inline: 0.5cm;
   box-sizing: border-box;
 }
 
