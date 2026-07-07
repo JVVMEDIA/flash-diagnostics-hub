@@ -16,6 +16,7 @@ export const mobileBrands: BrandItem[] = [
   { id: "oneplus", name: "OnePlus", slug: "oneplus", color: "#F5010C", href: "#fastboot-adb", type: "brand" },
   { id: "qualcomm", name: "Qualcomm", slug: "qualcomm", color: "#3253DC", href: "#edl-qualcomm", type: "brand" },
   { id: "mediatek", name: "MediaTek", slug: "mediatek", color: "#EC9430", href: "#sp-flash", type: "brand" },
+  { id: "unisoc", name: "Unisoc", slug: "unisoc", color: "#5C3D9E", href: "#unisoc-ufs", type: "brand" },
   { id: "android", name: "Android", slug: "android", color: "#3DDC84", href: "#fastboot-adb", type: "brand" },
 ];
 
@@ -28,6 +29,7 @@ export const flashTools: BrandItem[] = [
   { id: "lmsa", name: "LMSA", slug: "lenovo", color: "#E2231A", href: "#moto-lmsa-rsa", type: "tool" },
   { id: "qpst", name: "QPST / QFIL", slug: "qualcomm", color: "#3253DC", href: "#diag-edl-flash", type: "tool" },
   { id: "platform-tools", name: "Platform Tools", slug: "google", color: "#34A853", href: "#fastboot-priprava", type: "tool" },
+  { id: "spd-flash", name: "SPD Flash", slug: "unisoc", color: "#5C3D9E", href: "#unisoc-spd-flash", type: "tool" },
 ];
 
 export const brandMap = Object.fromEntries(

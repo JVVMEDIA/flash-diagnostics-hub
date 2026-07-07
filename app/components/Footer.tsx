@@ -13,7 +13,7 @@ export default function Footer() {
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
     >
-      <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between gap-4">
+      <div className="page-container flex flex-col md:flex-row justify-between gap-4">
         <p>© {new Date().getFullYear()} Flash Diagnostics Hub — v2.2 • Open Source</p>
         <p className="flex items-center gap-2">
           <span className="relative flex h-1.5 w-1.5">

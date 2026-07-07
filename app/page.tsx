@@ -35,7 +35,7 @@ export default function FlashDiagnosticsHub() {
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 relative w-full max-w-full overflow-x-hidden">
+    <div className="page-container relative w-full overflow-x-hidden">
       <HeroSection />
 
       <ToolsShowcase />
@@ -45,7 +45,7 @@ export default function FlashDiagnosticsHub() {
       <section id="flashovanie">
         <SectionHeader
           title="Flashovanie zariadení"
-          description="Vyber značku alebo metódu flashovania. Každá kategória obsahuje prehľad, podrobný postup krok za krokom, tipy, upozornenia a priame odkazy na stiahnutie nástrojov a firmvéru."
+          description="Vyber značku alebo metódu flashovania — Motorola, Samsung, MediaTek, Unisoc/UFS a ďalšie. Každá kategória obsahuje postup, tipy a odkazy na nástroje."
         />
 
         <div className="space-y-6">

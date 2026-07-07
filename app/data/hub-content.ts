@@ -509,6 +509,158 @@ export const flashovanieCategories: Category[] = [
       },
     ],
   },
+  {
+    id: "unisoc-ufs",
+    brandIds: ["unisoc"],
+    title: "Unisoc (Spreadtrum) & UFS pamäť",
+    description:
+      "Flash budget a mid-range zariadení s Unisoc čipsetom (Tecno, Infinix, Realme, ZTE). UFS úložisko, obnova z hardbricku a riešenie FRP po factory reset.",
+    overview: [
+      "Unisoc (dříve Spreadtrum) používa SPD / Research Download namiesto fastbootu.",
+      "UFS je rýchlejšia pamäť než eMMC — flash vyžaduje správny PAC balík a verziu Download Agent.",
+      "Hardbrick = čierna obrazovka, PC nerozpozná telefón — riešenie cez test point alebo autorizovaný servis.",
+      "FRP (Factory Reset Protection) sa aktivuje po resete bez pôvodného Google účtu.",
+    ],
+    subsections: [
+      {
+        id: "unisoc-spd-flash",
+        title: "SPD / Research Download — flash Unisoc",
+        description:
+          "Štandardný postup pre Unisoc zariadenia s PAC firmvérom. Telefón musí byť v Download móde (vypnutý + USB).",
+        steps: [
+          "Stiahni PAC firmvér pre presný model (CPU + RAM + UFS/eMMC variant).",
+          "Nainštaluj Spreadtrum / Unisoc USB driver (SCI Android USB Driver).",
+          "Spusti Research Download Tool alebo SPD Upgrade Tool ako administrátor.",
+          "Vyber PAC súbor — nástroj rozbalí partície (boot, system, userdata, persist).",
+          "Vypni telefón, podrž Volume Down + pripoj USB (model-špecifické kombinácie).",
+          "Klikni Start Download — progress bar musí bežať bez chyby BROM.",
+          "Po PASS odpoj USB a zapni telefón (prvý boot 5–15 minút).",
+        ],
+        tips: [
+          "PAC z iného modelu = riziko hard bricku — over chipset (napr. T606, T610, T760).",
+          "Ak nástroj hlási „failed to open port“, reinstaluj driver a skús USB 2.0 port.",
+          "Niektoré modely vyžadujú starší Research Download 2.9.9004 namiesto RDA.",
+        ],
+        warning:
+          "Flash nesprávneho PAC alebo prerušenie procesu môže zariadenie natrvalo poškodiť.",
+        links: [
+          {
+            label: "Unisoc / Spreadtrum USB Driver",
+            url: "https://androidmtk.com/download-spreadtrum-drivers",
+            fileType: "ZIP",
+          },
+          {
+            label: "Research Download Tool",
+            url: "https://androidmtk.com/download-research-download-tool",
+            fileType: "ZIP",
+          },
+          {
+            label: "SPD Upgrade Tool",
+            url: "https://spdflashtool.com/",
+            fileType: "ZIP",
+          },
+        ],
+      },
+      {
+        id: "ufs-pamat-flash",
+        title: "UFS pamäť — špecifiká flashovania",
+        description:
+          "UFS (Universal Flash Storage) je bežná u novších Unisoc, Qualcomm a Samsung zariadení. Vyžaduje presný firmware a správny Download Agent.",
+        steps: [
+          "Over typ úložiska: Nastavenia → Úložisko alebo špecifikácia modelu (UFS 2.1 / 2.2 / 3.x).",
+          "UFS firmvér nie je kompatibilný s eMMC variantom toho istého modelu.",
+          "Pre Unisoc: flashuj celý PAC — nepoužívaj čiastočný flash jednotlivých partícií bez skúseností.",
+          "Pre Qualcomm UFS: EDL + firehose (QPST/QFIL) s rawprogram.xml z firmware balíka.",
+          "Po flashi UFS zariadenia prvý boot trvá dlhšie — neprerušuj napájanie.",
+          "Ak flash zlyhá na „storage mismatch“, stiahni firmware pre správnu kapacitu (64/128/256 GB).",
+        ],
+        tips: [
+          "UFS má vyšší wear — opakovaný Format All zvyšuje riziko zlyhania čipu.",
+          "Zálohuj persist a nvram partície pred experimentálnym flashom (ak máš root/debug prístup).",
+        ],
+        warning:
+          "Nesprávny firehose alebo UFS programmer pre iný model môže úložisko nezvratne poškodiť.",
+        links: [
+          {
+            label: "Android MTK — UFS návody",
+            url: "https://androidmtk.com/",
+            fileType: "Guide",
+          },
+          {
+            label: "Needrom Unisoc firmware",
+            url: "https://www.needrom.com/category/unisoc/",
+            fileType: "PAC / ZIP",
+          },
+        ],
+      },
+      {
+        id: "unisoc-frp",
+        title: "FRP bypass / odstránenie ochrany",
+        description:
+          "Factory Reset Protection blokuje nastavenie po resete bez pôvodného Google účtu. Legálne riešenie = prihlásenie vlastníckeho účtu.",
+        steps: [
+          "Oficiálne: prihlás Google účet, ktorý bol na zariadení pred resetom.",
+          "Ak máš prístup k menu: Nastavenia → Účty → odstráň starý účet pred factory reset.",
+          "Po flashi stock PAC bez wipe userdata môže FRP ostať — použij clean flash (userdata format).",
+          "Download mód + flash plný stock PAC často resetuje FRP spolu so systémom.",
+          "U operátorských modelov kontaktuj operátora s dokladom o vlastníctve.",
+          "Servisné nástroje (autorizované) môžu FRP vymazať legálne pri oprave.",
+        ],
+        tips: [
+          "Nikdy nekupuj telefón s aktívnym FRP — môže byť stratený alebo kradnutý.",
+          "Po úspešnom flashi dokonči setup wizard s vlastným Google účtom.",
+        ],
+        warning:
+          "Obchádzanie FRP na cudzom zariadení môže byť nelegálne. Postupuj len na vlastnom telefóne alebo so súhlasom vlastníka.",
+        links: [
+          {
+            label: "Google FRP help (oficiálne)",
+            url: "https://support.google.com/android/answer/2812853",
+            fileType: "Guide",
+          },
+          {
+            label: "XDA Unisoc fórum",
+            url: "https://forum.xda-developers.com/c/unisoc.12597/",
+            fileType: "Guide",
+          },
+        ],
+      },
+      {
+        id: "unisoc-hardbrick",
+        title: "Oživenie z hardbricku",
+        description:
+          "Zariadenie nereaguje, čierna obrazovka, PC nevidí ADB ani fastboot. Postup od najmenej invazívneho kroku.",
+        steps: [
+          "Soft brick: skús Download mód (Volume Down + USB) a flash stock PAC cez Research Download.",
+          "Ak PC nevidí zariadenie: reinstaluj Spreadtrum driver, vymeň kábel a port.",
+          "Stlač kombináciu pre BROM mód (často Volume Up + USB pri vypnutom telefóne).",
+          "Test point: skráť testovacie body na PCB podľa schémy modelu — vstup do Download módu.",
+          "Ak flash zlyhá na 0 %: nesprávny PAC, poškodený UFS čip alebo vybitá batéria.",
+          "Úroveň servis: ISP / UFS programmer pri fyzickom poškodení pamäte alebo PMIC.",
+          "Po úspešnom flashi nechaj zariadenie 20 minút na nabíjačke pred prvým bootom.",
+        ],
+        tips: [
+          "Zapíš si posledný funkčný PAC a verziu pred experimentom — uľahčí downgrade.",
+          "Batéria pod 20 % často spôsobí failed flash na UFS zariadeniach.",
+          "Ak telefón vibruje ale nemá obraz, problém môže byť display — nie brick.",
+        ],
+        warning:
+          "Test point a ISP zásah vyžadujú skúsenosti — nesprávny postup môže poškodiť motherboard.",
+        links: [
+          {
+            label: "GSMHosting Unisoc firmware",
+            url: "https://www.gsmhosting.com/unisoc-firmware/",
+            fileType: "PAC",
+          },
+          {
+            label: "XDA Hard Brick poradňa",
+            url: "https://forum.xda-developers.com/t/guide-soft-brick-hard-brick.2092846/",
+            fileType: "Guide",
+          },
+        ],
+      },
+    ],
+  },
 ];
 
 export const diagnostikaCategories: Category[] = [
@@ -534,8 +686,9 @@ export const diagnostikaCategories: Category[] = [
           "Download/Odin: Samsung logo + text „Downloading...“ — riešenie cez Odin3.",
           "EDL (Qualcomm 9008): čierna obrazovka, v Správcovi zariadení Qualcomm HS-USB QDLoader — QPST, Mi Flash, Motorola rescue.",
           "MTK Download: vypnutý telefón, SP Flash Tool deteguje po USB — scatter flash.",
+          "Unisoc Download: vypnutý telefón, Research Download deteguje Spreadtrum port — PAC flash.",
           "Bootloop na logu: opakovaný restart pri animácii — wipe cache, re-flash boot/system.",
-          "Hard brick: žiadne LED, žiadna vibrácia — test point, EDL forcovanie alebo servis.",
+          "Hard brick: žiadne LED, žiadna vibrácia — test point, EDL/SPD forcovanie alebo servis.",
         ],
         tips: [
           "Motorola: bootloop po zlom OTA často vyrieši LMSA Rescue bez manuálneho fastboot.",
@@ -721,7 +874,7 @@ export const diagnostikaCategories: Category[] = [
 export const nastrojeCategories: Category[] = [
   {
     id: "flash-nastroje",
-    brandIds: ["fastboot", "odin", "spflash", "miflash", "rsa", "qpst"],
+    brandIds: ["fastboot", "odin", "spflash", "miflash", "rsa", "qpst", "spd-flash"],
     title: "Flash nástroje",
     description: "Oficiálne a overené nástroje pre jednotlivé platformy — vždy sťahuj z dôveryhodných zdrojov.",
     subsections: [
@@ -803,6 +956,28 @@ export const nastrojeCategories: Category[] = [
             label: "SP Flash Tool",
             url: "https://spflashtool.com/download/",
             fileType: "ZIP",
+          },
+        ],
+      },
+      {
+        id: "nastroj-spd",
+        title: "SPD / Research Download (Unisoc)",
+        description: "Flash Unisoc čipsetov cez PAC balík v Download móde.",
+        steps: [
+          "Nainštaluj Spreadtrum USB driver.",
+          "Vyber PAC firmvér pre presný model.",
+          "Vypni telefón, pripoj USB v Download móde, spusti flash.",
+        ],
+        links: [
+          {
+            label: "Research Download Tool",
+            url: "https://androidmtk.com/download-research-download-tool",
+            fileType: "ZIP",
+          },
+          {
+            label: "Unisoc firmware (Needrom)",
+            url: "https://www.needrom.com/category/unisoc/",
+            fileType: "PAC",
           },
         ],
       },

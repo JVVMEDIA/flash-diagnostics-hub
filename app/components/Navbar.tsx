@@ -33,7 +33,7 @@ export default function Navbar() {
       }`}
       style={{ paddingTop: "env(safe-area-inset-top, 0px)" }}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between h-14 sm:h-16">
+      <div className="page-container flex items-center justify-between h-14 sm:h-16">
         <Link href="/" className="flex items-center gap-2 sm:gap-3 group min-w-0">
           <div className="w-8 h-8 sm:w-9 sm:h-9 bg-emerald-500 rounded-xl flex items-center justify-center shadow-lg shadow-emerald-500/20 shrink-0">
             <span className="text-zinc-950 font-bold text-base sm:text-xl">FD</span>
