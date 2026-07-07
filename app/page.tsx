@@ -8,7 +8,6 @@ import HeroSection from "./components/HeroSection";
 import SectionHeader from "./components/SectionHeader";
 import ToolsShowcase from "./components/ToolsShowcase";
 import SubsectionCard from "./components/SubsectionCard";
-import SectionEdgeGlow from "./components/SectionEdgeGlow";
 import ScrollParallax from "./components/motion/ScrollParallax";
 import ScrollReveal from "./components/motion/ScrollReveal";
 import {
@@ -36,16 +35,13 @@ export default function FlashDiagnosticsHub() {
   };
 
   return (
-    <div className="page-container relative z-10 w-full overflow-x-hidden">
+    <div className="page-container relative w-full overflow-x-hidden">
       <HeroSection />
 
-      <SectionEdgeGlow>
-        <ToolsShowcase />
-      </SectionEdgeGlow>
+      <ToolsShowcase />
 
       {/* FLASHOVANIE */}
-      <SectionEdgeGlow className="py-16 border-t border-zinc-800/80 scroll-mt-24">
-      <ScrollParallax y={[50, -50]}>
+      <ScrollParallax y={[50, -50]} className="py-16 border-t border-zinc-800/80 scroll-mt-24" >
       <section id="flashovanie">
         <SectionHeader
           title="Flashovanie zariadení"
@@ -59,11 +55,9 @@ export default function FlashDiagnosticsHub() {
         </div>
       </section>
       </ScrollParallax>
-      </SectionEdgeGlow>
 
       {/* DIAGNOSTIKA */}
-      <SectionEdgeGlow className="py-16 border-t border-zinc-800/80 scroll-mt-24">
-      <ScrollParallax y={[-40, 60]}>
+      <ScrollParallax y={[-40, 60]} className="py-16 border-t border-zinc-800/80 scroll-mt-24">
       <section id="diagnostika">
         <SectionHeader
           title={
@@ -98,11 +92,9 @@ export default function FlashDiagnosticsHub() {
         </ScrollReveal>
       </section>
       </ScrollParallax>
-      </SectionEdgeGlow>
 
       {/* NÁSTROJE */}
-      <SectionEdgeGlow className="py-16 border-t border-zinc-800/80 scroll-mt-24">
-      <ScrollParallax y={[60, -40]}>
+      <ScrollParallax y={[60, -40]} className="py-16 border-t border-zinc-800/80 scroll-mt-24">
       <section id="nastroje">
         <SectionHeader
           title="Nástroje a firmvér"
@@ -116,11 +108,9 @@ export default function FlashDiagnosticsHub() {
         </div>
       </section>
       </ScrollParallax>
-      </SectionEdgeGlow>
 
       {/* BEZPEČNÉ ZDIEĽANIE */}
-      <SectionEdgeGlow className="py-16 border-t border-zinc-800/80 scroll-mt-24">
-      <ScrollParallax y={[-50, 50]} opacity={[0.4, 1, 1, 0.4]}>
+      <ScrollParallax y={[-50, 50]} opacity={[0.4, 1, 1, 0.4]} className="py-16 border-t border-zinc-800/80 scroll-mt-24">
       <section id="zdielanie">
         <SectionHeader
           title={
@@ -273,7 +263,6 @@ export default function FlashDiagnosticsHub() {
         </ScrollReveal>
       </section>
       </ScrollParallax>
-      </SectionEdgeGlow>
 
       <ScrollReveal direction="up" replay>
         <div className="text-center py-12 text-xs text-zinc-500">
