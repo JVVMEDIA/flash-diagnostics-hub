@@ -1,16 +1,14 @@
 "use client";
 
-import { usePerformanceMode } from "../hooks/usePerformanceMode";
+import ScrollBackground3D from "./ScrollBackground3D";
 import ScrollProgress from "./ScrollProgress";
 import { ScrollFloatingDecor, ScrollTimeline } from "./ScrollEffects";
 
-/** Dekorácie a scroll progress — len na desktope */
+/** Dekorácie a scroll progress — desktop, scroll-reactive */
 export default function PerfDecor() {
-  const lite = usePerformanceMode();
-  if (lite) return null;
-
   return (
     <>
+      <ScrollBackground3D />
       <ScrollFloatingDecor />
       <ScrollTimeline />
       <ScrollProgress />

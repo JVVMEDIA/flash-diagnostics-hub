@@ -1,8 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
-import { useRef, type ReactNode } from "react";
-import { usePerformanceMode } from "../../hooks/usePerformanceMode";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 
 type ScrollParallaxProps = {
   children: ReactNode;
@@ -15,12 +14,18 @@ type ScrollParallaxProps = {
 
 export default function ScrollParallax(props: ScrollParallaxProps) {
   const reduceMotion = useReducedMotion();
-  const lite = usePerformanceMode();
+  const [desktop, setDesktop] = useState(false);
 
-  if (reduceMotion || lite) {
-    return (
-      <div className={`content-section ${props.className ?? ""}`}>{props.children}</div>
-    );
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 769px)");
+    const update = () => setDesktop(mq.matches);
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
+  }, []);
+
+  if (reduceMotion || !desktop) {
+    return <div className="content-section">{props.children}</div>;
   }
 
   return <ScrollParallaxAnimated {...props} />;
