@@ -2,6 +2,7 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import type { ReactNode } from "react";
+import { usePerformanceMode } from "../../hooks/usePerformanceMode";
 
 type ScrollRevealProps = {
   children: ReactNode;
@@ -31,8 +32,9 @@ export default function ScrollReveal({
   immediate = false,
 }: ScrollRevealProps) {
   const reduceMotion = useReducedMotion();
+  const lite = usePerformanceMode();
 
-  if (reduceMotion) {
+  if (reduceMotion || lite) {
     return <div className={className}>{children}</div>;
   }
 

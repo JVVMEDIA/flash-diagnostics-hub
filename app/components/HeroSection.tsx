@@ -17,10 +17,13 @@ const quickLinks = [
 
 export default function HeroSection() {
   return (
-    <section className="relative pt-16 pb-8 text-center overflow-hidden min-h-[92vh] flex flex-col justify-center">
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+    <section className="relative pt-12 sm:pt-16 pb-6 sm:pb-8 text-center overflow-hidden min-h-0 sm:min-h-[85vh] lg:min-h-[92vh] flex flex-col justify-center">
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none perf-hide-lite">
         <div className="h-96 w-96 rounded-full border-[3px] border-emerald-400/50 animate-hero-ring" />
         <div className="absolute h-[32rem] w-[32rem] rounded-full bg-emerald-400/20 blur-3xl animate-hero-glow" />
+      </div>
+      <div className="perf-show-lite absolute inset-0 flex items-center justify-center pointer-events-none">
+        <div className="h-48 w-48 rounded-full border-2 border-emerald-500/30" />
       </div>
 
       <div className="relative">
@@ -38,10 +41,11 @@ export default function HeroSection() {
         </ScrollReveal>
 
         <ScrollReveal direction="up" distance={50} delay={0.1} immediate>
-          <h1 className="text-5xl md:text-8xl font-bold tracking-tighter mb-6">
+          <h1 className="text-4xl sm:text-5xl md:text-8xl font-bold tracking-tighter mb-4 sm:mb-6 px-2">
             <span className="text-gradient">Flash Diagnostics</span>
             <br />
-            <span className="text-white drop-shadow-[0_0_40px_rgba(52,211,153,0.35)]">Hub</span>
+            <span className="text-white perf-hide-lite drop-shadow-[0_0_40px_rgba(52,211,153,0.35)]">Hub</span>
+            <span className="text-white perf-show-lite">Hub</span>
           </h1>
         </ScrollReveal>
 

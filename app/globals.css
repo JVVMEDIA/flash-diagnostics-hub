@@ -7,10 +7,90 @@
 
 body {
   font-family: var(--font-sans);
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  overflow-x: hidden;
 }
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+/* Perf-lite: mobile, tablet touch, Messenger/Instagram in-app */
+.perf-show-lite {
+  display: none;
+}
+
+html.perf-lite .perf-hide-lite {
+  display: none !important;
+}
+
+html.perf-lite .perf-show-lite.grid {
+  display: grid !important;
+}
+
+html.perf-lite .perf-show-lite.flex {
+  display: flex !important;
+}
+
+html.perf-lite .perf-show-lite:not(.grid):not(.flex) {
+  display: block !important;
+}
+
+.content-section {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 600px;
+}
+
+html.perf-lite .animate-orb-drift-1,
+html.perf-lite .animate-orb-drift-2,
+html.perf-lite .animate-orb-drift-3,
+html.perf-lite .animate-orb-drift-4,
+html.perf-lite .animate-orb-drift-5,
+html.perf-lite .animate-scanline,
+html.perf-lite .animate-marquee,
+html.perf-lite .animate-hero-ring,
+html.perf-lite .animate-hero-glow,
+html.perf-lite .animate-scroll-hint,
+html.perf-lite .animate-float-slow,
+html.perf-lite .animate-float-delayed,
+html.perf-lite .animate-float-slow-reverse,
+html.perf-lite .animate-float-delayed-reverse,
+html.perf-lite .bg-grid-drift,
+html.perf-lite .logo-glow,
+html.perf-lite .text-gradient {
+  animation: none !important;
+}
+
+html.perf-lite .text-gradient {
+  background-position: 0% center;
+}
+
+html.perf-lite .backdrop-blur-xl,
+html.perf-lite .backdrop-blur-sm {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+html.perf-lite .card-interactive {
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+html.perf-lite [class*="blur-"] {
+  filter: none !important;
+}
+
+@media (max-width: 768px) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .card-interactive {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

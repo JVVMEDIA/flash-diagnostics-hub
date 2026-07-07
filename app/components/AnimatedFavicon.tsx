@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { detectPerformanceMode } from "../hooks/usePerformanceMode";
 
 const SIZE = 32;
 
@@ -109,7 +110,8 @@ function drawFrame(ctx: CanvasRenderingContext2D, t: number) {
 
 export default function AnimatedFavicon() {
   useEffect(() => {
-    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const reduced =
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches || detectPerformanceMode();
     const canvas = document.createElement("canvas");
     canvas.width = SIZE;
     canvas.height = SIZE;
