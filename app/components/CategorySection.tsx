@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { brandMap } from "../data/brands";
 import SubsectionCard from "./SubsectionCard";
@@ -36,6 +36,15 @@ export default function CategorySection({
 }: CategorySectionProps) {
   const [isOpen, setIsOpen] = useState(defaultOpen);
   const primaryBrand = category.brandId ? brandMap[category.brandId] : undefined;
+
+  useEffect(() => {
+    const onOpen = (e: Event) => {
+      const categoryId = (e as CustomEvent<string>).detail;
+      if (categoryId === category.id) setIsOpen(true);
+    };
+    window.addEventListener("open-category", onOpen);
+    return () => window.removeEventListener("open-category", onOpen);
+  }, [category.id]);
   const accentColor = primaryBrand?.color ?? "#10b981";
 
   return (

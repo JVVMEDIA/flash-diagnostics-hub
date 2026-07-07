@@ -4,6 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { brandMap, mobileBrands } from "../data/brands";
 import BrandLogo from "./BrandLogo";
 import BrandMarquee from "./BrandMarquee";
+import FastAnchorLink from "./FastAnchorLink";
 import ScrollHint from "./ScrollHint";
 import ScrollReveal from "./motion/ScrollReveal";
 
@@ -58,21 +59,21 @@ export default function HeroSection() {
 
         <ScrollReveal direction="up" delay={0.3} immediate>
           <div className="flex flex-wrap gap-4 justify-center mt-10 px-4">
-            <a
+            <FastAnchorLink
               href="#zdielanie"
-              className="group px-8 py-4 bg-emerald-400 text-zinc-950 font-bold rounded-2xl shadow-2xl shadow-emerald-500/40 hover:bg-emerald-300 hover:scale-105 transition-all duration-200"
+              className="group px-8 py-4 bg-emerald-400 text-zinc-950 font-bold rounded-2xl shadow-2xl shadow-emerald-500/40 active:opacity-90 touch-manipulation"
             >
               <span className="flex items-center gap-2">
                 Začať s bezpečným zdieľaním
                 <ArrowRight size={20} />
               </span>
-            </a>
-            <a
+            </FastAnchorLink>
+            <FastAnchorLink
               href="#flashovanie"
-              className="px-8 py-4 border-2 border-emerald-400/60 rounded-2xl font-semibold text-emerald-300 hover:bg-emerald-500/15 hover:scale-105 transition-all duration-200"
+              className="px-8 py-4 border-2 border-emerald-400/60 rounded-2xl font-semibold text-emerald-300 active:bg-emerald-500/15 touch-manipulation"
             >
               Prehliadnuť postupy
-            </a>
+            </FastAnchorLink>
           </div>
         </ScrollReveal>
 
@@ -81,10 +82,10 @@ export default function HeroSection() {
             {quickLinks.map((link) => {
               const brand = brandMap[link.brandId];
               return (
-                <a
+                <FastAnchorLink
                   key={link.href}
                   href={link.href}
-                  className={`flex items-center gap-3 px-5 py-3 rounded-2xl border-2 transition-all duration-200 hover:scale-105 ${
+                  className={`flex items-center gap-3 px-5 py-3 rounded-2xl border-2 touch-manipulation active:opacity-90 ${
                     link.featured
                       ? "bg-emerald-500/25 border-emerald-400 text-emerald-200 shadow-lg shadow-emerald-500/25"
                       : "bg-zinc-900/90 border-zinc-600 text-zinc-200 hover:border-emerald-400/60"
@@ -93,7 +94,7 @@ export default function HeroSection() {
                 >
                   <BrandLogo brand={brand} size="md" />
                   <span className="text-sm font-bold">{brand.name}</span>
-                </a>
+                </FastAnchorLink>
               );
             })}
           </div>
@@ -109,13 +110,13 @@ export default function HeroSection() {
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-5 max-w-4xl mx-auto mt-10 px-4">
           {mobileBrands.slice(0, 4).map((brand, i) => (
             <ScrollReveal key={brand.id} direction="up" delay={0.1 * i} immediate>
-              <a
-                href={brand.href}
-                className="flex flex-col items-center gap-3 p-5 rounded-2xl border-2 border-zinc-700 bg-zinc-900/70 hover:border-emerald-400/50 hover:bg-zinc-900 transition-all duration-200 hover:scale-105"
+              <FastAnchorLink
+                href={brand.href ?? "#"}
+                className="flex flex-col items-center gap-3 p-5 rounded-2xl border-2 border-zinc-700 bg-zinc-900/70 active:border-emerald-400/50 touch-manipulation"
                 style={{ boxShadow: `0 0 20px ${brand.color}20` }}
               >
                 <BrandLogo brand={brand} size="xl" showName />
-              </a>
+              </FastAnchorLink>
             </ScrollReveal>
           ))}
         </div>

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import FastAnchorLink from "./FastAnchorLink";
 import { useActiveSection } from "../hooks/useActiveSection";
 import { usePerformanceMode } from "../hooks/usePerformanceMode";
 
@@ -47,7 +48,7 @@ export default function Navbar() {
           {navLinks.map((link) => {
             const isActive = activeId === link.id;
             return (
-              <a
+              <FastAnchorLink
                 key={link.href}
                 href={link.href}
                 className={`relative px-3 py-2 rounded-lg transition-colors ${
@@ -65,7 +66,7 @@ export default function Navbar() {
                   <span className="absolute inset-0 bg-emerald-500/10 border border-emerald-500/20 rounded-lg" />
                 )}
                 <span className="relative">{link.label}</span>
-              </a>
+              </FastAnchorLink>
             );
           })}
           <a
@@ -92,10 +93,10 @@ export default function Navbar() {
         <div className="md:hidden border-t border-zinc-800 bg-zinc-950">
           <div className="px-4 py-3 space-y-1 max-h-[70dvh] overflow-y-auto overscroll-contain">
             {navLinks.map((link) => (
-              <a
+              <FastAnchorLink
                 key={link.href}
                 href={link.href}
-                className={`block py-3 px-3 rounded-xl text-base ${
+                className={`block py-3 px-3 rounded-xl text-base touch-manipulation ${
                   activeId === link.id
                     ? "bg-emerald-500/10 text-emerald-400 border border-emerald-500/20"
                     : "text-zinc-300 hover:bg-zinc-900"
@@ -103,7 +104,7 @@ export default function Navbar() {
                 onClick={() => setIsOpen(false)}
               >
                 {link.label}
-              </a>
+              </FastAnchorLink>
             ))}
           </div>
         </div>

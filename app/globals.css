@@ -13,8 +13,14 @@ body {
 }
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
   overflow-x: hidden;
+}
+
+@media (min-width: 1024px) and (prefers-reduced-motion: no-preference) {
+  html:not(.perf-lite) {
+    scroll-behavior: smooth;
+  }
 }
 
 /* Perf-lite: mobile, tablet touch, Messenger/Instagram in-app */

@@ -5,6 +5,7 @@ import AnimatedBackground from "./components/AnimatedBackground";
 import AnimatedFavicon from "./components/AnimatedFavicon";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import HashNavigationInit from "./components/HashNavigationInit";
 import PerfDecor from "./components/PerfDecor";
 import { PerformanceProvider } from "./hooks/usePerformanceMode";
 
@@ -92,6 +93,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-zinc-950 text-zinc-200 overflow-x-hidden`}
       >
         <PerformanceProvider>
+          <HashNavigationInit />
           <AnimatedFavicon />
           <AnimatedBackground />
           <PerfDecor />
