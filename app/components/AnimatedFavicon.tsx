@@ -110,6 +110,12 @@ function drawFrame(ctx: CanvasRenderingContext2D, t: number) {
 
 export default function AnimatedFavicon() {
   useEffect(() => {
+    let frameId = 0;
+    let cancelled = false;
+
+    const startAnimation = () => {
+      if (cancelled) return;
+
     const reduced =
       window.matchMedia("(prefers-reduced-motion: reduce)").matches || detectPerformanceMode();
     const canvas = document.createElement("canvas");
@@ -133,7 +139,6 @@ export default function AnimatedFavicon() {
     link.setAttribute("data-animated", "true");
 
     const start = performance.now();
-    let frameId = 0;
 
     const render = (now: number) => {
       drawFrame(ctx, now - start);
@@ -144,8 +149,23 @@ export default function AnimatedFavicon() {
     };
 
     render(start);
+    };
 
-    return () => cancelAnimationFrame(frameId);
+    if ("requestIdleCallback" in window) {
+      const idleId = window.requestIdleCallback(startAnimation, { timeout: 2500 });
+      return () => {
+        cancelled = true;
+        cancelAnimationFrame(frameId);
+        window.cancelIdleCallback(idleId);
+      };
+    }
+
+    const timeoutId = setTimeout(startAnimation, 1200);
+    return () => {
+      cancelled = true;
+      cancelAnimationFrame(frameId);
+      clearTimeout(timeoutId);
+    };
   }, []);
 
   return null;

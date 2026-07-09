@@ -1,7 +1,9 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { motion, useReducedMotion } from "framer-motion";
-import VisitorCounter from "./VisitorCounter";
+
+const VisitorCounter = dynamic(() => import("./VisitorCounter"), { ssr: false });
 
 export default function Footer() {
   const reduceMotion = useReducedMotion();

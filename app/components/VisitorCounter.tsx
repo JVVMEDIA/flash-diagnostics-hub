@@ -13,6 +13,12 @@ export default function VisitorCounter() {
     let cancelled = false;
 
     const load = async () => {
+      if ("requestIdleCallback" in window) {
+        await new Promise<void>((resolve) => {
+          window.requestIdleCallback(() => resolve(), { timeout: 3000 });
+        });
+      }
+
       try {
         const hit = await fetch(`https://api.countapi.xyz/hit/${NAMESPACE}/${KEY}`);
         if (!hit.ok) throw new Error("hit failed");

@@ -1,13 +1,11 @@
 "use client";
 
-import { useState } from "react";
 import type { BrandItem } from "../data/brands";
 
 type BrandLogoProps = {
   brand: BrandItem;
   size?: "sm" | "md" | "lg" | "xl";
   showName?: boolean;
-  animate?: boolean;
   className?: string;
 };
 
@@ -18,14 +16,23 @@ const sizes = {
   xl: { box: 96, icon: 52, text: "text-lg" },
 };
 
+function brandInitials(brand: BrandItem): string {
+  if (brand.initials) return brand.initials;
+  const words = brand.name.split(/[\s/]+/).filter(Boolean);
+  if (words.length >= 2) {
+    return (words[0][0] + words[1][0]).toUpperCase();
+  }
+  return brand.name.slice(0, 2).toUpperCase();
+}
+
 export default function BrandLogo({
   brand,
   size = "md",
   showName = false,
   className = "",
 }: BrandLogoProps) {
-  const [imgError, setImgError] = useState(false);
   const s = sizes[size];
+  const label = brandInitials(brand);
 
   const logoContent = (
     <div
@@ -37,29 +44,18 @@ export default function BrandLogo({
         background: `linear-gradient(135deg, ${brand.color}44 0%, #18181b 55%)`,
         boxShadow: `0 0 32px ${brand.color}40, inset 0 0 20px ${brand.color}15`,
       }}
+      aria-hidden={!showName}
     >
       <div
         className="absolute inset-0 opacity-50"
         style={{ background: `radial-gradient(circle at 30% 30%, ${brand.color}88, transparent 65%)` }}
       />
-      {!imgError && brand.slug ? (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img
-          src={`https://cdn.simpleicons.org/${brand.slug}/white`}
-          alt={`${brand.name} logo`}
-          width={s.icon}
-          height={s.icon}
-          className="relative z-10 object-contain drop-shadow-[0_0_8px_rgba(255,255,255,0.4)]"
-          onError={() => setImgError(true)}
-        />
-      ) : (
-        <span
-          className="relative z-10 font-bold text-white"
-          style={{ fontSize: s.icon * 0.45 }}
-        >
-          {brand.initials ?? brand.name.slice(0, 2).toUpperCase()}
-        </span>
-      )}
+      <span
+        className="relative z-10 font-bold text-white tracking-tight"
+        style={{ fontSize: s.icon * 0.42 }}
+      >
+        {label}
+      </span>
     </div>
   );
 
