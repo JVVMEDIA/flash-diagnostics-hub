@@ -1,6 +1,8 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import { ArrowUp } from "lucide-react";
+import { scrollToTop } from "../data/navigation";
 
 const VisitorCounter = dynamic(() => import("./VisitorCounter"), { ssr: false });
 
@@ -21,6 +23,15 @@ export default function Footer() {
           </p>
         </div>
         <VisitorCounter />
+        <button
+          type="button"
+          onClick={scrollToTop}
+          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-sm font-medium text-emerald-300 hover:bg-emerald-500/20 hover:border-emerald-400/50 hover:text-emerald-200 transition-colors touch-manipulation"
+          aria-label="Posunúť stránku nahor"
+        >
+          <ArrowUp size={16} aria-hidden />
+          Nahor
+        </button>
       </div>
     </footer>
   );

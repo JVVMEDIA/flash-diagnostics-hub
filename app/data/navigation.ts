@@ -20,6 +20,10 @@ for (const category of allCategories) {
   }
 }
 
+export function scrollToTop() {
+  window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+}
+
 export function fastNavigateToHash(hash: string) {
   const id = hash.replace(/^#/, "");
   if (!id) return;
