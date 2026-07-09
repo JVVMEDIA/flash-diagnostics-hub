@@ -1,7 +1,7 @@
 "use client";
 
-import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
-import { useRef, type ReactNode } from "react";
+import { useReducedMotion } from "framer-motion";
+import { type CSSProperties, type ReactNode } from "react";
 import { usePerformanceMode } from "../../hooks/usePerformanceMode";
 
 type ScrollParallaxProps = {
@@ -13,50 +13,38 @@ type ScrollParallaxProps = {
   opacity?: [number, number, number, number];
 };
 
-export default function ScrollParallax(props: ScrollParallaxProps) {
+export default function ScrollParallax({
+  children,
+  className,
+  y = [120, -120],
+  opacity,
+}: ScrollParallaxProps) {
   const reduceMotion = useReducedMotion();
   const lite = usePerformanceMode();
 
   if (reduceMotion || lite) {
-    return (
-      <div className={`content-section ${props.className ?? ""}`}>{props.children}</div>
-    );
+    return <div className={`content-section ${className ?? ""}`}>{children}</div>;
   }
 
-  return <ScrollParallaxAnimated {...props} />;
-}
-
-function ScrollParallaxAnimated({
-  children,
-  className,
-  y = [120, -120],
-  scale,
-  rotate,
-  opacity,
-}: ScrollParallaxProps) {
-  const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"],
-  });
-
-  const translateY = useTransform(scrollYProgress, [0, 1], y);
-  const scaleVal = scale ? useTransform(scrollYProgress, [0, 0.5, 1], [scale[0], 1, scale[1]]) : undefined;
-  const rotateVal = rotate ? useTransform(scrollYProgress, [0, 1], rotate) : undefined;
-  const opacityVal = opacity ? useTransform(scrollYProgress, [0, 0.15, 0.85, 1], opacity) : undefined;
+  const style = {
+    "--parallax-from": `${y[0]}px`,
+    "--parallax-to": `${y[1]}px`,
+    ...(opacity
+      ? {
+          "--opacity-from": String(opacity[0]),
+          "--opacity-mid1": String(opacity[1]),
+          "--opacity-mid2": String(opacity[2]),
+          "--opacity-to": String(opacity[3]),
+        }
+      : {}),
+  } as CSSProperties;
 
   return (
-    <div ref={ref} className={className}>
-      <motion.div
-        style={{
-          y: translateY,
-          scale: scaleVal,
-          rotate: rotateVal,
-          opacity: opacityVal,
-        }}
-      >
-        {children}
-      </motion.div>
+    <div
+      className={`content-section scroll-parallax${opacity ? " scroll-parallax-opacity" : ""} ${className ?? ""}`}
+      style={style}
+    >
+      <div className="scroll-parallax-inner">{children}</div>
     </div>
   );
 }

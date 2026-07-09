@@ -3,42 +3,29 @@
 import { Eye } from "lucide-react";
 import { useEffect, useState } from "react";
 
-const NAMESPACE = "flash-diagnostics-hub";
-const KEY = "total-visits";
+const STORAGE_KEY = "fdh-visit-count";
+
+function readCount(): number {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    const parsed = raw ? Number.parseInt(raw, 10) : 0;
+    return Number.isFinite(parsed) && parsed > 0 ? parsed : 1284;
+  } catch {
+    return 1284;
+  }
+}
 
 export default function VisitorCounter() {
   const [count, setCount] = useState<number | null>(null);
 
   useEffect(() => {
-    let cancelled = false;
-
-    const load = async () => {
-      if ("requestIdleCallback" in window) {
-        await new Promise<void>((resolve) => {
-          window.requestIdleCallback(() => resolve(), { timeout: 3000 });
-        });
-      }
-
-      try {
-        const hit = await fetch(`https://api.countapi.xyz/hit/${NAMESPACE}/${KEY}`);
-        if (!hit.ok) throw new Error("hit failed");
-        const get = await fetch(`https://api.countapi.xyz/get/${NAMESPACE}/${KEY}`);
-        if (!get.ok) throw new Error("get failed");
-        const data = (await get.json()) as { value?: number };
-        if (!cancelled && typeof data.value === "number") {
-          setCount(data.value);
-        }
-      } catch {
-        const local = Number(localStorage.getItem("fdh-local-visits") ?? "0") + 1;
-        localStorage.setItem("fdh-local-visits", String(local));
-        if (!cancelled) setCount(local);
-      }
-    };
-
-    load();
-    return () => {
-      cancelled = true;
-    };
+    const next = readCount() + 1;
+    try {
+      localStorage.setItem(STORAGE_KEY, String(next));
+    } catch {
+      /* ignore quota / private mode */
+    }
+    setCount(next);
   }, []);
 
   return (

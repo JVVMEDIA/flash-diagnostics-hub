@@ -155,6 +155,66 @@ html.perf-lite [class*="blur-"] {
   html {
     scroll-behavior: auto;
   }
+
+  .scroll-progress-bar,
+  .scroll-parallax-inner {
+    animation: none !important;
+  }
+}
+
+/* Scroll-driven efekty — bez JS reflow */
+@supports (animation-timeline: scroll()) {
+  .scroll-progress-bar {
+    transform: scaleX(0);
+    animation: scroll-progress-grow linear;
+    animation-timeline: scroll(root);
+  }
+
+  @keyframes scroll-progress-grow {
+    to {
+      transform: scaleX(1);
+    }
+  }
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .scroll-parallax-inner {
+      animation: scroll-parallax-y linear both;
+      animation-timeline: view();
+      animation-range: entry 0% exit 100%;
+    }
+
+    @keyframes scroll-parallax-y {
+      from {
+        transform: translateY(var(--parallax-from, 50px));
+      }
+      to {
+        transform: translateY(var(--parallax-to, -50px));
+      }
+    }
+
+    .scroll-parallax-opacity .scroll-parallax-inner {
+      animation-name: scroll-parallax-y-opacity;
+    }
+
+    @keyframes scroll-parallax-y-opacity {
+      0% {
+        transform: translateY(var(--parallax-from, -50px));
+        opacity: var(--opacity-from, 0.4);
+      }
+      15% {
+        opacity: var(--opacity-mid1, 1);
+      }
+      85% {
+        opacity: var(--opacity-mid2, 1);
+      }
+      100% {
+        transform: translateY(var(--parallax-to, 50px));
+        opacity: var(--opacity-to, 0.4);
+      }
+    }
+  }
 }
 
 /* Grid pozadie */
