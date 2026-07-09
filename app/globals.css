@@ -162,6 +162,114 @@ html.perf-lite [class*="blur-"] {
   }
 }
 
+/* Scroll reveal — čisto CSS, konzistentné SSR/hydration */
+@keyframes scroll-reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(var(--reveal-distance, 48px));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scroll-reveal-down {
+  from {
+    opacity: 0;
+    transform: translateY(calc(var(--reveal-distance, 48px) * -1));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scroll-reveal-left {
+  from {
+    opacity: 0;
+    transform: translateX(var(--reveal-distance, 48px));
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scroll-reveal-right {
+  from {
+    opacity: 0;
+    transform: translateX(calc(var(--reveal-distance, 48px) * -1));
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.scroll-reveal-immediate.scroll-reveal-up {
+  animation: scroll-reveal-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.scroll-reveal-immediate.scroll-reveal-down {
+  animation: scroll-reveal-down 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.scroll-reveal-immediate.scroll-reveal-left {
+  animation: scroll-reveal-left 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.scroll-reveal-immediate.scroll-reveal-right {
+  animation: scroll-reveal-right 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.scroll-reveal-inview {
+  opacity: 1;
+}
+
+@supports (animation-timeline: view()) {
+  .scroll-reveal-inview {
+    opacity: 0;
+    animation-duration: 0.65s;
+    animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+    animation-fill-mode: both;
+    animation-timeline: view();
+    animation-range: entry 10% cover 30%;
+  }
+
+  .scroll-reveal-inview.scroll-reveal-up {
+    animation-name: scroll-reveal-up;
+  }
+
+  .scroll-reveal-inview.scroll-reveal-down {
+    animation-name: scroll-reveal-down;
+  }
+
+  .scroll-reveal-inview.scroll-reveal-left {
+    animation-name: scroll-reveal-left;
+  }
+
+  .scroll-reveal-inview.scroll-reveal-right {
+    animation-name: scroll-reveal-right;
+  }
+}
+
+@media (prefers-reduced-motion: reduce), (max-width: 768px) {
+  .scroll-reveal-immediate,
+  .scroll-reveal-inview {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+html.perf-lite .scroll-reveal-immediate,
+html.perf-lite .scroll-reveal-inview {
+  animation: none !important;
+  opacity: 1 !important;
+  transform: none !important;
+}
+
 /* Scroll-driven efekty — bez JS reflow */
 @supports (animation-timeline: scroll()) {
   .scroll-progress-bar {

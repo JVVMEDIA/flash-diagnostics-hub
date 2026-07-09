@@ -1,8 +1,6 @@
 "use client";
 
-import { useReducedMotion } from "framer-motion";
 import { type CSSProperties, type ReactNode } from "react";
-import { usePerformanceMode } from "../../hooks/usePerformanceMode";
 
 type ScrollParallaxProps = {
   children: ReactNode;
@@ -13,19 +11,13 @@ type ScrollParallaxProps = {
   opacity?: [number, number, number, number];
 };
 
+/** Parallax cez CSS view-timeline — rovnaký DOM na serveri aj kliente */
 export default function ScrollParallax({
   children,
   className,
   y = [120, -120],
   opacity,
 }: ScrollParallaxProps) {
-  const reduceMotion = useReducedMotion();
-  const lite = usePerformanceMode();
-
-  if (reduceMotion || lite) {
-    return <div className={`content-section ${className ?? ""}`}>{children}</div>;
-  }
-
   const style = {
     "--parallax-from": `${y[0]}px`,
     "--parallax-to": `${y[1]}px`,
