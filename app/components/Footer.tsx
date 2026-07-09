@@ -1,21 +1,12 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { motion, useReducedMotion } from "framer-motion";
 
 const VisitorCounter = dynamic(() => import("./VisitorCounter"), { ssr: false });
 
 export default function Footer() {
-  const reduceMotion = useReducedMotion();
-
   return (
-    <motion.footer
-      className="border-t border-zinc-800/80 mt-20 py-10 text-sm text-zinc-400"
-      initial={reduceMotion ? {} : { opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5 }}
-    >
+    <footer className="footer-reveal border-t border-zinc-800/80 mt-20 py-10 text-sm text-zinc-400">
       <div className="page-container flex flex-col items-center gap-6">
         <div className="w-full flex flex-col md:flex-row justify-between gap-4">
           <p>
@@ -31,6 +22,6 @@ export default function Footer() {
         </div>
         <VisitorCounter />
       </div>
-    </motion.footer>
+    </footer>
   );
 }

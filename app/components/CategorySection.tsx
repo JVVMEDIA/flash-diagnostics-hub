@@ -1,13 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { brandMap } from "../data/brands";
 import SubsectionCard from "./SubsectionCard";
 import BrandLogo from "./BrandLogo";
 import ScrollReveal from "./motion/ScrollReveal";
-import { usePerformanceMode } from "../hooks/usePerformanceMode";
 import type { Category } from "../data/hub-content";
 
 type CategorySectionProps = {
@@ -67,9 +65,6 @@ export default function CategorySection({
   index = 0,
 }: CategorySectionProps) {
   const [isOpen, setIsOpen] = useState(defaultOpen);
-  const reduceMotion = useReducedMotion();
-  const lite = usePerformanceMode();
-  const skipMotion = reduceMotion || lite;
   const primaryBrand = category.brandId ? brandMap[category.brandId] : undefined;
   const accentColor = primaryBrand?.color ?? "#10b981";
 
@@ -95,8 +90,7 @@ export default function CategorySection({
           key={subsection.id}
           subsection={subsection}
           index={subIndex}
-          animateEntry={!skipMotion}
-          entryDelay={skipMotion ? 0 : 0.1 + subIndex * 0.06}
+          entryDelay={0.1 + subIndex * 0.06}
         />
       ))}
     </div>
@@ -114,7 +108,7 @@ export default function CategorySection({
       replay
     >
       <div id={category.id} className="scroll-mt-24 w-full max-w-full">
-        <motion.button
+        <button
           type="button"
           onClick={() => setIsOpen(!isOpen)}
           className={`card-interactive w-full max-w-full min-w-0 text-left relative max-md:overflow-visible md:overflow-hidden ${
@@ -127,15 +121,12 @@ export default function CategorySection({
           }
           aria-expanded={isOpen}
           aria-controls={`${category.id}-panel`}
-          whileHover={skipMotion ? {} : { scale: 1.01, y: -2 }}
-          whileTap={skipMotion ? {} : { scale: 0.99 }}
         >
           <div
             className="absolute left-0 top-0 bottom-0 w-1 rounded-l-2xl"
             style={{ backgroundColor: accentColor, opacity: isOpen ? 0.85 : 0.5 }}
           />
 
-          {/* Mobil: symboly hore, text pod nimi */}
           <div className="md:hidden category-card-body relative pl-4 pr-3">
             <CategoryLogos category={category} mobile />
 
@@ -163,7 +154,6 @@ export default function CategorySection({
             </p>
           </div>
 
-          {/* Desktop: horizontálny layout ako pred mobilnými úpravami */}
           <div className="hidden md:flex items-start gap-5 pl-2">
             <CategoryLogos category={category} />
 
@@ -186,29 +176,12 @@ export default function CategorySection({
               <ChevronDown size={20} />
             </div>
           </div>
-        </motion.button>
+        </button>
 
-        {skipMotion ? (
-          isOpen && (
-            <div id={`${category.id}-panel`} className="w-full min-w-0">
-              {expandedContent}
-            </div>
-          )
-        ) : (
-          <AnimatePresence initial={false}>
-            {isOpen && (
-              <motion.div
-                id={`${category.id}-panel`}
-                initial={{ height: 0, opacity: 0 }}
-                animate={{ height: "auto", opacity: 1 }}
-                exit={{ height: 0, opacity: 0 }}
-                transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-                className="overflow-hidden w-full min-w-0"
-              >
-                {expandedContent}
-              </motion.div>
-            )}
-          </AnimatePresence>
+        {isOpen && (
+          <div id={`${category.id}-panel`} className="category-panel w-full min-w-0">
+            {expandedContent}
+          </div>
         )}
       </div>
     </ScrollReveal>

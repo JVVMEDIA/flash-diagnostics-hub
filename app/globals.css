@@ -270,6 +270,77 @@ html.perf-lite .scroll-reveal-inview {
   transform: none !important;
 }
 
+.subsection-card-entry {
+  animation: scroll-reveal-up 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.subsection-index {
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.subsection-card-inner:hover .subsection-index {
+  transform: scale(1.1);
+  background-color: rgba(16, 185, 129, 0.2);
+}
+
+.warning-pulse {
+  animation: warning-border-pulse 2.5s ease-in-out infinite;
+}
+
+@keyframes warning-border-pulse {
+  0%,
+  100% {
+    border-color: rgba(245, 158, 11, 0.3);
+  }
+  50% {
+    border-color: rgba(245, 158, 11, 0.5);
+  }
+}
+
+@media (prefers-reduced-motion: reduce), (max-width: 768px) {
+  .subsection-card-entry {
+    animation: none !important;
+  }
+
+  .warning-pulse {
+    animation: none !important;
+  }
+}
+
+html.perf-lite .subsection-card-entry,
+html.perf-lite .warning-pulse {
+  animation: none !important;
+}
+
+.footer-reveal {
+  animation: footer-fade-in 0.5s ease both;
+  animation-timeline: view();
+  animation-range: entry 0% cover 20%;
+}
+
+@keyframes footer-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@supports not (animation-timeline: view()) {
+  .footer-reveal {
+    opacity: 1;
+    animation: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .footer-reveal {
+    animation: none;
+    opacity: 1;
+  }
+}
+
 /* Scroll-driven efekty — bez JS reflow */
 @supports (animation-timeline: scroll()) {
   .scroll-progress-bar {

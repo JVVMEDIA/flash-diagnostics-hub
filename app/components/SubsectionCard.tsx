@@ -1,36 +1,29 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
 import FileLinkList from "./FileLinkList";
 import type { Subsection } from "../data/hub-content";
 
 type SubsectionCardProps = {
   subsection: Subsection;
   index: number;
-  animateEntry?: boolean;
   entryDelay?: number;
 };
 
 export default function SubsectionCard({
   subsection,
   index,
-  animateEntry = false,
   entryDelay = 0,
 }: SubsectionCardProps) {
-  const reduceMotion = useReducedMotion();
-
-  const content = (
+  return (
     <article
       id={subsection.id}
-      className="subsection-card-inner scroll-mt-24 rounded-2xl border border-zinc-800 bg-zinc-950/40 p-4 sm:p-5 md:p-6 transition-colors hover:border-zinc-700 hover:bg-zinc-900/30 w-full max-w-full min-w-0 break-words"
+      className="subsection-card-entry subsection-card-inner scroll-mt-24 rounded-2xl border border-zinc-800 bg-zinc-950/40 p-4 sm:p-5 md:p-6 transition-colors hover:border-zinc-700 hover:bg-zinc-900/30 w-full max-w-full min-w-0 break-words"
+      style={{ animationDelay: `${entryDelay}s` }}
     >
       <div className="flex items-start gap-3 mb-3 min-w-0">
-        <motion.span
-          className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-emerald-500/10 text-xs font-semibold text-emerald-400 border border-emerald-500/20"
-          whileHover={reduceMotion ? {} : { scale: 1.1, backgroundColor: "rgba(16,185,129,0.2)" }}
-        >
+        <span className="subsection-index flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-emerald-500/10 text-xs font-semibold text-emerald-400 border border-emerald-500/20">
           {index + 1}
-        </motion.span>
+        </span>
         <div className="min-w-0 flex-1">
           <h3 className="font-semibold text-lg text-zinc-100 break-words [overflow-wrap:anywhere]">
             {subsection.title}
@@ -75,29 +68,13 @@ export default function SubsectionCard({
       )}
 
       {subsection.warning && (
-        <motion.div
-          className="mt-4 rounded-xl border border-amber-500/30 bg-amber-500/5 px-4 py-3 text-sm text-amber-200/90"
-          animate={reduceMotion ? {} : { borderColor: ["rgba(245,158,11,0.3)", "rgba(245,158,11,0.5)", "rgba(245,158,11,0.3)"] }}
-          transition={{ duration: 2.5, repeat: Infinity }}
-        >
+        <div className="warning-pulse mt-4 rounded-xl border border-amber-500/30 bg-amber-500/5 px-4 py-3 text-sm text-amber-200/90">
           <span className="font-semibold text-amber-400">Upozornenie: </span>
           {subsection.warning}
-        </motion.div>
+        </div>
       )}
 
       <FileLinkList links={subsection.links} />
     </article>
-  );
-
-  if (!animateEntry || reduceMotion) return content;
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 16 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: entryDelay, duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-    >
-      {content}
-    </motion.div>
   );
 }
