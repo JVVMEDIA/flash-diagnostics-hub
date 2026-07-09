@@ -269,13 +269,13 @@ export default function HubPageContent() {
       <SeoFaq />
 
       <ScrollReveal direction="up" replay>
-        <div className="text-center py-12 text-xs text-zinc-500">
+        <div className="text-center py-12 text-xs text-zinc-400">
           Projekt je open-source. Prispieť môžeš na{" "}
           <a
             href="https://github.com/JVVMEDIA/flash-diagnostics-hub"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-emerald-400 hover:underline"
+            className="text-emerald-300 font-medium underline underline-offset-2 hover:text-emerald-200"
           >
             GitHub-e
           </a>

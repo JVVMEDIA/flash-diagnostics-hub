@@ -10,7 +10,7 @@ export default function Footer() {
 
   return (
     <motion.footer
-      className="border-t border-zinc-800/80 mt-20 py-10 text-sm text-zinc-500"
+      className="border-t border-zinc-800/80 mt-20 py-10 text-sm text-zinc-400"
       initial={reduceMotion ? {} : { opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}

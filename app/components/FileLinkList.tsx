@@ -10,9 +10,7 @@ export default function FileLinkList({ links }: FileLinkListProps) {
 
   return (
     <div className="mt-4">
-      <p className="text-xs font-semibold uppercase tracking-wider text-zinc-500 mb-3">
-        Odkazy na súbory
-      </p>
+      <p className="section-kicker">Odkazy na súbory</p>
       <ul className="space-y-2">
         {links.map((link) => (
           <li key={link.url + link.label}>
@@ -37,7 +35,7 @@ export default function FileLinkList({ links }: FileLinkListProps) {
                   )}
                   <ExternalLink size={12} className="text-zinc-600" />
                 </div>
-                {link.note && <p className="text-xs text-zinc-500 mt-1">{link.note}</p>}
+                {link.note && <p className="text-xs text-zinc-400 mt-1">{link.note}</p>}
               </div>
             </a>
           </li>

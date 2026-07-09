@@ -39,7 +39,7 @@ function CategoryLogos({
         <BrandLogo key={brand.id} brand={brand} size="sm" />
       ))}
       {brands.length > 4 && (
-        <span className="text-xs text-zinc-500 font-medium">+{brands.length - 4}</span>
+        <span className="text-xs text-zinc-400 font-medium">+{brands.length - 4}</span>
       )}
     </div>
   );
@@ -48,7 +48,7 @@ function CategoryLogos({
 function CategoryOverview({ items }: { items: string[] }) {
   return (
     <div className="rounded-2xl border border-zinc-800 bg-zinc-900/40 px-4 sm:px-5 py-4 w-full">
-      <p className="text-xs font-semibold uppercase tracking-wider text-zinc-500 mb-3">Prehľad</p>
+      <p className="section-kicker">Prehľad</p>
       <ul className="space-y-3">
         {items.map((item, i) => (
           <li key={i} className="category-overview-item">
@@ -127,7 +127,6 @@ export default function CategorySection({
           }
           aria-expanded={isOpen}
           aria-controls={`${category.id}-panel`}
-          aria-labelledby={`${category.id}-title`}
           whileHover={skipMotion ? {} : { scale: 1.01, y: -2 }}
           whileTap={skipMotion ? {} : { scale: 0.99 }}
         >
@@ -142,9 +141,7 @@ export default function CategorySection({
 
             <div className="category-card-title-row">
               <div className="category-card-title-wrap">
-                <span id={`${category.id}-title`} className="category-card-title">
-                  {category.title}
-                </span>
+                <span className="category-card-title">{category.title}</span>
                 {isOpen && (
                   <span className="text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 shrink-0">
                     Aktívne
@@ -172,7 +169,7 @@ export default function CategorySection({
 
             <div className="flex-1 min-w-0">
               <div className="flex items-center flex-wrap gap-3 mb-2">
-                <h3 className="font-semibold text-xl text-zinc-100">{category.title}</h3>
+                <span className="font-semibold text-xl text-zinc-100">{category.title}</span>
                 {isOpen && (
                   <span className="text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
                     Aktívne
@@ -180,7 +177,7 @@ export default function CategorySection({
                 )}
               </div>
               <p className="text-zinc-400 text-sm leading-relaxed">{category.description}</p>
-              <p className="text-xs text-zinc-500 mt-3">
+              <p className="text-xs text-zinc-400 mt-3">
                 {category.subsections.length} podsekcie • odkazy na súbory
               </p>
             </div>

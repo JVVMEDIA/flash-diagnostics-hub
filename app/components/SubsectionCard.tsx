@@ -43,9 +43,7 @@ export default function SubsectionCard({
 
       {subsection.steps.length > 0 && (
         <div className="mt-4">
-          <h5 className="text-xs font-semibold uppercase tracking-wider text-zinc-500 mb-3">
-            Postup krok za krokom
-          </h5>
+          <h4 className="section-kicker">Postup krok za krokom</h4>
           <ol className="space-y-2.5 pl-1">
             {subsection.steps.map((step, i) => (
               <li
@@ -64,9 +62,7 @@ export default function SubsectionCard({
 
       {subsection.tips && subsection.tips.length > 0 && (
         <div className="mt-5 rounded-xl border border-zinc-800 bg-zinc-900/50 px-4 py-3">
-          <h5 className="text-xs font-semibold uppercase tracking-wider text-emerald-400/80 mb-2">
-            Tipy a poznámky
-          </h5>
+          <h4 className="section-kicker text-emerald-300 mb-2">Tipy a poznámky</h4>
           <ul className="space-y-1.5">
             {subsection.tips.map((tip, i) => (
               <li key={i} className="text-sm text-zinc-400 flex gap-2">
