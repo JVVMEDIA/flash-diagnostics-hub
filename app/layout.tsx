@@ -32,8 +32,6 @@ export const viewport: Viewport = {
   themeColor: "#09090b",
 };
 
-const criticalCss = `body{background:#09090b;color:#e4e4e7;margin:0}.page-container{max-width:calc(52rem + 8cm);margin-inline:auto;padding-inline:.5cm}`;
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -41,10 +39,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="sk" className="dark" suppressHydrationWarning>
-      <head>
-        <style dangerouslySetInnerHTML={{ __html: criticalCss }} />
-      </head>
       <body
+        suppressHydrationWarning
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-zinc-950 text-zinc-200 overflow-x-hidden`}
       >
         <PerformanceProvider>
