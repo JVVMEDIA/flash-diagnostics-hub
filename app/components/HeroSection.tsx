@@ -52,8 +52,8 @@ export default function HeroSection() {
 
         <ScrollReveal direction="up" delay={0.2} distance={36} immediate>
           <p className="max-w-3xl mx-auto text-lg md:text-xl text-zinc-300 leading-relaxed px-4">
-            Kompletné centrum pre flashovanie mobilných zariadení — Samsung, Motorola, Xiaomi, Pixel,
-            MediaTek a Qualcomm.
+            Kompletné centrum pre flashovanie a diagnostiku Android zariadení — Motorola, Samsung Odin,
+            Fastboot, SP Flash, Unisoc/UFS, Qualcomm EDL, bootloop, hardbrick a bezpečné zdieľanie firmvéru.
           </p>
         </ScrollReveal>
 

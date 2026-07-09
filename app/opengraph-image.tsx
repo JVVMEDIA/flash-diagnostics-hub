@@ -1,6 +1,7 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Flash Diagnostics Hub — Flashovanie, diagnostika a bezpečné zdieľanie";
+export const alt =
+  "Flash Diagnostics Hub — flashovanie Motorola, Samsung Odin, Fastboot, Unisoc UFS, diagnostika a bezpečné zdieľanie";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -66,7 +67,7 @@ export default function OpenGraphImage() {
         </div>
 
         <div style={{ display: "flex", gap: 16 }}>
-          {["Motorola", "Fastboot", "Odin", "SP Flash", "Diagnostika"].map(
+          {["Motorola", "Odin", "Fastboot", "Unisoc", "Diagnostika"].map(
             (tag) => (
               <div
                 key={tag}

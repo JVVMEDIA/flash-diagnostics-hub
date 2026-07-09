@@ -15,8 +15,10 @@ export default function SectionHeader({ id, title, description }: SectionHeaderP
 
   return (
     <ScrollParallax y={[40, -40]} className="scroll-mt-24 mb-8 sm:mb-10">
-      <div id={id}>
-        <h2 className="section-title flex flex-wrap items-center gap-2 sm:gap-3">{title}</h2>
+      <div>
+        <h2 id={id} className="section-title flex flex-wrap items-center gap-2 sm:gap-3">
+          {title}
+        </h2>
         <p className="text-zinc-400 max-w-3xl leading-relaxed mt-3 text-sm sm:text-base">
           {description}
         </p>

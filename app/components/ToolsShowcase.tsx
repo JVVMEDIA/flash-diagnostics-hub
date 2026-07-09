@@ -4,9 +4,15 @@ import FastAnchorLink from "./FastAnchorLink";
 
 export default function ToolsShowcase() {
   return (
-    <section className="py-12 sm:py-16 border-t-2 border-emerald-400/30 bg-gradient-to-b from-emerald-500/10 to-transparent rounded-3xl my-6 px-3 sm:px-4 ring-1 ring-emerald-500/20">
+    <section
+      id="nastroje-znacky"
+      aria-labelledby="tools-showcase-heading"
+      className="py-12 sm:py-16 border-t-2 border-emerald-400/30 bg-gradient-to-b from-emerald-500/10 to-transparent rounded-3xl my-6 px-3 sm:px-4 ring-1 ring-emerald-500/20"
+    >
       <div className="text-center mb-8 sm:mb-12">
-        <h2 className="section-title text-emerald-300">🛠 Nástroje a značky</h2>
+        <h2 id="tools-showcase-heading" className="section-title text-emerald-300">
+          🛠 Nástroje a značky
+        </h2>
         <p className="text-zinc-300 max-w-2xl mx-auto mt-3 leading-relaxed text-sm sm:text-base px-2">
           Klikni na logo a preskoč priamo na návod alebo sekciu s odkazmi na stiahnutie.
         </p>

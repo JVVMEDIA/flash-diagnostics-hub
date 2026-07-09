@@ -15,6 +15,7 @@ const navLinks = [
   { href: "#diagnostika", label: "Diagnostika", id: "diagnostika" },
   { href: "#nastroje", label: "Nástroje", id: "nastroje" },
   { href: "#zdielanie", label: "Zdieľanie", id: "zdielanie" },
+  { href: "#faq", label: "FAQ", id: "faq" },
 ];
 
 const sectionIds = navLinks.map((l) => l.id);
