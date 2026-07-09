@@ -22,9 +22,9 @@ export default function SubsectionCard({
   const content = (
     <article
       id={subsection.id}
-      className="scroll-mt-24 rounded-2xl border border-zinc-800 bg-zinc-950/40 p-4 sm:p-5 md:p-6 transition-colors hover:border-zinc-700 hover:bg-zinc-900/30 w-full max-w-full break-words"
+      className="subsection-card-inner scroll-mt-24 rounded-2xl border border-zinc-800 bg-zinc-950/40 p-4 sm:p-5 md:p-6 transition-colors hover:border-zinc-700 hover:bg-zinc-900/30 w-full max-w-full min-w-0 break-words"
     >
-      <div className="flex items-start gap-3 mb-3">
+      <div className="flex items-start gap-3 mb-3 min-w-0">
         <motion.span
           className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-emerald-500/10 text-xs font-semibold text-emerald-400 border border-emerald-500/20"
           whileHover={reduceMotion ? {} : { scale: 1.1, backgroundColor: "rgba(16,185,129,0.2)" }}
@@ -32,7 +32,9 @@ export default function SubsectionCard({
           {index + 1}
         </motion.span>
         <div className="min-w-0 flex-1">
-          <h4 className="font-semibold text-lg text-zinc-100 break-words">{subsection.title}</h4>
+          <h3 className="font-semibold text-lg text-zinc-100 break-words [overflow-wrap:anywhere]">
+            {subsection.title}
+          </h3>
           <p className="text-sm text-zinc-400 mt-1 leading-relaxed break-words [overflow-wrap:anywhere]">
             {subsection.description}
           </p>

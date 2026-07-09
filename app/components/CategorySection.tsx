@@ -48,7 +48,7 @@ function CategoryLogos({
 function CategoryOverview({ items }: { items: string[] }) {
   return (
     <div className="rounded-2xl border border-zinc-800 bg-zinc-900/40 px-4 sm:px-5 py-4 w-full">
-      <h4 className="text-xs font-semibold uppercase tracking-wider text-zinc-500 mb-3">Prehľad</h4>
+      <p className="text-xs font-semibold uppercase tracking-wider text-zinc-500 mb-3">Prehľad</p>
       <ul className="space-y-3">
         {items.map((item, i) => (
           <li key={i} className="category-overview-item">
@@ -117,7 +117,7 @@ export default function CategorySection({
         <motion.button
           type="button"
           onClick={() => setIsOpen(!isOpen)}
-          className={`card-interactive w-full max-w-full text-left relative overflow-hidden ${
+          className={`card-interactive w-full max-w-full min-w-0 text-left relative max-md:overflow-visible md:overflow-hidden ${
             isOpen ? "border-emerald-500/50 shadow-xl" : ""
           }`}
           style={
@@ -126,6 +126,8 @@ export default function CategorySection({
               : undefined
           }
           aria-expanded={isOpen}
+          aria-controls={`${category.id}-panel`}
+          aria-labelledby={`${category.id}-title`}
           whileHover={skipMotion ? {} : { scale: 1.01, y: -2 }}
           whileTap={skipMotion ? {} : { scale: 0.99 }}
         >
@@ -139,10 +141,12 @@ export default function CategorySection({
             <CategoryLogos category={category} mobile />
 
             <div className="category-card-title-row">
-              <div className="flex flex-wrap items-center gap-2 min-w-0 flex-1">
-                <h3 className="font-semibold text-lg text-zinc-100">{category.title}</h3>
+              <div className="category-card-title-wrap">
+                <span id={`${category.id}-title`} className="category-card-title">
+                  {category.title}
+                </span>
                 {isOpen && (
-                  <span className="text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+                  <span className="text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 shrink-0">
                     Aktívne
                   </span>
                 )}
@@ -188,16 +192,21 @@ export default function CategorySection({
         </motion.button>
 
         {skipMotion ? (
-          isOpen && expandedContent
+          isOpen && (
+            <div id={`${category.id}-panel`} className="w-full min-w-0">
+              {expandedContent}
+            </div>
+          )
         ) : (
           <AnimatePresence initial={false}>
             {isOpen && (
               <motion.div
+                id={`${category.id}-panel`}
                 initial={{ height: 0, opacity: 0 }}
                 animate={{ height: "auto", opacity: 1 }}
                 exit={{ height: 0, opacity: 0 }}
                 transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-                className="overflow-hidden w-full"
+                className="overflow-hidden w-full min-w-0"
               >
                 {expandedContent}
               </motion.div>

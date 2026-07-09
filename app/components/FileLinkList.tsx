@@ -10,9 +10,9 @@ export default function FileLinkList({ links }: FileLinkListProps) {
 
   return (
     <div className="mt-4">
-      <h4 className="text-xs font-semibold uppercase tracking-wider text-zinc-500 mb-3">
+      <p className="text-xs font-semibold uppercase tracking-wider text-zinc-500 mb-3">
         Odkazy na súbory
-      </h4>
+      </p>
       <ul className="space-y-2">
         {links.map((link) => (
           <li key={link.url + link.label}>
@@ -25,9 +25,9 @@ export default function FileLinkList({ links }: FileLinkListProps) {
               <span className="text-emerald-400 mt-0.5 shrink-0">
                 <FileDown size={16} />
               </span>
-              <div className="min-w-0 flex-1">
-                <div className="flex flex-wrap items-center gap-2">
-                  <span className="text-sm font-medium text-zinc-200 group-active:text-emerald-400">
+              <div className="min-w-0 flex-1 overflow-hidden">
+                <div className="flex flex-wrap items-start gap-2 min-w-0">
+                  <span className="file-link-label text-sm font-medium text-zinc-200 group-active:text-emerald-400 min-w-0">
                     {link.label}
                   </span>
                   {link.fileType && (

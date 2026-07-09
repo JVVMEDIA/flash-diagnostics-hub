@@ -50,6 +50,7 @@ html.perf-lite .perf-show-lite:not(.grid):not(.flex) {
   margin-inline: auto;
   padding-inline: 0.5cm;
   box-sizing: border-box;
+  min-width: 0;
 }
 
 .content-section {
@@ -227,36 +228,51 @@ html.perf-lite [class*="blur-"] {
 
 /* Kategória karta — mobilný layout: symboly hore, text pod nimi zľava */
 @media (max-width: 767px) {
+  button.card-interactive {
+    overflow: visible !important;
+    min-width: 0;
+  }
+
   .category-card-body {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
     width: 100%;
+    min-width: 0;
     text-align: left;
+    gap: 0;
   }
 
-  .category-card-body > * {
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    text-align: left;
-  }
-
-  .category-card-body > .flex,
   .category-card-logos {
     display: flex !important;
     flex-direction: row;
     flex-wrap: wrap;
+    align-items: center;
     width: 100%;
+    min-width: 0;
   }
 
   .category-card-title-row {
-    display: flex;
+    display: flex !important;
     flex-direction: row;
+    flex-wrap: nowrap;
     align-items: flex-start;
     justify-content: space-between;
     gap: 0.75rem;
     width: 100%;
+    min-width: 0;
     margin-top: 0.75rem;
     margin-bottom: 0.5rem;
+  }
+
+  .category-card-title-wrap {
+    display: flex !important;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    flex: 1;
+    min-width: 0;
   }
 
   .category-card-chevron {
@@ -275,27 +291,60 @@ html.perf-lite [class*="blur-"] {
     transform: rotate(180deg);
   }
 
+  .category-card-title {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    font-size: 1.125rem;
+    font-weight: 600;
+    line-height: 1.35;
+    color: #f4f4f5;
+    white-space: normal !important;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    text-align: left !important;
+  }
+
   .category-card-text {
     display: block !important;
     width: 100% !important;
     max-width: 100% !important;
+    min-width: 0;
     margin-top: 0.5rem;
     font-size: 0.875rem;
     line-height: 1.625;
     color: #a1a1aa;
     white-space: normal !important;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
+    word-break: break-word;
+    overflow-wrap: anywhere;
     text-align: left !important;
   }
 
   .category-card-meta {
     display: block !important;
     width: 100% !important;
+    min-width: 0;
     margin-top: 0.75rem;
     font-size: 0.75rem;
+    line-height: 1.5;
     color: #71717a;
+    white-space: normal !important;
+    word-break: break-word;
+    overflow-wrap: anywhere;
     text-align: left !important;
+  }
+
+  article,
+  .subsection-card-inner {
+    min-width: 0;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  .file-link-label {
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    white-space: normal;
   }
 }
 
