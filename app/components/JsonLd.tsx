@@ -1,18 +1,40 @@
-import { faqItems, mainSections, siteConfig } from "../data/seo";
+import { getLocale, getTranslations } from "next-intl/server";
+import { siteConfig, localePath } from "../data/seo";
+import type { Locale } from "../../i18n/routing";
 
 function jsonLd(data: Record<string, unknown>) {
   return JSON.stringify(data);
 }
 
-export default function JsonLd() {
+const localeToSchema: Record<Locale, string> = {
+  sk: "sk-SK",
+  en: "en-GB",
+  cs: "cs-CZ",
+  pl: "pl-PL",
+  hu: "hu-HU",
+  de: "de-DE",
+};
+
+export default async function JsonLd() {
+  const locale = (await getLocale()) as Locale;
+  const t = await getTranslations({ locale, namespace: "meta" });
+  const tJson = await getTranslations({ locale, namespace: "jsonLd" });
+  const tMain = await getTranslations({ locale });
+  const tFaq = await getTranslations({ locale, namespace: "faq" });
+
+  const pageUrl = `${siteConfig.url}${localePath(locale)}`;
+  const inLanguage = localeToSchema[locale];
+  const mainSections = tMain.raw("mainSections") as { id: string; name: string; description: string }[];
+  const faqItems = tFaq.raw("items") as { question: string; answer: string }[];
+
   const website = {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "@id": `${siteConfig.url}/#website`,
     url: siteConfig.url,
     name: siteConfig.name,
-    description: siteConfig.description,
-    inLanguage: "sk-SK",
+    description: t("description"),
+    inLanguage,
     publisher: { "@id": `${siteConfig.url}/#organization` },
   };
 
@@ -28,28 +50,28 @@ export default function JsonLd() {
   const webPage = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "@id": `${siteConfig.url}/#webpage`,
-    url: siteConfig.url,
-    name: siteConfig.title,
-    description: siteConfig.description,
+    "@id": `${pageUrl}#webpage`,
+    url: pageUrl,
+    name: t("title"),
+    description: t("description"),
     isPartOf: { "@id": `${siteConfig.url}/#website` },
-    inLanguage: "sk-SK",
+    inLanguage,
     about: {
       "@type": "Thing",
-      name: "Flashovanie a diagnostika Android mobilných zariadení",
+      name: t("about"),
     },
   };
 
   const itemList = {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    name: "Hlavné sekcie Flash Diagnostics Hub",
+    name: tJson("itemListName"),
     itemListElement: mainSections.map((section, index) => ({
       "@type": "ListItem",
       position: index + 1,
       name: section.name,
       description: section.description,
-      url: `${siteConfig.url}/#${section.id}`,
+      url: `${pageUrl}#${section.id}`,
     })),
   };
 
@@ -77,9 +99,9 @@ export default function JsonLd() {
       price: "0",
       priceCurrency: "EUR",
     },
-    description: siteConfig.description,
-    url: siteConfig.url,
-    inLanguage: "sk-SK",
+    description: t("description"),
+    url: pageUrl,
+    inLanguage,
     author: { "@id": `${siteConfig.url}/#organization` },
   };
 

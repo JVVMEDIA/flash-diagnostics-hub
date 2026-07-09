@@ -1,0 +1,155 @@
+{
+  "meta": {
+    "title": "Flash Diagnostics Hub | Flashování Android, diagnostika firmwaru a návody",
+    "description": "Kompletní průvodce flashováním mobilních zařízení — Motorola, Samsung Odin, Fastboot, SP Flash, Unisoc/UFS, EDL Qualcomm, bootloop, hardbrick, FRP a bezpečné sdílení firmwaru.",
+    "tagline": "Flashování, diagnostika firmwaru a bezpečné sdílení souborů pro Android zařízení.",
+    "ogImageAlt": "Flash Diagnostics Hub — flashování Motorola, Samsung, Xiaomi, Unisoc, diagnostika a bezpečné sdílení",
+    "about": "Flashování a diagnostika Android mobilních zařízení"
+  },
+  "nav": {
+    "flashovanie": "Flashování",
+    "motorola": "Motorola",
+    "odin": "Odin",
+    "diagnostika": "Diagnostika",
+    "nastroje": "Nástroje",
+    "zdielanie": "Sdílení",
+    "faq": "FAQ",
+    "github": "GitHub",
+    "menu": "Menu",
+    "language": "Jazyk"
+  },
+  "hero": {
+    "badge": "Open Source • Zdarma • Profesionální",
+    "subtitle": "Kompletní centrum pro flashování a diagnostiku Android zařízení — Motorola, Samsung Odin, Fastboot, SP Flash, Unisoc/UFS, Qualcomm EDL, bootloop, hardbrick a bezpečné sdílení firmwaru.",
+    "ctaShare": "Začít s bezpečným sdílením",
+    "ctaBrowse": "Prohlédnout postupy",
+    "brandsLabel": "⬇ Podporované značky",
+    "scrollHint": "Scrolluj pro návody"
+  },
+  "toolsShowcase": {
+    "title": "🛠 Nástroje a značky",
+    "description": "Klikni na logo a přeskoč přímo na návod nebo sekci s odkazy ke stažení.",
+    "flashTool": "Flash nástroj",
+    "openGuide": "Otevřít návod →"
+  },
+  "sections": {
+    "flashovanie": {
+      "title": "Flashování zařízení",
+      "description": "Vyber značku nebo metodu flashování — Motorola, Samsung, MediaTek, Unisoc/UFS a další. Každá kategorie obsahuje postup, tipy a odkazy na nástroje."
+    },
+    "diagnostika": {
+      "title": "Diagnostika problémů",
+      "description": "Diagnostika bootloopu, bricku, EDL režimu a USB problémů. Samostatná sekce pro Motorola specifické chyby včetně radio, IMEI a bootloader warning."
+    },
+    "nastroje": {
+      "title": "Nástroje a firmware",
+      "description": "Oficiální flash nástroje (RSA, LMSA, Odin, Mi Flash, SP Flash), USB drivery a katalogy firmwaru pro Motorola, Samsung, Xiaomi a Google Pixel."
+    },
+    "zdielanie": {
+      "title": "Bezpečné sdílení",
+      "description": "Interaktivní nástroj pro vytvoření password-protected ZIP archivu (AES-256) a bezpečné sdílení firmwaru a citlivých souborů."
+    },
+    "safetyWarning": {
+      "title": "Bezpečnostní upozornění",
+      "text": "Vždy používej pouze oficiální nebo ověřené nástroje a firmware pro přesný model zařízení. Zálohuj důležitá data před jakýmkoli zásahem. Nesprávný flash může trvale poškodit zařízení."
+    }
+  },
+  "sharing": {
+    "passwordLabel": "Zadej heslo pro ZIP archiv",
+    "passwordPlaceholder": "např. MojeSilneHeslo2026!",
+    "generate": "Vygenerovat bezpečné instrukce",
+    "step1Title": "1. Vytvoř password-protected ZIP (7-Zip)",
+    "step1Content": "Pravý klik na složku → 7-Zip → Add to archive\nArchive format: zip\nEncryption method: AES-256\nPassword: {password}",
+    "copyInstruction": "Pravý klik → 7-Zip → Add to archive → AES-256 + heslo: {password}",
+    "copy": "Kopírovat instrukci",
+    "copied": "Zkopírováno!",
+    "step2Title": "2. Doporučené způsoby sdílení",
+    "step2Items": [
+      "SwissTransfer.com nebo WeTransfer (s heslem v samostatné zprávě)",
+      "Soukromý GitHub repo + heslo přes Signal/Threema",
+      "Proton Drive / Mega.nz s end-to-end šifrováním"
+    ],
+    "securityTip": "Bezpečnostní tip: Heslo nikdy neposílej stejným kanálem jako soubor."
+  },
+  "faq": {
+    "title": "Často kladené otázky",
+    "description": "Odpovědi na nejčastější otázky o flashování, diagnostice firmwaru a bezpečném sdílení souborů pro Android zařízení.",
+    "items": [
+      {
+        "question": "Jak flashnout Motorola telefon?",
+        "answer": "Odemkni bootloader přes oficiální Motorola stránku, stáhni RETAIL firmware pro přesný model XT-xxxx a flashni přes fastboot nebo Motorola Rescue and Smart Assistant (RSA/LMSA). Postup je krok za krokem v sekci Motorola."
+      },
+      {
+        "question": "Co je Samsung Odin a jak se používá?",
+        "answer": "Odin je nástroj pro flash Samsung Galaxy v Download módu. Načti soubory AP, BL, CP a CSC z firmware balíku, připoj telefon a spusť flash. Detailní návod najdeš v sekci Odin (Samsung)."
+      },
+      {
+        "question": "Jak opravit bootloop nebo brick?",
+        "answer": "Nejprve identifikuj režim zařízení (fastboot, Download, EDL, MTK). Potom re-flashni poslední funkční stock ROM přes příslušný nástroj — Odin, fastboot, SP Flash nebo LMSA. Sekce Diagnostika obsahuje postup podle závažnosti."
+      },
+      {
+        "question": "Jak bezpečně sdílet firmware soubory?",
+        "answer": "Zabal soubory do ZIP archivu s AES-256 šifrováním (7-Zip), nahraj na SwissTransfer nebo Proton Drive a heslo pošli jiným kanálem než odkaz na soubor. Generátor instrukcí je v sekci Bezpečné sdílení."
+      },
+      {
+        "question": "Co je Unisoc flash a UFS paměť?",
+        "answer": "Unisoc (Spreadtrum) zařízení se flashují přes Research Download / SPD nástroj s PAC firmwaru. UFS je rychlejší úložiště — vyžaduje přesný firmware variant. Návody včetně FRP a hardbrick obnovy jsou v sekci Unisoc & UFS."
+      }
+    ]
+  },
+  "mainSections": [
+    { "id": "flashovanie", "name": "Flashování zařízení", "description": "Fastboot, Motorola, Odin, SP Flash, Unisoc/UFS" },
+    { "id": "diagnostika", "name": "Diagnostika problémů", "description": "Bootloop, brick, EDL, USB drivery" },
+    { "id": "nastroje", "name": "Nástroje a firmware", "description": "Oficiální flash nástroje a ROM katalogy" },
+    { "id": "zdielanie", "name": "Bezpečné sdílení", "description": "Password-protected ZIP a platformy" }
+  ],
+  "cards": {
+    "overview": "Přehled",
+    "steps": "Postup krok za krokem",
+    "tips": "Tipy a poznámky",
+    "warning": "Upozornění",
+    "fileLinks": "Odkazy na soubory",
+    "expand": "Rozbalit sekci",
+    "collapse": "Sbalit sekci",
+    "active": "Aktivní",
+    "subsectionsMeta": "{count} podsekce • odkazy na soubory"
+  },
+  "footer": {
+    "copyright": "© {year} Flash Diagnostics Hub — v2.2 • Open Source",
+    "tagline": "Legální a bezpečné postupy • Pouze oficiální zdroje",
+    "scrollTop": "Nahoru",
+    "scrollTopAria": "Posunout stránku nahoru"
+  },
+  "visitorCounter": {
+    "title": "Počítadlo návštěv stránky",
+    "visits": "návštěv"
+  },
+  "chat": {
+    "button": "Chat",
+    "title": "FD Hub asistent",
+    "ariaLabel": "FD Hub chatbot",
+    "welcome": "Ahoj! Jsem FD Hub asistent. Pomůžu ti s flashováním, diagnostikou a nástroji. Co potřebuješ?",
+    "placeholder": "Napiš otázku…",
+    "send": "Odeslat",
+    "quickQuestions": "Rychlé otázky",
+    "goToSection": "Přejít na sekci",
+    "greeting": "Ahoj! Jsem asistent Flash Diagnostics Hub. Pomůžu ti s flashováním, diagnostikou, nástroji nebo bezpečným sdílením firmwaru. Vyber otázku níže nebo napiš, co potřebuješ.",
+    "fallback": "Na tuto otázku nemám přesnou odpověď. Zkus přeformulovat (např. Motorola, Odin, bootloop, Unisoc) nebo se podívej na sekce Flashování, Diagnostika a FAQ na stránce.",
+    "faqSection": "FAQ sekce",
+    "goToFaq": "Přejít na FAQ",
+    "subtitle": "Flashování & diagnostika",
+    "close": "Zavřít",
+    "closeChat": "Zavřít chat",
+    "openChat": "Otevřít chatbota",
+    "closeChatbot": "Zavřít chatbota",
+    "messageAria": "Zpráva pro chatbota",
+    "sendAria": "Odeslat zprávu"
+  },
+  "contribute": {
+    "text": "Projekt je open-source. Přispět můžeš na",
+    "github": "GitHubu"
+  },
+  "jsonLd": {
+    "itemListName": "Hlavní sekce Flash Diagnostics Hub"
+  }
+}

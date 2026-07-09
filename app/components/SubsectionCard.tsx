@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import FileLinkList from "./FileLinkList";
 import type { Subsection } from "../data/hub-content";
 
@@ -14,6 +15,8 @@ export default function SubsectionCard({
   index,
   entryDelay = 0,
 }: SubsectionCardProps) {
+  const t = useTranslations("cards");
+
   return (
     <article
       id={subsection.id}
@@ -36,7 +39,7 @@ export default function SubsectionCard({
 
       {subsection.steps.length > 0 && (
         <div className="mt-4">
-          <h4 className="section-kicker">Postup krok za krokom</h4>
+          <h4 className="section-kicker">{t("steps")}</h4>
           <ol className="space-y-2.5 pl-1">
             {subsection.steps.map((step, i) => (
               <li
@@ -55,7 +58,7 @@ export default function SubsectionCard({
 
       {subsection.tips && subsection.tips.length > 0 && (
         <div className="mt-5 rounded-xl border border-zinc-800 bg-zinc-900/50 px-4 py-3">
-          <h4 className="section-kicker text-emerald-300 mb-2">Tipy a poznámky</h4>
+          <h4 className="section-kicker text-emerald-300 mb-2">{t("tips")}</h4>
           <ul className="space-y-1.5">
             {subsection.tips.map((tip, i) => (
               <li key={i} className="text-sm text-zinc-400 flex gap-2">
@@ -69,7 +72,7 @@ export default function SubsectionCard({
 
       {subsection.warning && (
         <div className="warning-pulse mt-4 rounded-xl border border-amber-500/30 bg-amber-500/5 px-4 py-3 text-sm text-amber-200/90">
-          <span className="font-semibold text-amber-400">Upozornenie: </span>
+          <span className="font-semibold text-amber-400">{t("warning")}: </span>
           {subsection.warning}
         </div>
       )}

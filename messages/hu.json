@@ -1,0 +1,155 @@
+{
+  "meta": {
+    "title": "Flash Diagnostics Hub | Android flashelés, firmware diagnosztika és útmutatók",
+    "description": "Teljes útmutató mobil eszközök flasheléséhez — Motorola, Samsung Odin, Fastboot, SP Flash, Unisoc/UFS, Qualcomm EDL, bootloop, hardbrick, FRP és biztonságos firmware megosztás.",
+    "tagline": "Flashelés, firmware diagnosztika és biztonságos fájlmegosztás Android eszközökhöz.",
+    "ogImageAlt": "Flash Diagnostics Hub — Motorola, Samsung, Xiaomi, Unisoc flashelés, diagnosztika és biztonságos megosztás",
+    "about": "Android mobil eszközök flashelése és diagnosztikája"
+  },
+  "nav": {
+    "flashovanie": "Flashelés",
+    "motorola": "Motorola",
+    "odin": "Odin",
+    "diagnostika": "Diagnosztika",
+    "nastroje": "Eszközök",
+    "zdielanie": "Megosztás",
+    "faq": "GYIK",
+    "github": "GitHub",
+    "menu": "Menü",
+    "language": "Nyelv"
+  },
+  "hero": {
+    "badge": "Open Source • Ingyenes • Professzionális",
+    "subtitle": "Teljes központ Android eszközök flasheléséhez és diagnosztikájához — Motorola, Samsung Odin, Fastboot, SP Flash, Unisoc/UFS, Qualcomm EDL, bootloop, hardbrick és biztonságos firmware megosztás.",
+    "ctaShare": "Kezdés biztonságos megosztással",
+    "ctaBrowse": "Eljárások böngészése",
+    "brandsLabel": "⬇ Támogatott márkák",
+    "scrollHint": "Görgess az útmutatókért"
+  },
+  "toolsShowcase": {
+    "title": "🛠 Eszközök és márkák",
+    "description": "Kattints a logóra, hogy közvetlenül az útmutatóhoz vagy letöltési szekcióhoz ugorj.",
+    "flashTool": "Flash eszköz",
+    "openGuide": "Útmutató megnyitása →"
+  },
+  "sections": {
+    "flashovanie": {
+      "title": "Eszköz flashelése",
+      "description": "Válassz márkát vagy flashelési módszert — Motorola, Samsung, MediaTek, Unisoc/UFS és mások. Minden kategória tartalmaz eljárást, tippeket és eszköz linkeket."
+    },
+    "diagnostika": {
+      "title": "Probléma diagnosztika",
+      "description": "Bootloop, brick, EDL mód és USB problémák diagnosztikája. Külön szekció Motorola-specifikus hibákhoz, beleértve a rádiót, IMEI-t és bootloader figyelmeztetéseket."
+    },
+    "nastroje": {
+      "title": "Eszközök és firmware",
+      "description": "Hivatalos flash eszközök (RSA, LMSA, Odin, Mi Flash, SP Flash), USB illesztőprogramok és firmware katalógusok Motorola, Samsung, Xiaomi és Google Pixel számára."
+    },
+    "zdielanie": {
+      "title": "Biztonságos megosztás",
+      "description": "Interaktív eszköz jelszóval védett ZIP archívumok (AES-256) létrehozásához és firmware, valamint érzékeny fájlok biztonságos megosztásához."
+    },
+    "safetyWarning": {
+      "title": "Biztonsági figyelmeztetés",
+      "text": "Mindig csak hivatalos vagy ellenőrzött eszközöket és firmware-t használj a pontos eszközmodellhez. Készíts biztonsági mentést fontos adatokról bármilyen beavatkozás előtt. A helytelen flashelés véglegesen károsíthatja az eszközt."
+    }
+  },
+  "sharing": {
+    "passwordLabel": "Add meg a jelszót a ZIP archívumhoz",
+    "passwordPlaceholder": "pl. ErősJelszavam2026!",
+    "generate": "Biztonságos utasítások generálása",
+    "step1Title": "1. Jelszóval védett ZIP létrehozása (7-Zip)",
+    "step1Content": "Jobb klikk a mappán → 7-Zip → Add to archive\nArchive format: zip\nEncryption method: AES-256\nPassword: {password}",
+    "copyInstruction": "Jobb klikk → 7-Zip → Add to archive → AES-256 + jelszó: {password}",
+    "copy": "Utasítás másolása",
+    "copied": "Másolva!",
+    "step2Title": "2. Ajánlott megosztási módok",
+    "step2Items": [
+      "SwissTransfer.com vagy WeTransfer (jelszó külön üzenetben)",
+      "Privát GitHub repo + jelszó Signal/Threema-n keresztül",
+      "Proton Drive / Mega.nz végponttól végpontig titkosítással"
+    ],
+    "securityTip": "Biztonsági tipp: Soha ne küldd a jelszót ugyanazon a csatornán, mint a fájlt."
+  },
+  "faq": {
+    "title": "Gyakran ismételt kérdések",
+    "description": "Válaszok a leggyakoribb kérdésekre a flashelésről, firmware diagnosztikáról és biztonságos fájlmegosztásról Android eszközökhöz.",
+    "items": [
+      {
+        "question": "Hogyan flasheljek Motorola telefont?",
+        "answer": "Oldd fel a bootloader-t a hivatalos Motorola weboldalon, töltsd le a RETAIL firmware-t a pontos XT-xxxx modellhez és flasheld fastboot-on vagy Motorola Rescue and Smart Assistant (RSA/LMSA) segítségével. Lépésről lépésre útmutató a Motorola szekcióban."
+      },
+      {
+        "question": "Mi a Samsung Odin és hogyan használjuk?",
+        "answer": "Az Odin eszköz Samsung Galaxy flashelésére Download módban. Töltsd be az AP, BL, CP és CSC fájlokat a firmware csomagból, csatlakoztasd a telefont és indítsd a flashelést. Részletes útmutató az Odin (Samsung) szekcióban."
+      },
+      {
+        "question": "Hogyan javítsuk a bootloopot vagy brick-et?",
+        "answer": "Először azonosítsd az eszköz módját (fastboot, Download, EDL, MTK). Ezután flasheld újra az utolsó működő stock ROM-ot a megfelelő eszközzel — Odin, fastboot, SP Flash vagy LMSA. A Diagnosztika szekció súlyosság szerinti eljárásokat tartalmaz."
+      },
+      {
+        "question": "Hogyan oszthatunk meg firmware fájlokat biztonságosan?",
+        "answer": "Csomagold a fájlokat AES-256 titkosítású ZIP archívumba (7-Zip), töltsd fel SwissTransfer-re vagy Proton Drive-ra és küldd a jelszót más csatornán, mint a fájl linkjét. Utasítás generátor a Biztonságos megosztás szekcióban."
+      },
+      {
+        "question": "Mi az Unisoc flash és az UFS memória?",
+        "answer": "Az Unisoc (Spreadtrum) eszközök Research Download / SPD eszközzel flashelhetők PAC firmware-rel. Az UFS gyorsabb tárhely — pontos firmware variánst igényel. Útmutatók FRP és hardbrick helyreállítással az Unisoc & UFS szekcióban."
+      }
+    ]
+  },
+  "mainSections": [
+    { "id": "flashovanie", "name": "Eszköz flashelése", "description": "Fastboot, Motorola, Odin, SP Flash, Unisoc/UFS" },
+    { "id": "diagnostika", "name": "Probléma diagnosztika", "description": "Bootloop, brick, EDL, USB illesztőprogramok" },
+    { "id": "nastroje", "name": "Eszközök és firmware", "description": "Hivatalos flash eszközök és ROM katalógusok" },
+    { "id": "zdielanie", "name": "Biztonságos megosztás", "description": "Jelszóval védett ZIP és platformok" }
+  ],
+  "cards": {
+    "overview": "Áttekintés",
+    "steps": "Lépésről lépésre eljárás",
+    "tips": "Tippek és megjegyzések",
+    "warning": "Figyelmeztetés",
+    "fileLinks": "Fájl linkek",
+    "expand": "Szekció kibontása",
+    "collapse": "Szekció összecsukása",
+    "active": "Aktív",
+    "subsectionsMeta": "{count} alszekció • fájl linkek"
+  },
+  "footer": {
+    "copyright": "© {year} Flash Diagnostics Hub — v2.2 • Open Source",
+    "tagline": "Legális és biztonságos eljárások • Csak hivatalos források",
+    "scrollTop": "Fel",
+    "scrollTopAria": "Görgetés az oldal tetejére"
+  },
+  "visitorCounter": {
+    "title": "Oldallátogatás számláló",
+    "visits": "látogatás"
+  },
+  "chat": {
+    "button": "Chat",
+    "title": "FD Hub asszisztens",
+    "ariaLabel": "FD Hub chatbot",
+    "welcome": "Szia! FD Hub asszisztens vagyok. Segítek a flashelésben, diagnosztikában és eszközökben. Mire van szükséged?",
+    "placeholder": "Írj egy kérdést…",
+    "send": "Küldés",
+    "quickQuestions": "Gyors kérdések",
+    "goToSection": "Ugrás a szekcióhoz",
+    "greeting": "Szia! Flash Diagnostics Hub asszisztens vagyok. Segítek a flashelésben, diagnosztikában, eszközökben vagy biztonságos firmware megosztásban. Válassz kérdést alul vagy írd meg, mire van szükséged.",
+    "fallback": "Erre nincs pontos válaszom. Próbáld átfogalmazni (pl. Motorola, Odin, bootloop, Unisoc) vagy nézd meg a Flashelés, Diagnosztika és GYIK szekciókat az oldalon.",
+    "faqSection": "GYIK szekció",
+    "goToFaq": "Ugrás a GYIK-hoz",
+    "subtitle": "Flashelés és diagnosztika",
+    "close": "Bezárás",
+    "closeChat": "Chat bezárása",
+    "openChat": "Chatbot megnyitása",
+    "closeChatbot": "Chatbot bezárása",
+    "messageAria": "Üzenet a chatbotnak",
+    "sendAria": "Üzenet küldése"
+  },
+  "contribute": {
+    "text": "A projekt nyílt forráskódú. Hozzájárulhatsz a",
+    "github": "GitHubon"
+  },
+  "jsonLd": {
+    "itemListName": "Flash Diagnostics Hub fő szekciói"
+  }
+}

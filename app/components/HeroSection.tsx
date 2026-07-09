@@ -1,6 +1,7 @@
 "use client";
 
 import { ArrowRight } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { brandMap, mobileBrands } from "../data/brands";
 import BrandLogo from "./BrandLogo";
 import BrandMarquee from "./BrandMarquee";
@@ -17,6 +18,8 @@ const quickLinks = [
 ];
 
 export default function HeroSection() {
+  const t = useTranslations("hero");
+
   return (
     <section className="relative pt-12 sm:pt-16 pb-6 sm:pb-8 text-center overflow-hidden min-h-0 sm:min-h-[85vh] lg:min-h-[92vh] flex flex-col justify-center">
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none perf-hide-lite">
@@ -37,7 +40,7 @@ export default function HeroSection() {
             <span className="px-2.5 py-1 rounded-lg bg-emerald-500 text-zinc-950 font-bold text-xs tracking-wide">
               v2.2
             </span>
-            Open Source • Zadarmo • Profesionálne
+            {t("badge")}
           </div>
         </ScrollReveal>
 
@@ -52,8 +55,7 @@ export default function HeroSection() {
 
         <ScrollReveal direction="up" delay={0.2} distance={36} immediate>
           <p className="max-w-3xl mx-auto text-lg md:text-xl text-zinc-300 leading-relaxed px-4">
-            Kompletné centrum pre flashovanie a diagnostiku Android zariadení — Motorola, Samsung Odin,
-            Fastboot, SP Flash, Unisoc/UFS, Qualcomm EDL, bootloop, hardbrick a bezpečné zdieľanie firmvéru.
+            {t("subtitle")}
           </p>
         </ScrollReveal>
 
@@ -64,7 +66,7 @@ export default function HeroSection() {
               className="group px-8 py-4 bg-emerald-400 text-zinc-950 font-bold rounded-2xl shadow-2xl shadow-emerald-500/40 active:opacity-90 touch-manipulation"
             >
               <span className="flex items-center gap-2">
-                Začať s bezpečným zdieľaním
+                {t("ctaShare")}
                 <ArrowRight size={20} />
               </span>
             </FastAnchorLink>
@@ -72,7 +74,7 @@ export default function HeroSection() {
               href="#flashovanie"
               className="px-8 py-4 border-2 border-emerald-400/60 rounded-2xl font-semibold text-emerald-300 active:bg-emerald-500/15 touch-manipulation"
             >
-              Prehliadnuť postupy
+              {t("ctaBrowse")}
             </FastAnchorLink>
           </div>
         </ScrollReveal>
@@ -102,7 +104,7 @@ export default function HeroSection() {
 
         <ScrollReveal direction="up" delay={0.5} immediate>
           <p className="text-sm uppercase tracking-[0.25em] text-emerald-400 mt-14 mb-4 font-bold">
-            ⬇ Podporované značky
+            {t("brandsLabel")}
           </p>
           <BrandMarquee />
         </ScrollReveal>

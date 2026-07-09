@@ -1,0 +1,155 @@
+{
+  "meta": {
+    "title": "Flash Diagnostics Hub | Android Flashing, Firmware Diagnostics & Guides",
+    "description": "Complete guide to flashing mobile devices — Motorola, Samsung Odin, Fastboot, SP Flash, Unisoc/UFS, Qualcomm EDL, bootloop, hardbrick, FRP and secure firmware sharing. Official tools, step-by-step procedures and download links.",
+    "tagline": "Flashing, firmware diagnostics and secure file sharing for Android devices.",
+    "ogImageAlt": "Flash Diagnostics Hub — Motorola, Samsung, Xiaomi, Unisoc flashing, diagnostics and secure sharing",
+    "about": "Android mobile device flashing and diagnostics"
+  },
+  "nav": {
+    "flashovanie": "Flashing",
+    "motorola": "Motorola",
+    "odin": "Odin",
+    "diagnostika": "Diagnostics",
+    "nastroje": "Tools",
+    "zdielanie": "Sharing",
+    "faq": "FAQ",
+    "github": "GitHub",
+    "menu": "Menu",
+    "language": "Language"
+  },
+  "hero": {
+    "badge": "Open Source • Free • Professional",
+    "subtitle": "Complete hub for Android device flashing and diagnostics — Motorola, Samsung Odin, Fastboot, SP Flash, Unisoc/UFS, Qualcomm EDL, bootloop, hardbrick and secure firmware sharing.",
+    "ctaShare": "Start with secure sharing",
+    "ctaBrowse": "Browse procedures",
+    "brandsLabel": "⬇ Supported brands",
+    "scrollHint": "Scroll for guides"
+  },
+  "toolsShowcase": {
+    "title": "🛠 Tools & brands",
+    "description": "Click a logo to jump directly to the guide or download section.",
+    "flashTool": "Flash tool",
+    "openGuide": "Open guide →"
+  },
+  "sections": {
+    "flashovanie": {
+      "title": "Device flashing",
+      "description": "Choose a brand or flashing method — Motorola, Samsung, MediaTek, Unisoc/UFS and more. Each category includes procedures, tips and tool links."
+    },
+    "diagnostika": {
+      "title": "Problem diagnostics",
+      "description": "Diagnose bootloop, brick, EDL mode and USB issues. Dedicated section for Motorola-specific errors including radio, IMEI and bootloader warnings."
+    },
+    "nastroje": {
+      "title": "Tools & firmware",
+      "description": "Official flash tools (RSA, LMSA, Odin, Mi Flash, SP Flash), USB drivers and firmware catalogs for Motorola, Samsung, Xiaomi and Google Pixel."
+    },
+    "zdielanie": {
+      "title": "Secure sharing",
+      "description": "Interactive tool to create password-protected ZIP archives (AES-256) and securely share firmware and sensitive files."
+    },
+    "safetyWarning": {
+      "title": "Safety notice",
+      "text": "Always use only official or verified tools and firmware for the exact device model. Back up important data before any intervention. Incorrect flashing can permanently damage the device."
+    }
+  },
+  "sharing": {
+    "passwordLabel": "Enter password for ZIP archive",
+    "passwordPlaceholder": "e.g. MyStrongPassword2026!",
+    "generate": "Generate secure instructions",
+    "step1Title": "1. Create password-protected ZIP (7-Zip)",
+    "step1Content": "Right-click folder → 7-Zip → Add to archive\nArchive format: zip\nEncryption method: AES-256\nPassword: {password}",
+    "copyInstruction": "Right-click → 7-Zip → Add to archive → AES-256 + password: {password}",
+    "copy": "Copy instruction",
+    "copied": "Copied!",
+    "step2Title": "2. Recommended sharing methods",
+    "step2Items": [
+      "SwissTransfer.com or WeTransfer (with password in a separate message)",
+      "Private GitHub repo + password via Signal/Threema",
+      "Proton Drive / Mega.nz with end-to-end encryption"
+    ],
+    "securityTip": "Security tip: Never send the password through the same channel as the file."
+  },
+  "faq": {
+    "title": "Frequently asked questions",
+    "description": "Answers to the most common questions about flashing, firmware diagnostics and secure file sharing for Android devices.",
+    "items": [
+      {
+        "question": "How to flash a Motorola phone?",
+        "answer": "Unlock the bootloader via the official Motorola website, download RETAIL firmware for the exact XT-xxxx model and flash via fastboot or Motorola Rescue and Smart Assistant (RSA/LMSA). Step-by-step procedure is in the Motorola section."
+      },
+      {
+        "question": "What is Samsung Odin and how to use it?",
+        "answer": "Odin is a tool for flashing Samsung Galaxy in Download mode. Load AP, BL, CP and CSC files from the firmware package, connect the phone and start flashing. Detailed guide is in the Odin (Samsung) section."
+      },
+      {
+        "question": "How to fix bootloop or brick?",
+        "answer": "First identify the device mode (fastboot, Download, EDL, MTK). Then re-flash the last working stock ROM via the appropriate tool — Odin, fastboot, SP Flash or LMSA. The Diagnostics section contains procedures by severity."
+      },
+      {
+        "question": "How to securely share firmware files?",
+        "answer": "Pack files into a ZIP archive with AES-256 encryption (7-Zip), upload to SwissTransfer or Proton Drive and send the password through a different channel than the file link. Instruction generator is in the Secure sharing section."
+      },
+      {
+        "question": "What is Unisoc flash and UFS memory?",
+        "answer": "Unisoc (Spreadtrum) devices are flashed via Research Download / SPD tool with PAC firmware. UFS is faster storage — requires the exact firmware variant. Guides including FRP and hardbrick recovery are in the Unisoc & UFS section."
+      }
+    ]
+  },
+  "mainSections": [
+    { "id": "flashovanie", "name": "Device flashing", "description": "Fastboot, Motorola, Odin, SP Flash, Unisoc/UFS" },
+    { "id": "diagnostika", "name": "Problem diagnostics", "description": "Bootloop, brick, EDL, USB drivers" },
+    { "id": "nastroje", "name": "Tools & firmware", "description": "Official flash tools and ROM catalogs" },
+    { "id": "zdielanie", "name": "Secure sharing", "description": "Password-protected ZIP and platforms" }
+  ],
+  "cards": {
+    "overview": "Overview",
+    "steps": "Step-by-step procedure",
+    "tips": "Tips & notes",
+    "warning": "Warning",
+    "fileLinks": "File links",
+    "expand": "Expand section",
+    "collapse": "Collapse section",
+    "active": "Active",
+    "subsectionsMeta": "{count} subsections • file links"
+  },
+  "footer": {
+    "copyright": "© {year} Flash Diagnostics Hub — v2.2 • Open Source",
+    "tagline": "Legal and safe procedures • Official sources only",
+    "scrollTop": "Top",
+    "scrollTopAria": "Scroll to top"
+  },
+  "visitorCounter": {
+    "title": "Page visit counter",
+    "visits": "visits"
+  },
+  "chat": {
+    "button": "Chat",
+    "title": "FD Hub assistant",
+    "ariaLabel": "FD Hub chatbot",
+    "welcome": "Hi! I'm the FD Hub assistant. I can help with flashing, diagnostics and tools. What do you need?",
+    "placeholder": "Type a question…",
+    "send": "Send",
+    "quickQuestions": "Quick questions",
+    "goToSection": "Go to section",
+    "greeting": "Hi! I'm the Flash Diagnostics Hub assistant. I can help with flashing, diagnostics, tools or secure firmware sharing. Pick a question below or type what you need.",
+    "fallback": "I don't have a precise answer for that. Try rephrasing (e.g. Motorola, Odin, bootloop, Unisoc) or check the Flashing, Diagnostics and FAQ sections on the page.",
+    "faqSection": "FAQ section",
+    "goToFaq": "Go to FAQ",
+    "subtitle": "Flashing & diagnostics",
+    "close": "Close",
+    "closeChat": "Close chat",
+    "openChat": "Open chatbot",
+    "closeChatbot": "Close chatbot",
+    "messageAria": "Message for chatbot",
+    "sendAria": "Send message"
+  },
+  "contribute": {
+    "text": "This project is open-source. Contribute on",
+    "github": "GitHub"
+  },
+  "jsonLd": {
+    "itemListName": "Main sections of Flash Diagnostics Hub"
+  }
+}

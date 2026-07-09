@@ -1,6 +1,11 @@
-import { faqItems } from "../data/seo";
+"use client";
+
+import { useTranslations } from "next-intl";
 
 export default function SeoFaq() {
+  const t = useTranslations("faq");
+  const items = t.raw("items") as { question: string; answer: string }[];
+
   return (
     <section
       id="faq"
@@ -8,15 +13,14 @@ export default function SeoFaq() {
       aria-labelledby="faq-heading"
     >
       <h2 id="faq-heading" className="section-title mb-3">
-        Často kladené otázky
+        {t("title")}
       </h2>
       <p className="text-zinc-400 text-sm sm:text-base leading-relaxed mb-8 max-w-3xl">
-        Odpovede na najčastejšie otázky o flashovaní, diagnostike firmvéru a bezpečnom zdieľaní
-        súborov pre Android zariadenia.
+        {t("description")}
       </p>
 
       <div className="space-y-3">
-        {faqItems.map((item) => (
+        {items.map((item) => (
           <details
             key={item.question}
             className="group rounded-2xl border border-zinc-800 bg-zinc-950/40 px-4 sm:px-5 py-4 open:border-emerald-500/30 open:bg-zinc-900/30"

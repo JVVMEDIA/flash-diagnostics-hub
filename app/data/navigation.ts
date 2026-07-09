@@ -1,13 +1,9 @@
-import {
-  diagnostikaCategories,
-  flashovanieCategories,
-  nastrojeCategories,
-} from "./hub-content";
+import { skHubContent } from "./content/sk";
 
 const allCategories = [
-  ...flashovanieCategories,
-  ...diagnostikaCategories,
-  ...nastrojeCategories,
+  ...skHubContent.flashovanieCategories,
+  ...skHubContent.diagnostikaCategories,
+  ...skHubContent.nastrojeCategories,
 ];
 
 /** Mapuje ID sekcie/podsekcie na ID kategórie, ktorá sa musí otvoriť */

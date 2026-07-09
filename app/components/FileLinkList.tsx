@@ -1,4 +1,7 @@
+"use client";
+
 import { ExternalLink, FileDown } from "lucide-react";
+import { useTranslations } from "next-intl";
 import type { FileLink } from "../data/hub-content";
 
 type FileLinkListProps = {
@@ -6,11 +9,13 @@ type FileLinkListProps = {
 };
 
 export default function FileLinkList({ links }: FileLinkListProps) {
+  const t = useTranslations("cards");
+
   if (links.length === 0) return null;
 
   return (
     <div className="mt-4">
-      <p className="section-kicker">Odkazy na súbory</p>
+      <p className="section-kicker">{t("fileLinks")}</p>
       <ul className="space-y-2">
         {links.map((link) => (
           <li key={link.url + link.label}>

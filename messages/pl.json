@@ -1,0 +1,155 @@
+{
+  "meta": {
+    "title": "Flash Diagnostics Hub | Flashowanie Android, diagnostyka firmware i poradniki",
+    "description": "Kompletny przewodnik po flashowaniu urządzeń mobilnych — Motorola, Samsung Odin, Fastboot, SP Flash, Unisoc/UFS, EDL Qualcomm, bootloop, hardbrick, FRP i bezpieczne udostępnianie firmware.",
+    "tagline": "Flashowanie, diagnostyka firmware i bezpieczne udostępnianie plików dla urządzeń Android.",
+    "ogImageAlt": "Flash Diagnostics Hub — flashowanie Motorola, Samsung, Xiaomi, Unisoc, diagnostyka i bezpieczne udostępnianie",
+    "about": "Flashowanie i diagnostyka urządzeń mobilnych Android"
+  },
+  "nav": {
+    "flashovanie": "Flashowanie",
+    "motorola": "Motorola",
+    "odin": "Odin",
+    "diagnostika": "Diagnostyka",
+    "nastroje": "Narzędzia",
+    "zdielanie": "Udostępnianie",
+    "faq": "FAQ",
+    "github": "GitHub",
+    "menu": "Menu",
+    "language": "Język"
+  },
+  "hero": {
+    "badge": "Open Source • Za darmo • Profesjonalnie",
+    "subtitle": "Kompletne centrum flashowania i diagnostyki urządzeń Android — Motorola, Samsung Odin, Fastboot, SP Flash, Unisoc/UFS, Qualcomm EDL, bootloop, hardbrick i bezpieczne udostępnianie firmware.",
+    "ctaShare": "Zacznij od bezpiecznego udostępniania",
+    "ctaBrowse": "Przeglądaj procedury",
+    "brandsLabel": "⬇ Obsługiwane marki",
+    "scrollHint": "Przewiń po poradniki"
+  },
+  "toolsShowcase": {
+    "title": "🛠 Narzędzia i marki",
+    "description": "Kliknij logo, aby przejść bezpośrednio do poradnika lub sekcji z linkami do pobrania.",
+    "flashTool": "Narzędzie flash",
+    "openGuide": "Otwórz poradnik →"
+  },
+  "sections": {
+    "flashovanie": {
+      "title": "Flashowanie urządzeń",
+      "description": "Wybierz markę lub metodę flashowania — Motorola, Samsung, MediaTek, Unisoc/UFS i inne. Każda kategoria zawiera procedurę, wskazówki i linki do narzędzi."
+    },
+    "diagnostika": {
+      "title": "Diagnostyka problemów",
+      "description": "Diagnostyka bootloop, brick, trybu EDL i problemów USB. Osobna sekcja dla błędów specyficznych dla Motorola, w tym radio, IMEI i ostrzeżenia bootloadera."
+    },
+    "nastroje": {
+      "title": "Narzędzia i firmware",
+      "description": "Oficjalne narzędzia flash (RSA, LMSA, Odin, Mi Flash, SP Flash), sterowniki USB i katalogi firmware dla Motorola, Samsung, Xiaomi i Google Pixel."
+    },
+    "zdielanie": {
+      "title": "Bezpieczne udostępnianie",
+      "description": "Interaktywne narzędzie do tworzenia archiwów ZIP chronionych hasłem (AES-256) i bezpiecznego udostępniania firmware i wrażliwych plików."
+    },
+    "safetyWarning": {
+      "title": "Ostrzeżenie bezpieczeństwa",
+      "text": "Zawsze używaj tylko oficjalnych lub zweryfikowanych narzędzi i firmware dla dokładnego modelu urządzenia. Utwórz kopię zapasową ważnych danych przed jakąkolwiek interwencją. Nieprawidłowe flashowanie może trwale uszkodzić urządzenie."
+    }
+  },
+  "sharing": {
+    "passwordLabel": "Wprowadź hasło do archiwum ZIP",
+    "passwordPlaceholder": "np. MojeSilneHaslo2026!",
+    "generate": "Wygeneruj bezpieczne instrukcje",
+    "step1Title": "1. Utwórz ZIP chroniony hasłem (7-Zip)",
+    "step1Content": "Prawy przycisk na folderze → 7-Zip → Add to archive\nArchive format: zip\nEncryption method: AES-256\nPassword: {password}",
+    "copyInstruction": "Prawy przycisk → 7-Zip → Add to archive → AES-256 + hasło: {password}",
+    "copy": "Kopiuj instrukcję",
+    "copied": "Skopiowano!",
+    "step2Title": "2. Zalecane sposoby udostępniania",
+    "step2Items": [
+      "SwissTransfer.com lub WeTransfer (z hasłem w osobnej wiadomości)",
+      "Prywatne repo GitHub + hasło przez Signal/Threema",
+      "Proton Drive / Mega.nz z szyfrowaniem end-to-end"
+    ],
+    "securityTip": "Wskazówka bezpieczeństwa: Nigdy nie wysyłaj hasła tym samym kanałem co plik."
+  },
+  "faq": {
+    "title": "Często zadawane pytania",
+    "description": "Odpowiedzi na najczęstsze pytania o flashowanie, diagnostykę firmware i bezpieczne udostępnianie plików dla urządzeń Android.",
+    "items": [
+      {
+        "question": "Jak flashować telefon Motorola?",
+        "answer": "Odblokuj bootloader przez oficjalną stronę Motorola, pobierz firmware RETAIL dla dokładnego modelu XT-xxxx i flashuj przez fastboot lub Motorola Rescue and Smart Assistant (RSA/LMSA). Procedura krok po kroku jest w sekcji Motorola."
+      },
+      {
+        "question": "Czym jest Samsung Odin i jak go używać?",
+        "answer": "Odin to narzędzie do flashowania Samsung Galaxy w trybie Download. Załaduj pliki AP, BL, CP i CSC z pakietu firmware, podłącz telefon i uruchom flash. Szczegółowy poradnik jest w sekcji Odin (Samsung)."
+      },
+      {
+        "question": "Jak naprawić bootloop lub brick?",
+        "answer": "Najpierw zidentyfikuj tryb urządzenia (fastboot, Download, EDL, MTK). Następnie ponownie flashuj ostatni działający stock ROM przez odpowiednie narzędzie — Odin, fastboot, SP Flash lub LMSA. Sekcja Diagnostyka zawiera procedury według stopnia powagi."
+      },
+      {
+        "question": "Jak bezpiecznie udostępniać pliki firmware?",
+        "answer": "Spakuj pliki do archiwum ZIP z szyfrowaniem AES-256 (7-Zip), prześlij na SwissTransfer lub Proton Drive i wyślij hasło innym kanałem niż link do pliku. Generator instrukcji jest w sekcji Bezpieczne udostępnianie."
+      },
+      {
+        "question": "Czym jest flash Unisoc i pamięć UFS?",
+        "answer": "Urządzenia Unisoc (Spreadtrum) są flashowane przez Research Download / narzędzie SPD z firmware PAC. UFS to szybsza pamięć — wymaga dokładnego wariantu firmware. Poradniki w tym FRP i odzyskiwanie z hardbrick są w sekcji Unisoc & UFS."
+      }
+    ]
+  },
+  "mainSections": [
+    { "id": "flashovanie", "name": "Flashowanie urządzeń", "description": "Fastboot, Motorola, Odin, SP Flash, Unisoc/UFS" },
+    { "id": "diagnostika", "name": "Diagnostyka problemów", "description": "Bootloop, brick, EDL, sterowniki USB" },
+    { "id": "nastroje", "name": "Narzędzia i firmware", "description": "Oficjalne narzędzia flash i katalogi ROM" },
+    { "id": "zdielanie", "name": "Bezpieczne udostępnianie", "description": "ZIP chroniony hasłem i platformy" }
+  ],
+  "cards": {
+    "overview": "Przegląd",
+    "steps": "Procedura krok po kroku",
+    "tips": "Wskazówki i uwagi",
+    "warning": "Ostrzeżenie",
+    "fileLinks": "Linki do plików",
+    "expand": "Rozwiń sekcję",
+    "collapse": "Zwiń sekcję",
+    "active": "Aktywna",
+    "subsectionsMeta": "{count} podsekcje • linki do plików"
+  },
+  "footer": {
+    "copyright": "© {year} Flash Diagnostics Hub — v2.2 • Open Source",
+    "tagline": "Legalne i bezpieczne procedury • Tylko oficjalne źródła",
+    "scrollTop": "Góra",
+    "scrollTopAria": "Przewiń stronę do góry"
+  },
+  "visitorCounter": {
+    "title": "Licznik odwiedzin strony",
+    "visits": "odwiedzin"
+  },
+  "chat": {
+    "button": "Chat",
+    "title": "Asystent FD Hub",
+    "ariaLabel": "Chatbot FD Hub",
+    "welcome": "Cześć! Jestem asystentem FD Hub. Pomogę z flashowaniem, diagnostyką i narzędziami. Czego potrzebujesz?",
+    "placeholder": "Napisz pytanie…",
+    "send": "Wyślij",
+    "quickQuestions": "Szybkie pytania",
+    "goToSection": "Przejdź do sekcji",
+    "greeting": "Cześć! Jestem asystentem Flash Diagnostics Hub. Pomogę z flashowaniem, diagnostyką, narzędziami lub bezpiecznym udostępnianiem firmware. Wybierz pytanie poniżej lub napisz, czego potrzebujesz.",
+    "fallback": "Nie mam dokładnej odpowiedzi na to pytanie. Spróbuj przeformułować (np. Motorola, Odin, bootloop, Unisoc) lub sprawdź sekcje Flashowanie, Diagnostyka i FAQ na stronie.",
+    "faqSection": "Sekcja FAQ",
+    "goToFaq": "Przejdź do FAQ",
+    "subtitle": "Flashowanie i diagnostyka",
+    "close": "Zamknij",
+    "closeChat": "Zamknij czat",
+    "openChat": "Otwórz chatbota",
+    "closeChatbot": "Zamknij chatbota",
+    "messageAria": "Wiadomość dla chatbota",
+    "sendAria": "Wyślij wiadomość"
+  },
+  "contribute": {
+    "text": "Projekt jest open-source. Możesz wnieść wkład na",
+    "github": "GitHubie"
+  },
+  "jsonLd": {
+    "itemListName": "Główne sekcje Flash Diagnostics Hub"
+  }
+}

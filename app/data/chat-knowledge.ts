@@ -1,9 +1,5 @@
-import {
-  diagnostikaCategories,
-  flashovanieCategories,
-  nastrojeCategories,
-} from "./hub-content";
-import { faqItems, mainSections } from "./seo";
+import { getHubContent } from "./hub-content";
+import type { Locale } from "../../i18n/routing";
 
 export type ChatKnowledgeEntry = {
   id: string;
@@ -11,6 +7,15 @@ export type ChatKnowledgeEntry = {
   answer: string;
   link?: string;
   linkLabel?: string;
+};
+
+type ChatMessages = {
+  greeting: string;
+  fallback: string;
+  faqSection: string;
+  goToFaq: string;
+  faq: { question: string; answer: string }[];
+  mainSections: { id: string; name: string; description: string }[];
 };
 
 function normalize(text: string): string {
@@ -27,47 +32,51 @@ function tokenize(text: string): string[] {
     .filter((w) => w.length > 2);
 }
 
-const greetingPatterns = ["ahoj", "cau", "dobry den", "hello", "hi", "help", "pomoc", "zaciatok"];
-
-export const chatQuickQuestions = faqItems.map((item) => item.question);
-
-export const chatKnowledge: ChatKnowledgeEntry[] = [
-  ...faqItems.map((item, index) => ({
-    id: `faq-${index}`,
-    keywords: tokenize(`${item.question} ${item.answer}`),
-    answer: item.answer,
-    link: "#faq",
-    linkLabel: "FAQ sekcia",
-  })),
-  ...mainSections.map((section) => ({
-    id: `section-${section.id}`,
-    keywords: tokenize(`${section.name} ${section.description}`),
-    answer: `${section.description}. Detailné návody nájdeš v sekcii ${section.name}.`,
-    link: `#${section.id}`,
-    linkLabel: section.name,
-  })),
-  ...[...flashovanieCategories, ...diagnostikaCategories, ...nastrojeCategories].map((cat) => ({
-    id: `cat-${cat.id}`,
-    keywords: tokenize(`${cat.title} ${cat.description} ${(cat.overview ?? []).join(" ")}`),
-    answer: cat.description,
-    link: `#${cat.id}`,
-    linkLabel: cat.title,
-  })),
-  {
-    id: "greeting",
-    keywords: greetingPatterns,
-    answer:
-      "Ahoj! Som asistent Flash Diagnostics Hub. Pomôžem ti s flashovaním, diagnostikou, nástrojmi alebo bezpečným zdieľaním firmvéru. Vyber otázku nižšie alebo napíš, čo potrebuješ.",
-  },
-  {
-    id: "fallback",
-    keywords: [],
-    answer:
-      "Na túto otázku nemám presnú odpoveď. Skús preformulovať (napr. Motorola, Odin, bootloop, Unisoc) alebo pozri sekcie Flashovanie, Diagnostika a FAQ na stránke.",
-    link: "#faq",
-    linkLabel: "Prejsť na FAQ",
-  },
+const greetingPatterns = [
+  "ahoj", "cau", "dobry den", "hello", "hi", "help", "pomoc", "zaciatok",
+  "szia", "hej", "cześć", "czesc", "hallo", "guten tag", "witaj",
 ];
+
+export function buildChatKnowledge(locale: Locale, messages: ChatMessages): ChatKnowledgeEntry[] {
+  const content = getHubContent(locale);
+  const { flashovanieCategories, diagnostikaCategories, nastrojeCategories } = content;
+
+  return [
+    ...messages.faq.map((item, index) => ({
+      id: `faq-${index}`,
+      keywords: tokenize(`${item.question} ${item.answer}`),
+      answer: item.answer,
+      link: "#faq",
+      linkLabel: messages.faqSection,
+    })),
+    ...messages.mainSections.map((section) => ({
+      id: `section-${section.id}`,
+      keywords: tokenize(`${section.name} ${section.description}`),
+      answer: `${section.description}.`,
+      link: `#${section.id}`,
+      linkLabel: section.name,
+    })),
+    ...[...flashovanieCategories, ...diagnostikaCategories, ...nastrojeCategories].map((cat) => ({
+      id: `cat-${cat.id}`,
+      keywords: tokenize(`${cat.title} ${cat.description} ${(cat.overview ?? []).join(" ")}`),
+      answer: cat.description,
+      link: `#${cat.id}`,
+      linkLabel: cat.title,
+    })),
+    {
+      id: "greeting",
+      keywords: greetingPatterns,
+      answer: messages.greeting,
+    },
+    {
+      id: "fallback",
+      keywords: [],
+      answer: messages.fallback,
+      link: "#faq",
+      linkLabel: messages.goToFaq,
+    },
+  ];
+}
 
 export function scoreKnowledgeEntry(entry: ChatKnowledgeEntry, queryTokens: string[]): number {
   if (queryTokens.length === 0) return 0;
@@ -87,19 +96,22 @@ export function scoreKnowledgeEntry(entry: ChatKnowledgeEntry, queryTokens: stri
   return score;
 }
 
-export function findChatAnswer(query: string): ChatKnowledgeEntry {
+export function findChatAnswer(
+  query: string,
+  knowledge: ChatKnowledgeEntry[]
+): ChatKnowledgeEntry {
   const tokens = tokenize(query);
-  if (tokens.length === 0) return chatKnowledge.find((e) => e.id === "fallback")!;
+  if (tokens.length === 0) return knowledge.find((e) => e.id === "fallback")!;
 
   const greetingOnly =
     tokens.length <= 2 &&
     tokens.every((t) => greetingPatterns.some((g) => g.includes(t) || t.includes(g)));
-  if (greetingOnly) return chatKnowledge.find((e) => e.id === "greeting")!;
+  if (greetingOnly) return knowledge.find((e) => e.id === "greeting")!;
 
   let best: ChatKnowledgeEntry | null = null;
   let bestScore = 0;
 
-  for (const entry of chatKnowledge) {
+  for (const entry of knowledge) {
     if (entry.id === "fallback" || entry.id === "greeting") continue;
     const score = scoreKnowledgeEntry(entry, tokens);
     if (score > bestScore) {
@@ -108,6 +120,5 @@ export function findChatAnswer(query: string): ChatKnowledgeEntry {
     }
   }
 
-  if (!best || bestScore < 3) return chatKnowledge.find((e) => e.id === "fallback")!;
-  return best;
+  return bestScore > 0 ? best! : knowledge.find((e) => e.id === "fallback")!;
 }

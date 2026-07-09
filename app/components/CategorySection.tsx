@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { ChevronDown } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { brandMap } from "../data/brands";
 import SubsectionCard from "./SubsectionCard";
 import BrandLogo from "./BrandLogo";
@@ -43,10 +44,10 @@ function CategoryLogos({
   );
 }
 
-function CategoryOverview({ items }: { items: string[] }) {
+function CategoryOverview({ items, label }: { items: string[]; label: string }) {
   return (
     <div className="rounded-2xl border border-zinc-800 bg-zinc-900/40 px-4 sm:px-5 py-4 w-full">
-      <p className="section-kicker">Prehľad</p>
+      <p className="section-kicker">{label}</p>
       <ul className="space-y-3">
         {items.map((item, i) => (
           <li key={i} className="category-overview-item">
@@ -65,6 +66,7 @@ export default function CategorySection({
   index = 0,
 }: CategorySectionProps) {
   const [isOpen, setIsOpen] = useState(defaultOpen);
+  const t = useTranslations("cards");
   const primaryBrand = category.brandId ? brandMap[category.brandId] : undefined;
   const accentColor = primaryBrand?.color ?? "#10b981";
 
@@ -83,7 +85,7 @@ export default function CategorySection({
       style={{ borderColor: accentColor }}
     >
       {category.overview && category.overview.length > 0 && (
-        <CategoryOverview items={category.overview} />
+        <CategoryOverview items={category.overview} label={t("overview")} />
       )}
       {category.subsections.map((subsection, subIndex) => (
         <SubsectionCard
@@ -135,7 +137,7 @@ export default function CategorySection({
                 <span className="category-card-title">{category.title}</span>
                 {isOpen && (
                   <span className="text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 shrink-0">
-                    Aktívne
+                    {t("active")}
                   </span>
                 )}
               </div>
@@ -150,7 +152,7 @@ export default function CategorySection({
             <p className="category-card-text">{category.description}</p>
 
             <p className="category-card-meta">
-              {category.subsections.length} podsekcie • odkazy na súbory
+              {t("subsectionsMeta", { count: category.subsections.length })}
             </p>
           </div>
 
@@ -162,13 +164,13 @@ export default function CategorySection({
                 <span className="font-semibold text-xl text-zinc-100">{category.title}</span>
                 {isOpen && (
                   <span className="text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
-                    Aktívne
+                    {t("active")}
                   </span>
                 )}
               </div>
               <p className="text-zinc-400 text-sm leading-relaxed">{category.description}</p>
               <p className="text-xs text-zinc-400 mt-3">
-                {category.subsections.length} podsekcie • odkazy na súbory
+                {t("subsectionsMeta", { count: category.subsections.length })}
               </p>
             </div>
 

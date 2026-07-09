@@ -1,8 +1,13 @@
+"use client";
+
+import { useTranslations } from "next-intl";
 import { flashTools } from "../data/brands";
 import BrandLogo from "./BrandLogo";
 import FastAnchorLink from "./FastAnchorLink";
 
 export default function ToolsShowcase() {
+  const t = useTranslations("toolsShowcase");
+
   return (
     <section
       id="nastroje-znacky"
@@ -11,10 +16,10 @@ export default function ToolsShowcase() {
     >
       <div className="text-center mb-8 sm:mb-12">
         <h2 id="tools-showcase-heading" className="section-title text-emerald-300">
-          🛠 Nástroje a značky
+          {t("title")}
         </h2>
         <p className="text-zinc-300 max-w-2xl mx-auto mt-3 leading-relaxed text-sm sm:text-base px-2">
-          Klikni na logo a preskoč priamo na návod alebo sekciu s odkazmi na stiahnutie.
+          {t("description")}
         </p>
         <div className="mt-5 h-1 w-40 bg-gradient-to-r from-emerald-400 via-teal-400 to-transparent mx-auto rounded-full" />
       </div>
@@ -44,10 +49,10 @@ export default function ToolsShowcase() {
                 className="text-[10px] sm:text-[11px] uppercase tracking-wider mt-1 font-bold"
                 style={{ color: tool.color }}
               >
-                Flash nástroj
+                {t("flashTool")}
               </div>
             </div>
-            <span className="text-xs text-emerald-400 font-semibold">Otvoriť návod →</span>
+            <span className="text-xs text-emerald-400 font-semibold">{t("openGuide")}</span>
           </FastAnchorLink>
         ))}
       </div>
