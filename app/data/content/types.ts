@@ -1,8 +1,11 @@
+export type LinkTier = "official" | "community" | "mirror";
+
 export type FileLink = {
   label: string;
   url: string;
   fileType?: string;
   note?: string;
+  tier?: LinkTier;
 };
 
 export type Subsection = {

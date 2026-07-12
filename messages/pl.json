@@ -77,7 +77,12 @@
       "Prywatne repo GitHub + hasło przez Signal/Threema",
       "Proton Drive / Mega.nz z szyfrowaniem end-to-end"
     ],
-    "securityTip": "Wskazówka bezpieczeństwa: Nigdy nie wysyłaj hasła tym samym kanałem co plik."
+    "securityTip": "Wskazówka bezpieczeństwa: Nigdy nie wysyłaj hasła tym samym kanałem co plik.",
+    "complianceTitle": "Ważna informacja o treści",
+    "complianceBody": "Ten hub nie hostuje firmware ani narzędzi flash — udostępnia tylko linki do zewnętrznych źródeł i poradniki.",
+    "complianceHosting": "Żadne pliki binarne (ROM, PAC, scatter) nie są przechowywane na Vercel ani w repozytorium GitHub.",
+    "complianceMirrors": "Linki oznaczone jako „Nieoficjalne mirror” prowadzą do luster społeczności — zawsze preferuj oficjalne źródła producenta.",
+    "complianceResponsibility": "Flashuj i udostępniaj pliki tylko na własnym urządzeniu i zgodnie z warunkami licencji producenta."
   },
   "faq": {
     "title": "Często zadawane pytania",
@@ -117,6 +122,9 @@
     "tips": "Wskazówki i uwagi",
     "warning": "Ostrzeżenie",
     "fileLinks": "Linki do plików",
+    "linkOfficial": "Oficjalny",
+    "linkCommunity": "Społeczność",
+    "linkMirror": "Nieoficjalne mirror",
     "expand": "Rozwiń sekcję",
     "collapse": "Zwiń sekcję",
     "active": "Aktywna",

@@ -77,7 +77,12 @@
       "Soukromý GitHub repo + heslo přes Signal/Threema",
       "Proton Drive / Mega.nz s end-to-end šifrováním"
     ],
-    "securityTip": "Bezpečnostní tip: Heslo nikdy neposílej stejným kanálem jako soubor."
+    "securityTip": "Bezpečnostní tip: Heslo nikdy neposílej stejným kanálem jako soubor.",
+    "complianceTitle": "Důležité upozornění k obsahu",
+    "complianceBody": "Tento hub nehostuje firmware ani flash nástroje — poskytuje pouze odkazy na externí zdroje a návody.",
+    "complianceHosting": "Žádné binární soubory (ROM, PAC, scatter) nejsou uloženy na Vercel ani v GitHub repozitáři.",
+    "complianceMirrors": "Odkazy označené jako „Neoficiální mirror“ vedou na komunitní zrcadla — vždy upřednostni oficiální zdroje výrobce.",
+    "complianceResponsibility": "Flash a sdílení souborů prováděj pouze na vlastním zařízení a v souladu s licenčními podmínkami výrobce."
   },
   "faq": {
     "title": "Často kladené otázky",
@@ -117,6 +122,9 @@
     "tips": "Tipy a poznámky",
     "warning": "Upozornění",
     "fileLinks": "Odkazy na soubory",
+    "linkOfficial": "Oficiální",
+    "linkCommunity": "Komunita",
+    "linkMirror": "Neoficiální mirror",
     "expand": "Rozbalit sekci",
     "collapse": "Sbalit sekci",
     "active": "Aktivní",

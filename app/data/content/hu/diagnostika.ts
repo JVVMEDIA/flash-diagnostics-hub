@@ -34,10 +34,20 @@ export const diagnostikaCategories: Category[] = [
         ],
         links: [
           {
-            label: "XDA Bootloop tanácsadó",
-            url: "https://forum.xda-developers.com/",
-            fileType: "Guide",
+            label: "Android Recovery (hivatalos)",
+            url: "https://developer.android.com/studio/run/emulator#recovery",
+            fileType: "Guide"
           },
+          {
+            label: "ADB sideload (hivatalos)",
+            url: "https://developer.android.com/studio/command-line/adb#copyfiles",
+            fileType: "Guide"
+          },
+          {
+            label: "XDA Bootloop fórum",
+            url: "https://forum.xda-developers.com/",
+            fileType: "Guide"
+          }
         ],
       },
       {
@@ -58,15 +68,15 @@ export const diagnostikaCategories: Category[] = [
         ],
         links: [
           {
-            label: "ADB Backup útmutató",
+            label: "ADB Backup návod",
             url: "https://developer.android.com/tools/adb#backup",
-            fileType: "Guide",
+            fileType: "Guide"
           },
           {
-            label: "Motorola Rescue (bootloop fix)",
+            label: "Motorola Rescue and Smart Assistant",
             url: "https://en-us.support.motorola.com/app/answers/detail/a_id/150888",
-            fileType: "EXE",
-          },
+            fileType: "EXE"
+          }
         ],
       },
       {
@@ -89,15 +99,21 @@ export const diagnostikaCategories: Category[] = [
         warning: "Más régióból származó radio újraflash-elése véglegesen károsíthatja a mobilhálózatot.",
         links: [
           {
-            label: "Moto G XDA tanácsadó",
+            label: "Motorola Rescue and Smart Assistant",
+            url: "https://en-us.support.motorola.com/app/answers/detail/a_id/150888",
+            fileType: "EXE"
+          },
+          {
+            label: "Moto G XDA fórum",
             url: "https://forum.xda-developers.com/f/moto-g.5208/",
-            fileType: "Guide",
+            fileType: "Guide"
           },
           {
             label: "Lolinet Motorola firmware",
             url: "https://mirrors.lolinet.com/firmware/lenomola/",
             fileType: "ZIP",
-          },
+            note: "Nem hivatalos mirror"
+          }
         ],
       },
     ],
@@ -132,13 +148,13 @@ export const diagnostikaCategories: Category[] = [
           {
             label: "Qualcomm QDLoader driver",
             url: "https://qcomdriver.com/",
-            fileType: "ZIP",
+            fileType: "ZIP"
           },
           {
             label: "QPST Flash Tool",
             url: "https://qpsttool.com/",
-            fileType: "ZIP",
-          },
+            fileType: "ZIP"
+          }
         ],
       },
       {
@@ -155,10 +171,20 @@ export const diagnostikaCategories: Category[] = [
         warning: "Helytelen firehose más modellhez = kritikus NAND-kár.",
         links: [
           {
-            label: "Mi Flash Tool (Xiaomi EDL)",
+            label: "Mi Flash Tool",
             url: "https://xiaomiflashtool.com/latest/",
-            fileType: "ZIP",
+            fileType: "ZIP"
           },
+          {
+            label: "QPST Flash Tool",
+            url: "https://qpsttool.com/",
+            fileType: "ZIP"
+          },
+          {
+            label: "XDA Qualcomm EDL útmutató",
+            url: "https://forum.xda-developers.com/t/qualcomm-edl-mode-9008.3602067/",
+            fileType: "Guide"
+          }
         ],
       },
     ],
@@ -190,18 +216,18 @@ export const diagnostikaCategories: Category[] = [
           {
             label: "Universal ADB Driver",
             url: "https://adb.clockworkmod.com/",
-            fileType: "EXE",
+            fileType: "EXE"
           },
           {
-            label: "Motorola USB Driver",
+            label: "Motorola USB illesztőprogramok",
             url: "https://en-us.support.motorola.com/app/answers/detail/a_id/88481",
-            fileType: "EXE",
+            fileType: "EXE"
           },
           {
             label: "Zadig (re-driver)",
             url: "https://zadig.akeo.ie/",
-            fileType: "EXE",
-          },
+            fileType: "EXE"
+          }
         ],
       },
     ],

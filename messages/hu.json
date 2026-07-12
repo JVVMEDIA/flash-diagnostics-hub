@@ -77,7 +77,12 @@
       "Privát GitHub repo + jelszó Signal/Threema-n keresztül",
       "Proton Drive / Mega.nz végponttól végpontig titkosítással"
     ],
-    "securityTip": "Biztonsági tipp: Soha ne küldd a jelszót ugyanazon a csatornán, mint a fájlt."
+    "securityTip": "Biztonsági tipp: Soha ne küldd a jelszót ugyanazon a csatornán, mint a fájlt.",
+    "complianceTitle": "Fontos tartalmi figyelmeztetés",
+    "complianceBody": "Ez a hub nem tárol firmware-t vagy flash eszközöket — csak külső forrásokra és útmutatókra mutat.",
+    "complianceHosting": "Bináris fájlok (ROM, PAC, scatter) nincsenek tárolva a Vercelen vagy a GitHub tárolóban.",
+    "complianceMirrors": "A „Nem hivatalos mirror” jelölésű linkek közösségi tükrökre mutatnak — mindig részesítsd előnyben a hivatalos gyártói forrásokat.",
+    "complianceResponsibility": "Flashelj és ossz meg fájlokat csak saját eszközön, a gyártó licencfeltételeinek megfelelően."
   },
   "faq": {
     "title": "Gyakran ismételt kérdések",
@@ -117,6 +122,9 @@
     "tips": "Tippek és megjegyzések",
     "warning": "Figyelmeztetés",
     "fileLinks": "Fájl linkek",
+    "linkOfficial": "Hivatalos",
+    "linkCommunity": "Közösség",
+    "linkMirror": "Nem hivatalos mirror",
     "expand": "Szekció kibontása",
     "collapse": "Szekció összecsukása",
     "active": "Aktív",

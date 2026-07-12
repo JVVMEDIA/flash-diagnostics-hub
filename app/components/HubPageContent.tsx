@@ -5,6 +5,7 @@ import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { Check, Copy, Shield, Sparkles, Wrench } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import CategorySection from "./CategorySection";
+import ComplianceNotice from "./ComplianceNotice";
 import HeroSection from "./HeroSection";
 import SectionHeader from "./SectionHeader";
 import SeoFaq from "./SeoFaq";
@@ -140,6 +141,8 @@ export default function HubPageContent() {
               </ScrollReveal>
             ))}
           </div>
+
+          <ComplianceNotice />
 
           <ScrollReveal direction="up" replay>
             <motion.div

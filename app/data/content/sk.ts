@@ -205,10 +205,10 @@ export const flashovanieCategories: Category[] = [
           "Flash nesprávneho radio/modem.img pre iný variant (napr. EU vs US) môže zničiť sieťové pásma a GPS.",
         links: [
           {
-            label: "Lolinet Motorola Firmware",
-            url: "https://mirrors.lolinet.com/firmware/lenomola/",
-            fileType: "ZIP / XML",
-            note: "Overené RETAIL balíky podľa modelu XT",
+            label: "Motorola Rescue and Smart Assistant",
+            url: "https://en-us.support.motorola.com/app/answers/detail/a_id/150888",
+            fileType: "EXE",
+            note: "Oficiálny rescue nástroj — obnova bez manuálneho fastboot",
           },
           {
             label: "Android File Host (Motorola)",
@@ -216,10 +216,10 @@ export const flashovanieCategories: Category[] = [
             fileType: "ZIP",
           },
           {
-            label: "Motorola Rescue and Smart Assistant",
-            url: "https://en-us.support.motorola.com/app/answers/detail/a_id/150888",
-            fileType: "EXE",
-            note: "Oficiálny rescue nástroj — obnova bez manuálneho fastboot",
+            label: "Lolinet Motorola Firmware",
+            url: "https://mirrors.lolinet.com/firmware/lenomola/",
+            fileType: "ZIP / XML",
+            note: "Neoficiálny mirror — overené RETAIL balíky podľa modelu XT",
           },
         ],
       },
@@ -252,6 +252,11 @@ export const flashovanieCategories: Category[] = [
             label: "Lenovo Moto Smart Assistant (LMSA)",
             url: "https://support.lenovo.com/us/en/downloads/ds101291",
             fileType: "EXE",
+          },
+          {
+            label: "Motorola USB Drivers",
+            url: "https://en-us.support.motorola.com/app/answers/detail/a_id/88481",
+            fileType: "EXE / ZIP",
           },
         ],
       },
@@ -335,6 +340,11 @@ export const flashovanieCategories: Category[] = [
             url: "https://www.samsung.com/us/support/owners/app/smart-switch",
             fileType: "EXE / DMG",
           },
+          {
+            label: "Odin3 (XDA)",
+            url: "https://forum.xda-developers.com/t/odin-multi-download-android-rom-flash-tool.3393441/",
+            fileType: "ZIP",
+          },
         ],
       },
       {
@@ -363,10 +373,14 @@ export const flashovanieCategories: Category[] = [
           "Flash firmware z iného regiónu môže spôsobiť stratu Samsung Pay, dual SIM funkcií alebo LTE pásiem.",
         links: [
           {
-            label: "SamMobile Firmware",
-            url: "https://www.sammobile.com/samsung/firmware/",
-            fileType: "ZIP",
-            note: "Katalóg podľa SM modelu a CSC",
+            label: "Samsung USB Driver",
+            url: "https://developer.samsung.com/android-usb-driver",
+            fileType: "EXE",
+          },
+          {
+            label: "Samsung Smart Switch",
+            url: "https://www.samsung.com/us/support/owners/app/smart-switch",
+            fileType: "EXE / DMG",
           },
           {
             label: "Frija — Samsung firmware downloader",
@@ -377,6 +391,12 @@ export const flashovanieCategories: Category[] = [
             label: "Odin3 (XDA)",
             url: "https://forum.xda-developers.com/t/odin-multi-download-android-rom-flash-tool.3393441/",
             fileType: "ZIP",
+          },
+          {
+            label: "SamMobile Firmware",
+            url: "https://www.sammobile.com/samsung/firmware/",
+            fileType: "ZIP",
+            note: "Neoficiálny mirror — katalóg podľa SM modelu a CSC",
           },
         ],
       },
@@ -396,6 +416,16 @@ export const flashovanieCategories: Category[] = [
         ],
         warning: "Re-Partition bez správneho PIT = kritické riziko hard bricku.",
         links: [
+          {
+            label: "Samsung USB Driver",
+            url: "https://developer.samsung.com/android-usb-driver",
+            fileType: "EXE",
+          },
+          {
+            label: "Odin3 (XDA)",
+            url: "https://forum.xda-developers.com/t/odin-multi-download-android-rom-flash-tool.3393441/",
+            fileType: "ZIP",
+          },
           {
             label: "Samsung Odin PIT guide (XDA)",
             url: "https://forum.xda-developers.com/t/guide-odin-pit-file.2191465/",
@@ -438,6 +468,11 @@ export const flashovanieCategories: Category[] = [
         ],
         links: [
           {
+            label: "MediaTek (oficiálne)",
+            url: "https://www.mediatek.com/",
+            fileType: "Web",
+          },
+          {
             label: "SP Flash Tool",
             url: "https://spflashtool.com/download/",
             fileType: "ZIP",
@@ -471,14 +506,25 @@ export const flashovanieCategories: Category[] = [
           "Format All bez overeného firmware pre daný model = veľké riziko trvalého bricku.",
         links: [
           {
-            label: "Needrom MTK firmware",
-            url: "https://www.needrom.com/category/mtk/",
+            label: "MediaTek (oficiálne)",
+            url: "https://www.mediatek.com/",
+            fileType: "Web",
+          },
+          {
+            label: "SP Flash Tool",
+            url: "https://spflashtool.com/download/",
             fileType: "ZIP",
           },
           {
             label: "Android MTK návody",
             url: "https://androidmtk.com/",
             fileType: "Guide",
+          },
+          {
+            label: "Needrom MTK firmware",
+            url: "https://www.needrom.com/category/mtk/",
+            fileType: "ZIP",
+            note: "Neoficiálny mirror",
           },
         ],
       },
@@ -557,6 +603,11 @@ export const flashovanieCategories: Category[] = [
           "Nesprávny firehose alebo UFS programmer pre iný model môže úložisko nezvratne poškodiť.",
         links: [
           {
+            label: "Unisoc (oficiálne)",
+            url: "https://www.unisoc.com/",
+            fileType: "Web",
+          },
+          {
             label: "Android MTK — UFS návody",
             url: "https://androidmtk.com/",
             fileType: "Guide",
@@ -565,6 +616,7 @@ export const flashovanieCategories: Category[] = [
             label: "Needrom Unisoc firmware",
             url: "https://www.needrom.com/category/unisoc/",
             fileType: "PAC / ZIP",
+            note: "Neoficiálny mirror",
           },
         ],
       },
@@ -672,6 +724,16 @@ export const diagnostikaCategories: Category[] = [
         ],
         links: [
           {
+            label: "Android Recovery (oficiálne)",
+            url: "https://developer.android.com/studio/run/emulator#recovery",
+            fileType: "Guide",
+          },
+          {
+            label: "ADB sideload (oficiálne)",
+            url: "https://developer.android.com/studio/command-line/adb#copyfiles",
+            fileType: "Guide",
+          },
+          {
             label: "XDA Bootloop poradňa",
             url: "https://forum.xda-developers.com/",
             fileType: "Guide",
@@ -727,6 +789,11 @@ export const diagnostikaCategories: Category[] = [
         warning: "Re-flash radio z iného regiónu môže natrvalo poškodiť mobilnú sieť.",
         links: [
           {
+            label: "Motorola Rescue and Smart Assistant",
+            url: "https://en-us.support.motorola.com/app/answers/detail/a_id/150888",
+            fileType: "EXE",
+          },
+          {
             label: "Moto G XDA poradňa",
             url: "https://forum.xda-developers.com/f/moto-g.5208/",
             fileType: "Guide",
@@ -735,6 +802,7 @@ export const diagnostikaCategories: Category[] = [
             label: "Lolinet Motorola firmware",
             url: "https://mirrors.lolinet.com/firmware/lenomola/",
             fileType: "ZIP",
+            note: "Neoficiálny mirror",
           },
         ],
       },
@@ -796,6 +864,16 @@ export const diagnostikaCategories: Category[] = [
             label: "Mi Flash Tool (Xiaomi EDL)",
             url: "https://xiaomiflashtool.com/latest/",
             fileType: "ZIP",
+          },
+          {
+            label: "QPST Flash Tool",
+            url: "https://qpsttool.com/",
+            fileType: "ZIP",
+          },
+          {
+            label: "XDA Qualcomm EDL guide",
+            url: "https://forum.xda-developers.com/t/qualcomm-edl-mode-9008.3602067/",
+            fileType: "Guide",
           },
         ],
       },
@@ -870,6 +948,16 @@ export const nastrojeCategories: Category[] = [
             url: "https://developer.android.com/tools/releases/platform-tools",
             fileType: "ZIP",
           },
+          {
+            label: "ADB (oficiálna dokumentácia)",
+            url: "https://developer.android.com/tools/adb",
+            fileType: "Guide",
+          },
+          {
+            label: "Google USB Driver (Windows)",
+            url: "https://developer.android.com/studio/run/win-usb",
+            fileType: "EXE",
+          },
         ],
       },
       {
@@ -911,6 +999,16 @@ export const nastrojeCategories: Category[] = [
         ],
         links: [
           {
+            label: "Samsung USB Driver",
+            url: "https://developer.samsung.com/android-usb-driver",
+            fileType: "EXE",
+          },
+          {
+            label: "Samsung Smart Switch",
+            url: "https://www.samsung.com/us/support/owners/app/smart-switch",
+            fileType: "EXE / DMG",
+          },
+          {
             label: "Odin3 (XDA thread)",
             url: "https://forum.xda-developers.com/t/odin-multi-download-android-rom-flash-tool.3393441/",
             fileType: "ZIP",
@@ -928,8 +1026,18 @@ export const nastrojeCategories: Category[] = [
         ],
         links: [
           {
+            label: "MediaTek (oficiálne)",
+            url: "https://www.mediatek.com/",
+            fileType: "Web",
+          },
+          {
             label: "SP Flash Tool",
             url: "https://spflashtool.com/download/",
+            fileType: "ZIP",
+          },
+          {
+            label: "MediaTek USB VCOM Driver",
+            url: "https://androidmtk.com/download-mtk-usb-vcom-drivers",
             fileType: "ZIP",
           },
         ],
@@ -945,6 +1053,11 @@ export const nastrojeCategories: Category[] = [
         ],
         links: [
           {
+            label: "Unisoc (oficiálne)",
+            url: "https://www.unisoc.com/",
+            fileType: "Web",
+          },
+          {
             label: "Research Download Tool",
             url: "https://androidmtk.com/download-research-download-tool",
             fileType: "ZIP",
@@ -953,6 +1066,7 @@ export const nastrojeCategories: Category[] = [
             label: "Unisoc firmware (Needrom)",
             url: "https://www.needrom.com/category/unisoc/",
             fileType: "PAC",
+            note: "Neoficiálny mirror",
           },
         ],
       },
@@ -1002,19 +1116,32 @@ export const nastrojeCategories: Category[] = [
         ],
         links: [
           {
+            label: "Motorola Rescue and Smart Assistant",
+            url: "https://en-us.support.motorola.com/app/answers/detail/a_id/150888",
+            fileType: "EXE",
+          },
+          {
+            label: "Motorola Bootloader Unlock",
+            url: "https://en-us.support.motorola.com/app/standalone/bootloader/unlock-your-device-a",
+            fileType: "Web",
+          },
+          {
             label: "Lolinet Motorola Mirror",
             url: "https://mirrors.lolinet.com/firmware/lenomola/",
             fileType: "ZIP / XML",
+            note: "Neoficiálny mirror",
           },
           {
             label: "Moto G firmware",
             url: "https://mirrors.lolinet.com/firmware/lenomola/phone_moto_g/",
             fileType: "ZIP",
+            note: "Neoficiálny mirror",
           },
           {
             label: "Moto Edge firmware",
             url: "https://mirrors.lolinet.com/firmware/lenomola/phone_moto_edge/",
             fileType: "ZIP",
+            note: "Neoficiálny mirror",
           },
         ],
       },
@@ -1028,8 +1155,27 @@ export const nastrojeCategories: Category[] = [
           "Stiahni matching firmware alebo multi-CSC (OXM).",
         ],
         links: [
-          { label: "SamMobile", url: "https://www.sammobile.com/samsung/firmware/", fileType: "ZIP" },
-          { label: "Frija downloader", url: "https://forum.xda-developers.com/t/tool-frija-samsung-firmware-downloader-checker.3910834/", fileType: "EXE" },
+          {
+            label: "Samsung Support Downloads",
+            url: "https://www.samsung.com/us/support/downloads/",
+            fileType: "Web",
+          },
+          {
+            label: "Samsung Smart Switch",
+            url: "https://www.samsung.com/us/support/owners/app/smart-switch",
+            fileType: "EXE / DMG",
+          },
+          {
+            label: "Frija downloader",
+            url: "https://forum.xda-developers.com/t/tool-frija-samsung-firmware-downloader-checker.3910834/",
+            fileType: "EXE",
+          },
+          {
+            label: "SamMobile",
+            url: "https://www.sammobile.com/samsung/firmware/",
+            fileType: "ZIP",
+            note: "Neoficiálny mirror",
+          },
         ],
       },
       {
@@ -1042,7 +1188,21 @@ export const nastrojeCategories: Category[] = [
           "Over codename (napr. tapas, marble) nie marketingový názov.",
         ],
         links: [
-          { label: "Xiaomi Firmware Updater", url: "https://xiaomifirmwareupdater.com/", fileType: "TAR" },
+          {
+            label: "Mi Unlock (oficiálne)",
+            url: "https://en.miui.com/unlock/",
+            fileType: "Web",
+          },
+          {
+            label: "Xiaomi HyperOS ROM",
+            url: "https://hyperos.mi.com/",
+            fileType: "Web",
+          },
+          {
+            label: "Xiaomi Firmware Updater",
+            url: "https://xiaomifirmwareupdater.com/",
+            fileType: "TAR",
+          },
         ],
       },
       {
@@ -1103,14 +1263,18 @@ export const zdielanieSubsections: Subsection[] = [
     tips: [
       "SwissTransfer: do 50 GB zadarmo, bez registrácie, švajčiarske servery.",
       "Proton Drive: end-to-end šifrovanie, vhodné pre citlivé dáta.",
-      "GitHub Releases: vhodné pre verejné open-source nástroje (nie pre paid firmware).",
+      "GitHub repozitár: vhodný pre zdrojový kód tohto hubu (nie pre hosting firmvéru).",
     ],
     links: [
       { label: "SwissTransfer", url: "https://www.swisstransfer.com/", fileType: "Web", note: "Do 50 GB, expirácia" },
       { label: "WeTransfer", url: "https://wetransfer.com/", fileType: "Web" },
       { label: "Proton Drive", url: "https://proton.me/drive", fileType: "Web" },
       { label: "MEGA", url: "https://mega.io/", fileType: "Web", note: "E2E šifrovanie" },
-      { label: "GitHub Releases", url: "https://github.com/JVVMEDIA/flash-diagnostics-hub/releases", fileType: "Web" },
+      {
+        label: "GitHub repozitár (zdrojový kód)",
+        url: "https://github.com/JVVMEDIA/flash-diagnostics-hub",
+        fileType: "Web",
+      },
     ],
   },
   {
@@ -1134,6 +1298,16 @@ export const zdielanieSubsections: Subsection[] = [
         label: "VirusTotal (overenie súborov)",
         url: "https://www.virustotal.com/",
         fileType: "Web",
+      },
+      {
+        label: "Vercel Acceptable Use Policy",
+        url: "https://vercel.com/legal/acceptable-use-policy",
+        fileType: "Web",
+      },
+      {
+        label: "SHA256 hash (certutil — Windows)",
+        url: "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/certutil",
+        fileType: "Guide",
       },
     ],
   },

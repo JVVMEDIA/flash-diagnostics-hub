@@ -24,8 +24,18 @@ export const nastrojeCategories: Category[] = [
           {
             label: "Platform Tools",
             url: "https://developer.android.com/tools/releases/platform-tools",
-            fileType: "ZIP",
+            fileType: "ZIP"
           },
+          {
+            label: "ADB (hivatalos dokumentáció)",
+            url: "https://developer.android.com/tools/adb",
+            fileType: "Guide"
+          },
+          {
+            label: "Google USB illesztőprogram (Windows)",
+            url: "https://developer.android.com/studio/run/win-usb",
+            fileType: "EXE"
+          }
         ],
       },
       {
@@ -43,18 +53,18 @@ export const nastrojeCategories: Category[] = [
           {
             label: "Motorola Rescue and Smart Assistant",
             url: "https://en-us.support.motorola.com/app/answers/detail/a_id/150888",
-            fileType: "EXE",
+            fileType: "EXE"
           },
           {
             label: "Lenovo Moto Smart Assistant",
             url: "https://support.lenovo.com/us/en/downloads/ds101291",
-            fileType: "EXE",
+            fileType: "EXE"
           },
           {
             label: "Motorola Bootloader Unlock",
             url: "https://en-us.support.motorola.com/app/standalone/bootloader/unlock-your-device-a",
-            fileType: "Web",
-          },
+            fileType: "Web"
+          }
         ],
       },
       {
@@ -68,10 +78,20 @@ export const nastrojeCategories: Category[] = [
         ],
         links: [
           {
-            label: "Odin3 (XDA thread)",
-            url: "https://forum.xda-developers.com/t/odin-multi-download-android-rom-flash-tool.3393441/",
-            fileType: "ZIP",
+            label: "Samsung USB illesztőprogram",
+            url: "https://developer.samsung.com/android-usb-driver",
+            fileType: "EXE"
           },
+          {
+            label: "Samsung Smart Switch",
+            url: "https://www.samsung.com/us/support/owners/app/smart-switch",
+            fileType: "EXE / DMG"
+          },
+          {
+            label: "Odin3 (XDA)",
+            url: "https://forum.xda-developers.com/t/odin-multi-download-android-rom-flash-tool.3393441/",
+            fileType: "ZIP"
+          }
         ],
       },
       {
@@ -86,10 +106,20 @@ export const nastrojeCategories: Category[] = [
         ],
         links: [
           {
+            label: "MediaTek (hivatalos)",
+            url: "https://www.mediatek.com/",
+            fileType: "Web"
+          },
+          {
             label: "SP Flash Tool",
             url: "https://spflashtool.com/download/",
-            fileType: "ZIP",
+            fileType: "ZIP"
           },
+          {
+            label: "MediaTek USB VCOM illesztőprogram",
+            url: "https://androidmtk.com/download-mtk-usb-vcom-drivers",
+            fileType: "ZIP"
+          }
         ],
       },
       {
@@ -103,15 +133,21 @@ export const nastrojeCategories: Category[] = [
         ],
         links: [
           {
+            label: "Unisoc (hivatalos)",
+            url: "https://www.unisoc.com/",
+            fileType: "Web"
+          },
+          {
             label: "Research Download Tool",
             url: "https://androidmtk.com/download-research-download-tool",
-            fileType: "ZIP",
+            fileType: "ZIP"
           },
           {
             label: "Unisoc firmware (Needrom)",
             url: "https://www.needrom.com/category/unisoc/",
             fileType: "PAC",
-          },
+            note: "Nem hivatalos mirror"
+          }
         ],
       },
       {
@@ -127,13 +163,13 @@ export const nastrojeCategories: Category[] = [
           {
             label: "Mi Flash Tool",
             url: "https://xiaomiflashtool.com/latest/",
-            fileType: "ZIP",
+            fileType: "ZIP"
           },
           {
             label: "Xiaomi ROM katalógus",
             url: "https://xiaomifirmwareupdater.com/",
-            fileType: "TAR / ZIP",
-          },
+            fileType: "TAR / ZIP"
+          }
         ],
       },
     ],
@@ -162,20 +198,33 @@ export const nastrojeCategories: Category[] = [
         ],
         links: [
           {
-            label: "Lolinet Motorola Mirror",
+            label: "Motorola Rescue and Smart Assistant",
+            url: "https://en-us.support.motorola.com/app/answers/detail/a_id/150888",
+            fileType: "EXE"
+          },
+          {
+            label: "Motorola Bootloader Unlock",
+            url: "https://en-us.support.motorola.com/app/standalone/bootloader/unlock-your-device-a",
+            fileType: "Web"
+          },
+          {
+            label: "Lolinet Motorola firmware",
             url: "https://mirrors.lolinet.com/firmware/lenomola/",
             fileType: "ZIP / XML",
+            note: "Nem hivatalos mirror"
           },
           {
-            label: "Moto G firmware",
+            label: "Moto G firmware (Lolinet)",
             url: "https://mirrors.lolinet.com/firmware/lenomola/phone_moto_g/",
             fileType: "ZIP",
+            note: "Nem hivatalos mirror"
           },
           {
-            label: "Moto Edge firmware",
+            label: "Moto Edge firmware (Lolinet)",
             url: "https://mirrors.lolinet.com/firmware/lenomola/phone_moto_edge/",
             fileType: "ZIP",
-          },
+            note: "Nem hivatalos mirror"
+          }
         ],
       },
       {
@@ -190,15 +239,26 @@ export const nastrojeCategories: Category[] = [
         ],
         links: [
           {
+            label: "Samsung Support Downloads",
+            url: "https://www.samsung.com/us/support/downloads/",
+            fileType: "Web"
+          },
+          {
+            label: "Samsung Smart Switch",
+            url: "https://www.samsung.com/us/support/owners/app/smart-switch",
+            fileType: "EXE / DMG"
+          },
+          {
+            label: "Frija — Samsung firmware letöltő",
+            url: "https://forum.xda-developers.com/t/tool-frija-samsung-firmware-downloader-checker.3910834/",
+            fileType: "EXE"
+          },
+          {
             label: "SamMobile",
             url: "https://www.sammobile.com/samsung/firmware/",
             fileType: "ZIP",
-          },
-          {
-            label: "Frija downloader",
-            url: "https://forum.xda-developers.com/t/tool-frija-samsung-firmware-downloader-checker.3910834/",
-            fileType: "EXE",
-          },
+            note: "Nem hivatalos mirror"
+          }
         ],
       },
       {
@@ -212,10 +272,20 @@ export const nastrojeCategories: Category[] = [
         ],
         links: [
           {
-            label: "Xiaomi Firmware Updater",
-            url: "https://xiaomifirmwareupdater.com/",
-            fileType: "TAR",
+            label: "Mi Unlock (hivatalos)",
+            url: "https://en.miui.com/unlock/",
+            fileType: "Web"
           },
+          {
+            label: "Xiaomi HyperOS ROM",
+            url: "https://hyperos.mi.com/",
+            fileType: "Web"
+          },
+          {
+            label: "Xiaomi ROM katalógus",
+            url: "https://xiaomifirmwareupdater.com/",
+            fileType: "TAR"
+          }
         ],
       },
       {
@@ -231,13 +301,13 @@ export const nastrojeCategories: Category[] = [
           {
             label: "Google Factory Images",
             url: "https://developers.google.com/android/images",
-            fileType: "ZIP",
+            fileType: "ZIP"
           },
           {
             label: "Google OTA",
             url: "https://developers.google.com/android/ota",
-            fileType: "ZIP",
-          },
+            fileType: "ZIP"
+          }
         ],
       },
     ],

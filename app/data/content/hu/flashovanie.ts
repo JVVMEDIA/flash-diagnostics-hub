@@ -35,22 +35,20 @@ export const flashovanieCategories: Category[] = [
         ],
         links: [
           {
-            label: "Android Platform Tools (ADB & Fastboot)",
+            label: "Platform Tools",
             url: "https://developer.android.com/tools/releases/platform-tools",
-            fileType: "ZIP",
-            note: "Hivatalos Google csomag — mindig frissíts flash előtt",
+            fileType: "ZIP"
           },
           {
-            label: "Google USB Driver (Windows)",
+            label: "Google USB illesztőprogram (Windows)",
             url: "https://developer.android.com/studio/run/win-usb",
-            fileType: "ZIP",
+            fileType: "ZIP"
           },
           {
             label: "Minimal ADB & Fastboot (alternatíva)",
             url: "https://forum.xda-developers.com/t/tool-minimal-adb-and-fastboot-2-9-18.2317790/",
-            fileType: "EXE",
-            note: "Könnyebb telepítő kezdőknek",
-          },
+            fileType: "EXE"
+          }
         ],
       },
       {
@@ -79,18 +77,18 @@ export const flashovanieCategories: Category[] = [
           {
             label: "Google Factory Images (Pixel)",
             url: "https://developers.google.com/android/images",
-            fileType: "ZIP / IMG",
+            fileType: "ZIP / IMG"
           },
           {
-            label: "Xiaomi ROM csomagok",
+            label: "Xiaomi ROM katalógus",
             url: "https://xiaomifirmwareupdater.com/",
-            fileType: "TAR / ZIP",
+            fileType: "TAR / ZIP"
           },
           {
-            label: "OnePlus OxygenOS csomagok",
+            label: "OnePlus OxygenOS balíky",
             url: "https://oxygenos.oneplus.com/",
-            fileType: "ZIP",
-          },
+            fileType: "ZIP"
+          }
         ],
       },
       {
@@ -112,13 +110,13 @@ export const flashovanieCategories: Category[] = [
           {
             label: "Pixel Factory Images",
             url: "https://developers.google.com/android/images",
-            fileType: "ZIP",
+            fileType: "ZIP"
           },
           {
-            label: "Pixel OTA csomagok",
+            label: "Pixel OTA balíky",
             url: "https://developers.google.com/android/ota",
-            fileType: "ZIP",
-          },
+            fileType: "ZIP"
+          }
         ],
       },
     ],
@@ -162,21 +160,20 @@ export const flashovanieCategories: Category[] = [
           "A bootloader feloldása törli az összes adatot, és véglegesen blokkolhat egyes banki/fizetési alkalmazásokat (SafetyNet/Play Integrity).",
         links: [
           {
-            label: "Motorola Bootloader Unlock (hivatalos)",
+            label: "Motorola Bootloader Unlock",
             url: "https://en-us.support.motorola.com/app/standalone/bootloader/unlock-your-device-a",
-            fileType: "Web",
-            note: "Az egyetlen hivatalos feloldási módszer",
+            fileType: "Web"
           },
           {
-            label: "Motorola USB Drivers",
+            label: "Motorola USB illesztőprogramok",
             url: "https://en-us.support.motorola.com/app/answers/detail/a_id/88481",
-            fileType: "EXE / ZIP",
+            fileType: "EXE / ZIP"
           },
           {
             label: "XDA Motorola fórum",
             url: "https://forum.xda-developers.com/c/motorola.11969/",
-            fileType: "Guide",
-          },
+            fileType: "Guide"
+          }
         ],
       },
       {
@@ -205,22 +202,21 @@ export const flashovanieCategories: Category[] = [
           "Más változathoz (pl. EU vs US) tartozó hibás radio/modem.img flashelése tönkreteheti a hálózati sávokat és a GPS-t.",
         links: [
           {
-            label: "Lolinet Motorola Firmware",
-            url: "https://mirrors.lolinet.com/firmware/lenomola/",
-            fileType: "ZIP / XML",
-            note: "Ellenőrzött RETAIL csomagok XT modell szerint",
+            label: "Motorola Rescue and Smart Assistant",
+            url: "https://en-us.support.motorola.com/app/answers/detail/a_id/150888",
+            fileType: "EXE"
           },
           {
             label: "Android File Host (Motorola)",
             url: "https://androidfilehost.com/?w=files&flist=1&s=Motorola",
-            fileType: "ZIP",
+            fileType: "ZIP"
           },
           {
-            label: "Motorola Rescue and Smart Assistant",
-            url: "https://en-us.support.motorola.com/app/answers/detail/a_id/150888",
-            fileType: "EXE",
-            note: "Hivatalos rescue eszköz — helyreállítás manuális fastboot nélkül",
-          },
+            label: "Lolinet Motorola firmware",
+            url: "https://mirrors.lolinet.com/firmware/lenomola/",
+            fileType: "ZIP / XML",
+            note: "Nem hivatalos mirror"
+          }
         ],
       },
       {
@@ -246,13 +242,18 @@ export const flashovanieCategories: Category[] = [
           {
             label: "Motorola Rescue and Smart Assistant",
             url: "https://en-us.support.motorola.com/app/answers/detail/a_id/150888",
-            fileType: "EXE",
+            fileType: "EXE"
           },
           {
             label: "Lenovo Moto Smart Assistant (LMSA)",
             url: "https://support.lenovo.com/us/en/downloads/ds101291",
-            fileType: "EXE",
+            fileType: "EXE"
           },
+          {
+            label: "Motorola USB illesztőprogramok",
+            url: "https://en-us.support.motorola.com/app/answers/detail/a_id/88481",
+            fileType: "EXE / ZIP"
+          }
         ],
       },
       {
@@ -277,17 +278,19 @@ export const flashovanieCategories: Category[] = [
             label: "Moto G firmware (Lolinet)",
             url: "https://mirrors.lolinet.com/firmware/lenomola/phone_moto_g/",
             fileType: "ZIP",
+            note: "Nem hivatalos mirror"
           },
           {
             label: "Moto Edge firmware (Lolinet)",
             url: "https://mirrors.lolinet.com/firmware/lenomola/phone_moto_edge/",
             fileType: "ZIP",
+            note: "Nem hivatalos mirror"
           },
           {
-            label: "XDA Moto G alfórum",
+            label: "Moto G XDA fórum",
             url: "https://forum.xda-developers.com/f/moto-g.5208/",
-            fileType: "Guide",
-          },
+            fileType: "Guide"
+          }
         ],
       },
     ],
@@ -325,16 +328,20 @@ export const flashovanieCategories: Category[] = [
         ],
         links: [
           {
-            label: "Samsung USB Driver",
+            label: "Samsung USB illesztőprogram",
             url: "https://developer.samsung.com/android-usb-driver",
-            fileType: "EXE",
-            note: "Hivatalos Samsung illesztőprogram",
+            fileType: "EXE"
           },
           {
             label: "Samsung Smart Switch",
             url: "https://www.samsung.com/us/support/owners/app/smart-switch",
-            fileType: "EXE / DMG",
+            fileType: "EXE / DMG"
           },
+          {
+            label: "Odin3 (XDA)",
+            url: "https://forum.xda-developers.com/t/odin-multi-download-android-rom-flash-tool.3393441/",
+            fileType: "ZIP"
+          }
         ],
       },
       {
@@ -363,21 +370,31 @@ export const flashovanieCategories: Category[] = [
           "Más régió firmware-ének flashelése elveszítheti a Samsung Pay-t, a dual SIM funkciókat vagy az LTE sávokat.",
         links: [
           {
-            label: "SamMobile Firmware",
-            url: "https://www.sammobile.com/samsung/firmware/",
-            fileType: "ZIP",
-            note: "Katalógus SM modell és CSC szerint",
+            label: "Samsung USB illesztőprogram",
+            url: "https://developer.samsung.com/android-usb-driver",
+            fileType: "EXE"
           },
           {
-            label: "Frija — Samsung firmware downloader",
+            label: "Samsung Smart Switch",
+            url: "https://www.samsung.com/us/support/owners/app/smart-switch",
+            fileType: "EXE / DMG"
+          },
+          {
+            label: "Frija — Samsung firmware letöltő",
             url: "https://forum.xda-developers.com/t/tool-frija-samsung-firmware-downloader-checker.3910834/",
-            fileType: "EXE",
+            fileType: "EXE"
           },
           {
             label: "Odin3 (XDA)",
             url: "https://forum.xda-developers.com/t/odin-multi-download-android-rom-flash-tool.3393441/",
-            fileType: "ZIP",
+            fileType: "ZIP"
           },
+          {
+            label: "SamMobile",
+            url: "https://www.sammobile.com/samsung/firmware/",
+            fileType: "ZIP",
+            note: "Nem hivatalos mirror"
+          }
         ],
       },
       {
@@ -397,10 +414,20 @@ export const flashovanieCategories: Category[] = [
         warning: "Re-Partition megfelelő PIT nélkül = kritikus hard brick kockázat.",
         links: [
           {
-            label: "Samsung Odin PIT guide (XDA)",
-            url: "https://forum.xda-developers.com/t/guide-odin-pit-file.2191465/",
-            fileType: "Guide",
+            label: "Samsung USB illesztőprogram",
+            url: "https://developer.samsung.com/android-usb-driver",
+            fileType: "EXE"
           },
+          {
+            label: "Odin3 (XDA)",
+            url: "https://forum.xda-developers.com/t/odin-multi-download-android-rom-flash-tool.3393441/",
+            fileType: "ZIP"
+          },
+          {
+            label: "Samsung Odin PIT útmutató (XDA)",
+            url: "https://forum.xda-developers.com/t/guide-odin-pit-file.2191465/",
+            fileType: "Guide"
+          }
         ],
       },
     ],
@@ -438,15 +465,20 @@ export const flashovanieCategories: Category[] = [
         ],
         links: [
           {
-            label: "SP Flash Tool",
-            url: "https://spflashtool.com/download/",
-            fileType: "ZIP",
+            label: "MediaTek (hivatalos)",
+            url: "https://www.mediatek.com/",
+            fileType: "Web"
           },
           {
-            label: "MediaTek USB VCOM Driver",
-            url: "https://androidmtk.com/download-mtk-usb-vcom-drivers",
-            fileType: "ZIP",
+            label: "SP Flash Tool",
+            url: "https://spflashtool.com/download/",
+            fileType: "ZIP"
           },
+          {
+            label: "MediaTek USB VCOM illesztőprogram",
+            url: "https://androidmtk.com/download-mtk-usb-vcom-drivers",
+            fileType: "ZIP"
+          }
         ],
       },
       {
@@ -471,15 +503,26 @@ export const flashovanieCategories: Category[] = [
           "Format All ellenőrzött firmware nélkül az adott modellhez = nagy végleges brick kockázat.",
         links: [
           {
-            label: "Needrom MTK firmware",
-            url: "https://www.needrom.com/category/mtk/",
-            fileType: "ZIP",
+            label: "MediaTek (hivatalos)",
+            url: "https://www.mediatek.com/",
+            fileType: "Web"
+          },
+          {
+            label: "SP Flash Tool",
+            url: "https://spflashtool.com/download/",
+            fileType: "ZIP"
           },
           {
             label: "Android MTK útmutatók",
             url: "https://androidmtk.com/",
-            fileType: "Guide",
+            fileType: "Guide"
           },
+          {
+            label: "Needrom MTK firmware",
+            url: "https://www.needrom.com/category/mtk/",
+            fileType: "ZIP",
+            note: "Nem hivatalos mirror"
+          }
         ],
       },
     ],
@@ -522,18 +565,18 @@ export const flashovanieCategories: Category[] = [
           {
             label: "Unisoc / Spreadtrum USB Driver",
             url: "https://androidmtk.com/download-spreadtrum-drivers",
-            fileType: "ZIP",
+            fileType: "ZIP"
           },
           {
             label: "Research Download Tool",
             url: "https://androidmtk.com/download-research-download-tool",
-            fileType: "ZIP",
+            fileType: "ZIP"
           },
           {
             label: "SPD Upgrade Tool",
             url: "https://spdflashtool.com/",
-            fileType: "ZIP",
-          },
+            fileType: "ZIP"
+          }
         ],
       },
       {
@@ -557,15 +600,21 @@ export const flashovanieCategories: Category[] = [
           "Más modellhez tartozó hibás firehose vagy UFS programmer visszafordíthatatlanul károsíthatja a tárhelyet.",
         links: [
           {
-            label: "Android MTK — UFS útmutatók",
-            url: "https://androidmtk.com/",
-            fileType: "Guide",
+            label: "Unisoc (hivatalos)",
+            url: "https://www.unisoc.com/",
+            fileType: "Web"
           },
           {
-            label: "Needrom Unisoc firmware",
+            label: "Android MTK útmutatók",
+            url: "https://androidmtk.com/",
+            fileType: "Guide"
+          },
+          {
+            label: "Unisoc firmware (Needrom)",
             url: "https://www.needrom.com/category/unisoc/",
             fileType: "PAC / ZIP",
-          },
+            note: "Nem hivatalos mirror"
+          }
         ],
       },
       {
@@ -589,15 +638,15 @@ export const flashovanieCategories: Category[] = [
           "Az FRP megkerülése idegen eszközön illegális lehet. Csak saját telefonodon vagy a tulajdonos engedélyével járj el.",
         links: [
           {
-            label: "Google FRP help (hivatalos)",
+            label: "Google FRP help (oficiálne)",
             url: "https://support.google.com/android/answer/2812853",
-            fileType: "Guide",
+            fileType: "Guide"
           },
           {
             label: "XDA Unisoc fórum",
             url: "https://forum.xda-developers.com/c/unisoc.12597/",
-            fileType: "Guide",
-          },
+            fileType: "Guide"
+          }
         ],
       },
       {
@@ -625,13 +674,13 @@ export const flashovanieCategories: Category[] = [
           {
             label: "GSMHosting Unisoc firmware",
             url: "https://www.gsmhosting.com/unisoc-firmware/",
-            fileType: "PAC",
+            fileType: "PAC"
           },
           {
-            label: "XDA Hard Brick tanácsadó",
+            label: "XDA Hard Brick poradňa",
             url: "https://forum.xda-developers.com/t/guide-soft-brick-hard-brick.2092846/",
-            fileType: "Guide",
-          },
+            fileType: "Guide"
+          }
         ],
       },
     ],

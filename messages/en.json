@@ -77,7 +77,12 @@
       "Private GitHub repo + password via Signal/Threema",
       "Proton Drive / Mega.nz with end-to-end encryption"
     ],
-    "securityTip": "Security tip: Never send the password through the same channel as the file."
+    "securityTip": "Security tip: Never send the password through the same channel as the file.",
+    "complianceTitle": "Important content notice",
+    "complianceBody": "This hub does not host firmware or flash tools — it only links to external sources and guides.",
+    "complianceHosting": "No binary files (ROM, PAC, scatter) are stored on Vercel or in the GitHub repository.",
+    "complianceMirrors": "Links marked as \"Unofficial mirror\" point to community mirrors — always prefer official manufacturer sources.",
+    "complianceResponsibility": "Flash and share files only on your own device and in compliance with manufacturer license terms."
   },
   "faq": {
     "title": "Frequently asked questions",
@@ -117,6 +122,9 @@
     "tips": "Tips & notes",
     "warning": "Warning",
     "fileLinks": "File links",
+    "linkOfficial": "Official",
+    "linkCommunity": "Community",
+    "linkMirror": "Unofficial mirror",
     "expand": "Expand section",
     "collapse": "Collapse section",
     "active": "Active",

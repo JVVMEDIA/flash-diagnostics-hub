@@ -20,10 +20,22 @@ export const zdielanieSubsections: Subsection[] = [
       "Nagy firmware csomagoknál (2+ GB) fontold meg a fájlok több részre bontását.",
     ],
     links: [
-      { label: "7-Zip (Windows)", url: "https://www.7-zip.org/download.html", fileType: "EXE" },
-      { label: "7-Zip (Linux/macOS)", url: "https://www.7-zip.org/download.html", fileType: "TAR / PKG" },
-      { label: "PeaZip (alternatíva)", url: "https://peazip.github.io/", fileType: "EXE" },
-    ],
+          {
+            label: "7-Zip (Windows)",
+            url: "https://www.7-zip.org/download.html",
+            fileType: "EXE"
+          },
+          {
+            label: "7-Zip (Linux/macOS)",
+            url: "https://www.7-zip.org/download.html",
+            fileType: "TAR / PKG"
+          },
+          {
+            label: "PeaZip (alternatíva)",
+            url: "https://peazip.github.io/",
+            fileType: "EXE"
+          }
+        ],
   },
   {
     id: "zdielanie-platformy",
@@ -40,15 +52,35 @@ export const zdielanieSubsections: Subsection[] = [
     tips: [
       "SwissTransfer: akár 50 GB ingyen, regisztráció nélkül, svájci szerverek.",
       "Proton Drive: végponttól végpontig titkosítás, érzékeny adatokhoz alkalmas.",
-      "GitHub Releases: nyilvános open-source eszközökhöz alkalmas (fizetős firmware-hez nem).",
+      "GitHub tároló: a hub forráskódjához alkalmas (firmware tárolásához nem).",
     ],
     links: [
-      { label: "SwissTransfer", url: "https://www.swisstransfer.com/", fileType: "Web", note: "Akár 50 GB, lejárat" },
-      { label: "WeTransfer", url: "https://wetransfer.com/", fileType: "Web" },
-      { label: "Proton Drive", url: "https://proton.me/drive", fileType: "Web" },
-      { label: "MEGA", url: "https://mega.io/", fileType: "Web", note: "E2E titkosítás" },
-      { label: "GitHub Releases", url: "https://github.com/JVVMEDIA/flash-diagnostics-hub/releases", fileType: "Web" },
-    ],
+          {
+            label: "SwissTransfer",
+            url: "https://www.swisstransfer.com/",
+            fileType: "Web"
+          },
+          {
+            label: "WeTransfer",
+            url: "https://wetransfer.com/",
+            fileType: "Web"
+          },
+          {
+            label: "Proton Drive",
+            url: "https://proton.me/drive",
+            fileType: "Web"
+          },
+          {
+            label: "MEGA",
+            url: "https://mega.io/",
+            fileType: "Web"
+          },
+          {
+            label: "GitHub tároló (forráskód)",
+            url: "https://github.com/JVVMEDIA/flash-diagnostics-hub",
+            fileType: "Web"
+          }
+        ],
   },
   {
     id: "zdielanie-bezpecnost",
@@ -67,11 +99,21 @@ export const zdielanieSubsections: Subsection[] = [
     ],
     warning: "A védett firmware engedély nélküli megosztása megsértheti a gyártó licencfeltételeit.",
     links: [
-      {
-        label: "VirusTotal (fájl ellenőrzés)",
-        url: "https://www.virustotal.com/",
-        fileType: "Web",
-      },
-    ],
+          {
+            label: "VirusTotal (fájl ellenőrzés)",
+            url: "https://www.virustotal.com/",
+            fileType: "Web"
+          },
+          {
+            label: "Vercel Acceptable Use Policy",
+            url: "https://vercel.com/legal/acceptable-use-policy",
+            fileType: "Web"
+          },
+          {
+            label: "SHA256 hash (certutil — Windows)",
+            url: "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/certutil",
+            fileType: "Guide"
+          }
+        ],
   },
 ];
