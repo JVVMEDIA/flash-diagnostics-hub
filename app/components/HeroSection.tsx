@@ -6,6 +6,7 @@ import { brandMap, mobileBrands } from "../data/brands";
 import BrandLogo from "./BrandLogo";
 import BrandMarquee from "./BrandMarquee";
 import FastAnchorLink from "./FastAnchorLink";
+import HeroScene from "./hero/HeroScene";
 import ScrollHint from "./ScrollHint";
 import ScrollReveal from "./motion/ScrollReveal";
 
@@ -22,9 +23,8 @@ export default function HeroSection() {
 
   return (
     <section className="relative pt-12 sm:pt-16 pb-6 sm:pb-8 text-center overflow-hidden min-h-0 sm:min-h-[85vh] lg:min-h-[92vh] flex flex-col justify-center">
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none perf-hide-lite">
-        <div className="h-96 w-96 rounded-full border-[3px] border-emerald-400/50 animate-hero-ring" />
-        <div className="absolute h-[32rem] w-[32rem] rounded-full bg-emerald-400/20 blur-3xl animate-hero-glow" />
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none perf-hide-lite opacity-40">
+        <div className="h-96 w-96 rounded-full border-2 border-emerald-400/30" />
       </div>
       <div className="perf-show-lite absolute inset-0 flex items-center justify-center pointer-events-none">
         <div className="h-48 w-48 rounded-full border-2 border-emerald-500/30" />
@@ -57,6 +57,10 @@ export default function HeroSection() {
           <p className="max-w-3xl mx-auto text-lg md:text-xl text-zinc-300 leading-relaxed px-4">
             {t("subtitle")}
           </p>
+        </ScrollReveal>
+
+        <ScrollReveal direction="up" delay={0.25} distance={30} immediate>
+          <HeroScene />
         </ScrollReveal>
 
         <ScrollReveal direction="up" delay={0.3} immediate>

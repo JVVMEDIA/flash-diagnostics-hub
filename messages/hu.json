@@ -24,7 +24,15 @@
     "ctaShare": "Kezdés biztonságos megosztással",
     "ctaBrowse": "Eljárások böngészése",
     "brandsLabel": "⬇ Támogatott márkák",
-    "scrollHint": "Görgess az útmutatókért"
+    "scrollHint": "Görgess az útmutatókért",
+    "hudFastboot": "Fastboot",
+    "hudOdin": "Odin",
+    "hudEdl": "EDL",
+    "hudRsa": "RSA",
+    "hudBootloop": "Bootloop",
+    "hudStatusOk": "OK",
+    "hudStatusReady": "READY",
+    "hudStatusLocked": "LOCKED"
   },
   "toolsShowcase": {
     "title": "🛠 Eszközök és márkák",

@@ -24,7 +24,15 @@
     "ctaShare": "Start with secure sharing",
     "ctaBrowse": "Browse procedures",
     "brandsLabel": "⬇ Supported brands",
-    "scrollHint": "Scroll for guides"
+    "scrollHint": "Scroll for guides",
+    "hudFastboot": "Fastboot",
+    "hudOdin": "Odin",
+    "hudEdl": "EDL",
+    "hudRsa": "RSA",
+    "hudBootloop": "Bootloop",
+    "hudStatusOk": "OK",
+    "hudStatusReady": "READY",
+    "hudStatusLocked": "LOCKED"
   },
   "toolsShowcase": {
     "title": "🛠 Tools & brands",

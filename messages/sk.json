@@ -24,7 +24,15 @@
     "ctaShare": "Začať s bezpečným zdieľaním",
     "ctaBrowse": "Prehliadnuť postupy",
     "brandsLabel": "⬇ Podporované značky",
-    "scrollHint": "Scrolluj pre návody"
+    "scrollHint": "Scrolluj pre návody",
+    "hudFastboot": "Fastboot",
+    "hudOdin": "Odin",
+    "hudEdl": "EDL",
+    "hudRsa": "RSA",
+    "hudBootloop": "Bootloop",
+    "hudStatusOk": "OK",
+    "hudStatusReady": "READY",
+    "hudStatusLocked": "LOCKED"
   },
   "toolsShowcase": {
     "title": "🛠 Nástroje a značky",

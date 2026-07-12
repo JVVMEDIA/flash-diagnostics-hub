@@ -24,7 +24,15 @@
     "ctaShare": "Zacznij od bezpiecznego udostępniania",
     "ctaBrowse": "Przeglądaj procedury",
     "brandsLabel": "⬇ Obsługiwane marki",
-    "scrollHint": "Przewiń po poradniki"
+    "scrollHint": "Przewiń po poradniki",
+    "hudFastboot": "Fastboot",
+    "hudOdin": "Odin",
+    "hudEdl": "EDL",
+    "hudRsa": "RSA",
+    "hudBootloop": "Bootloop",
+    "hudStatusOk": "OK",
+    "hudStatusReady": "READY",
+    "hudStatusLocked": "LOCKED"
   },
   "toolsShowcase": {
     "title": "🛠 Narzędzia i marki",
