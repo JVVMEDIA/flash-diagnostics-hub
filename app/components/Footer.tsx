@@ -9,7 +9,7 @@ export default function Footer() {
   const t = useTranslations("footer");
 
   return (
-    <footer className="footer-reveal relative border-t border-zinc-800/80 mt-20 py-10 text-sm text-zinc-400">
+    <footer className="footer-reveal relative border-t border-zinc-800/80 bg-zinc-950 mt-20 py-10 text-sm text-zinc-300">
       <div className="page-container flex flex-col items-center gap-6">
         <div className="w-full flex flex-col md:flex-row justify-between gap-4">
           <p>

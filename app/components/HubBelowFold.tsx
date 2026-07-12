@@ -140,7 +140,7 @@ export default function HubBelowFold() {
             href="https://github.com/JVVMEDIA/flash-diagnostics-hub"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-emerald-300 font-medium underline underline-offset-2 hover:text-emerald-200"
+            className="text-emerald-400 font-medium underline underline-offset-2 hover:text-emerald-300"
           >
             {tContribute("github")}
           </a>

@@ -43,13 +43,13 @@ export default function VisitorCounter() {
 
   return (
     <div
-      className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-zinc-800 bg-zinc-900/60 text-xs text-zinc-400"
+      className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-zinc-700 bg-zinc-900 text-xs text-zinc-300"
       title={t("title")}
       aria-live="polite"
     >
       <Eye size={14} className="text-emerald-400 shrink-0" aria-hidden />
       <span>
-        <span className="tabular-nums font-semibold text-emerald-300">
+        <span className="tabular-nums font-semibold text-emerald-400">
           {count === null ? "…" : count.toLocaleString(localeToNumberFormat[locale])}
         </span>{" "}
         {t("visits")}
