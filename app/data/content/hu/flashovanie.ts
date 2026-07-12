@@ -80,14 +80,14 @@ export const flashovanieCategories: Category[] = [
             fileType: "ZIP / IMG"
           },
           {
-            label: "Xiaomi ROM katalógus",
-            url: "https://xiaomifirmwareupdater.com/",
-            fileType: "TAR / ZIP"
+            label: "Xiaomi ROM katalógus (HyperOS / MIUI)",
+            url: "https://xmfirmwareupdater.com/hyperos/",
+            fileType: "Katalóg"
           },
           {
-            label: "OnePlus OxygenOS balíky",
-            url: "https://oxygenos.oneplus.com/",
-            fileType: "ZIP"
+            label: "OnePlus szoftverfrissítés",
+            url: "https://www.oneplus.com/support/softwareupgrade",
+            fileType: "Web"
           }
         ],
       },
@@ -275,15 +275,9 @@ export const flashovanieCategories: Category[] = [
         ],
         links: [
           {
-            label: "Moto G firmware (Lolinet)",
-            url: "https://mirrors.lolinet.com/firmware/lenomola/phone_moto_g/",
-            fileType: "ZIP",
-            note: "Nem hivatalos mirror"
-          },
-          {
-            label: "Moto Edge firmware (Lolinet)",
-            url: "https://mirrors.lolinet.com/firmware/lenomola/phone_moto_edge/",
-            fileType: "ZIP",
+            label: "Lolinet Motorola firmware",
+            url: "https://mirrors.lolinet.com/firmware/lenomola/",
+            fileType: "Katalóg",
             note: "Nem hivatalos mirror"
           },
           {
@@ -391,8 +385,8 @@ export const flashovanieCategories: Category[] = [
           },
           {
             label: "SamMobile",
-            url: "https://www.sammobile.com/samsung/firmware/",
-            fileType: "ZIP",
+            url: "https://www.sammobile.com/firmwares/",
+            fileType: "Katalóg",
             note: "Nem hivatalos mirror"
           }
         ],
@@ -638,8 +632,8 @@ export const flashovanieCategories: Category[] = [
           "Az FRP megkerülése idegen eszközön illegális lehet. Csak saját telefonodon vagy a tulajdonos engedélyével járj el.",
         links: [
           {
-            label: "Google FRP help (oficiálne)",
-            url: "https://support.google.com/android/answer/2812853",
+            label: "Google FRP súgó (hivatalos)",
+            url: "https://support.google.com/android/answer/2812853?hl=sk",
             fileType: "Guide"
           },
           {

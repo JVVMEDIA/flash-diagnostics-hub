@@ -172,7 +172,7 @@ export const diagnostikaCategories: Category[] = [
         links: [
           {
             label: "Mi Flash Tool",
-            url: "https://xiaomiflashtool.com/latest/",
+            url: "https://xiaomiflashtool.com/",
             fileType: "ZIP"
           },
           {

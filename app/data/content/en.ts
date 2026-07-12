@@ -80,14 +80,14 @@ export const flashovanieCategories: Category[] = [
             fileType: "ZIP / IMG"
           },
           {
-            label: "Xiaomi Firmware Updater",
-            url: "https://xiaomifirmwareupdater.com/",
-            fileType: "TAR / ZIP"
+            label: "Xiaomi ROM catalog (HyperOS / MIUI)",
+            url: "https://xmfirmwareupdater.com/hyperos/",
+            fileType: "Katalóg"
           },
           {
-            label: "OnePlus OxygenOS balíky",
-            url: "https://oxygenos.oneplus.com/",
-            fileType: "ZIP"
+            label: "OnePlus software upgrade",
+            url: "https://www.oneplus.com/support/softwareupgrade",
+            fileType: "Web"
           }
         ],
       },
@@ -275,15 +275,9 @@ export const flashovanieCategories: Category[] = [
         ],
         links: [
           {
-            label: "Moto G firmware (Lolinet)",
-            url: "https://mirrors.lolinet.com/firmware/lenomola/phone_moto_g/",
-            fileType: "ZIP",
-            note: "Unofficial mirror"
-          },
-          {
-            label: "Moto Edge firmware (Lolinet)",
-            url: "https://mirrors.lolinet.com/firmware/lenomola/phone_moto_edge/",
-            fileType: "ZIP",
+            label: "Lolinet Motorola Firmware",
+            url: "https://mirrors.lolinet.com/firmware/lenomola/",
+            fileType: "Katalóg",
             note: "Unofficial mirror"
           },
           {
@@ -391,8 +385,8 @@ export const flashovanieCategories: Category[] = [
           },
           {
             label: "SamMobile Firmware",
-            url: "https://www.sammobile.com/samsung/firmware/",
-            fileType: "ZIP",
+            url: "https://www.sammobile.com/firmwares/",
+            fileType: "Katalóg",
             note: "Unofficial mirror"
           }
         ],
@@ -638,8 +632,8 @@ export const flashovanieCategories: Category[] = [
           "Bypassing FRP on someone else's device may be illegal. Proceed only on your own phone or with the owner's consent.",
         links: [
           {
-            label: "Google FRP help (oficiálne)",
-            url: "https://support.google.com/android/answer/2812853",
+            label: "Google FRP help (official)",
+            url: "https://support.google.com/android/answer/2812853?hl=sk",
             fileType: "Guide"
           },
           {
@@ -859,7 +853,7 @@ export const diagnostikaCategories: Category[] = [
         links: [
           {
             label: "Mi Flash Tool (Xiaomi EDL)",
-            url: "https://xiaomiflashtool.com/latest/",
+            url: "https://xiaomiflashtool.com/",
             fileType: "ZIP"
           },
           {
@@ -1079,13 +1073,13 @@ export const nastrojeCategories: Category[] = [
         links: [
           {
             label: "Mi Flash Tool (Xiaomi EDL)",
-            url: "https://xiaomiflashtool.com/latest/",
+            url: "https://xiaomiflashtool.com/",
             fileType: "ZIP"
           },
           {
-            label: "Xiaomi Firmware Updater",
-            url: "https://xiaomifirmwareupdater.com/",
-            fileType: "TAR / ZIP"
+            label: "Xiaomi ROM catalog (HyperOS / MIUI)",
+            url: "https://xmfirmwareupdater.com/hyperos/",
+            fileType: "Katalóg"
           }
         ],
       },
@@ -1125,19 +1119,7 @@ export const nastrojeCategories: Category[] = [
           {
             label: "Lolinet Motorola Firmware",
             url: "https://mirrors.lolinet.com/firmware/lenomola/",
-            fileType: "ZIP / XML",
-            note: "Unofficial mirror"
-          },
-          {
-            label: "Moto G firmware (Lolinet)",
-            url: "https://mirrors.lolinet.com/firmware/lenomola/phone_moto_g/",
-            fileType: "ZIP",
-            note: "Unofficial mirror"
-          },
-          {
-            label: "Moto Edge firmware (Lolinet)",
-            url: "https://mirrors.lolinet.com/firmware/lenomola/phone_moto_edge/",
-            fileType: "ZIP",
+            fileType: "Katalóg",
             note: "Unofficial mirror"
           }
         ],
@@ -1169,8 +1151,8 @@ export const nastrojeCategories: Category[] = [
           },
           {
             label: "SamMobile Firmware",
-            url: "https://www.sammobile.com/samsung/firmware/",
-            fileType: "ZIP",
+            url: "https://www.sammobile.com/firmwares/",
+            fileType: "Katalóg",
             note: "Unofficial mirror"
           }
         ],
@@ -1191,14 +1173,19 @@ export const nastrojeCategories: Category[] = [
             fileType: "Web"
           },
           {
-            label: "Xiaomi HyperOS ROM",
+            label: "Xiaomi official tools",
+            url: "https://www.mi.com/global/support/tools",
+            fileType: "Web"
+          },
+          {
+            label: "Xiaomi HyperOS (official info)",
             url: "https://hyperos.mi.com/",
             fileType: "Web"
           },
           {
-            label: "Xiaomi Firmware Updater",
-            url: "https://xiaomifirmwareupdater.com/",
-            fileType: "TAR"
+            label: "Xiaomi ROM catalog (HyperOS / MIUI)",
+            url: "https://xmfirmwareupdater.com/hyperos/",
+            fileType: "Katalóg"
           }
         ],
       },

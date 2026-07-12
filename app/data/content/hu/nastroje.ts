@@ -162,13 +162,13 @@ export const nastrojeCategories: Category[] = [
         links: [
           {
             label: "Mi Flash Tool",
-            url: "https://xiaomiflashtool.com/latest/",
+            url: "https://xiaomiflashtool.com/",
             fileType: "ZIP"
           },
           {
-            label: "Xiaomi ROM katalógus",
-            url: "https://xiaomifirmwareupdater.com/",
-            fileType: "TAR / ZIP"
+            label: "Xiaomi ROM katalógus (HyperOS / MIUI)",
+            url: "https://xmfirmwareupdater.com/hyperos/",
+            fileType: "Katalóg"
           }
         ],
       },
@@ -210,19 +210,7 @@ export const nastrojeCategories: Category[] = [
           {
             label: "Lolinet Motorola firmware",
             url: "https://mirrors.lolinet.com/firmware/lenomola/",
-            fileType: "ZIP / XML",
-            note: "Nem hivatalos mirror"
-          },
-          {
-            label: "Moto G firmware (Lolinet)",
-            url: "https://mirrors.lolinet.com/firmware/lenomola/phone_moto_g/",
-            fileType: "ZIP",
-            note: "Nem hivatalos mirror"
-          },
-          {
-            label: "Moto Edge firmware (Lolinet)",
-            url: "https://mirrors.lolinet.com/firmware/lenomola/phone_moto_edge/",
-            fileType: "ZIP",
+            fileType: "Katalóg",
             note: "Nem hivatalos mirror"
           }
         ],
@@ -255,8 +243,8 @@ export const nastrojeCategories: Category[] = [
           },
           {
             label: "SamMobile",
-            url: "https://www.sammobile.com/samsung/firmware/",
-            fileType: "ZIP",
+            url: "https://www.sammobile.com/firmwares/",
+            fileType: "Katalóg",
             note: "Nem hivatalos mirror"
           }
         ],
@@ -277,14 +265,19 @@ export const nastrojeCategories: Category[] = [
             fileType: "Web"
           },
           {
-            label: "Xiaomi HyperOS ROM",
+            label: "Xiaomi hivatalos eszközök",
+            url: "https://www.mi.com/global/support/tools",
+            fileType: "Web"
+          },
+          {
+            label: "Xiaomi HyperOS (hivatalos info)",
             url: "https://hyperos.mi.com/",
             fileType: "Web"
           },
           {
-            label: "Xiaomi ROM katalógus",
-            url: "https://xiaomifirmwareupdater.com/",
-            fileType: "TAR"
+            label: "Xiaomi ROM katalógus (HyperOS / MIUI)",
+            url: "https://xmfirmwareupdater.com/hyperos/",
+            fileType: "Katalóg"
           }
         ],
       },

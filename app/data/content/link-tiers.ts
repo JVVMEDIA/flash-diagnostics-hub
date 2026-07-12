@@ -1,6 +1,11 @@
 import type { FileLink, LinkTier } from "./types";
 
-const MIRROR_HOSTS = ["mirrors.lolinet.com", "sammobile.com", "needrom.com"];
+const MIRROR_HOSTS = [
+  "mirrors.lolinet.com",
+  "sammobile.com",
+  "needrom.com",
+  "xmfirmwareupdater.com",
+];
 
 const OFFICIAL_HOSTS = [
   "developer.android.com",
