@@ -25,12 +25,17 @@ type PerformanceContextValue = {
 
 const PerformanceContext = createContext<PerformanceContextValue>({ lite: false });
 
+function readPerfLiteFromDom(): boolean {
+  if (typeof document === "undefined") return false;
+  return document.documentElement.classList.contains("perf-lite");
+}
+
 export function PerformanceProvider({ children }: { children: ReactNode }) {
-  const [lite, setLite] = useState(false);
+  const [lite, setLite] = useState(readPerfLiteFromDom);
 
   useEffect(() => {
     const update = () => {
-      const next = detectPerformanceMode();
+      const next = readPerfLiteFromDom() || detectPerformanceMode();
       setLite(next);
       document.documentElement.classList.toggle("perf-lite", next);
     };

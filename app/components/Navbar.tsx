@@ -2,7 +2,7 @@
 
 import { Link } from "../../i18n/navigation";
 import { useState } from "react";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+
 import { Menu, X } from "lucide-react";
 import { useTranslations } from "next-intl";
 import FastAnchorLink from "./FastAnchorLink";
@@ -24,9 +24,7 @@ const sectionIds = navLinkIds.map((l) => l.id);
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const activeId = useActiveSection(sectionIds);
-  const reduceMotion = useReducedMotion();
   const lite = usePerformanceMode();
-  const skipMotion = reduceMotion || lite;
   const t = useTranslations("nav");
   return (
     <nav
@@ -57,14 +55,7 @@ export default function Navbar() {
                   isActive ? "text-emerald-400" : "text-zinc-400 hover:text-zinc-100"
                 }`}
               >
-                {isActive && !skipMotion && (
-                  <motion.span
-                    layoutId="nav-active"
-                    className="absolute inset-0 bg-emerald-500/10 border border-emerald-500/20 rounded-lg"
-                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                  />
-                )}
-                {isActive && skipMotion && (
+                {isActive && (
                   <span className="absolute inset-0 bg-emerald-500/10 border border-emerald-500/20 rounded-lg" />
                 )}
                 <span className="relative">{t(link.key)}</span>

@@ -834,6 +834,7 @@ html.perf-lite .warning-pulse {
 
 .hero-scene-parallax.content-section {
   contain-intrinsic-size: auto 320px;
+  content-visibility: auto;
 }
 
 @media (max-width: 768px) {

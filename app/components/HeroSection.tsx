@@ -1,14 +1,25 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { ArrowRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { brandMap, mobileBrands } from "../data/brands";
 import BrandLogo from "./BrandLogo";
 import BrandMarquee from "./BrandMarquee";
 import FastAnchorLink from "./FastAnchorLink";
-import HeroScene from "./hero/HeroScene";
 import ScrollHint from "./ScrollHint";
 import ScrollReveal from "./motion/ScrollReveal";
+
+const HeroScene = dynamic(() => import("./hero/HeroScene"), {
+  loading: () => (
+    <div
+      className="hero-scene-placeholder mx-auto my-4 h-[200px] max-w-xs sm:max-w-md flex items-center justify-center"
+      aria-hidden
+    >
+      <div className="w-[90px] h-[160px] rounded-2xl border border-emerald-500/20 bg-zinc-900/40" />
+    </div>
+  ),
+});
 
 const quickLinks = [
   { href: "#motorola", brandId: "motorola", featured: true },
@@ -59,11 +70,7 @@ export default function HeroSection() {
           </p>
         </ScrollReveal>
 
-        <ScrollReveal direction="up" delay={0.25} distance={30} immediate>
-          <HeroScene />
-        </ScrollReveal>
-
-        <ScrollReveal direction="up" delay={0.3} immediate>
+        <ScrollReveal direction="up" delay={0.25} immediate>
           <div className="flex flex-wrap gap-4 justify-center mt-10 px-4">
             <FastAnchorLink
               href="#zdielanie"
@@ -81,6 +88,10 @@ export default function HeroSection() {
               {t("ctaBrowse")}
             </FastAnchorLink>
           </div>
+        </ScrollReveal>
+
+        <ScrollReveal direction="up" delay={0.3} distance={24} immediate>
+          <HeroScene />
         </ScrollReveal>
 
         <ScrollReveal direction="up" delay={0.4} immediate>

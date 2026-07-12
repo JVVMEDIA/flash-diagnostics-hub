@@ -10,13 +10,14 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import ScrollToTopButton from "../components/ScrollToTopButton";
 import HashNavigationInit from "../components/HashNavigationInit";
+import PerfLiteBootstrap from "../components/PerfLiteBootstrap";
 import { PerformanceProvider } from "../hooks/usePerformanceMode";
 import { routing, type Locale } from "../../i18n/routing";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
-  weight: ["400", "600", "700"],
+  weight: ["400", "700"],
   display: "swap",
   preload: true,
 });
@@ -58,6 +59,9 @@ export default async function LocaleLayout({ children, params }: Props) {
 
   return (
     <html lang={locale} className="dark" suppressHydrationWarning>
+      <head>
+        <PerfLiteBootstrap />
+      </head>
       <body
         suppressHydrationWarning
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-zinc-950 text-zinc-200 overflow-x-hidden`}

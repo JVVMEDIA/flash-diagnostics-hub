@@ -33,7 +33,7 @@ export default function LanguageSwitcher() {
         type="button"
         onClick={() => setOpen(!open)}
         className="flex items-center gap-1.5 px-3 py-2 rounded-xl border border-zinc-700 bg-zinc-900/80 text-sm text-zinc-300 hover:border-emerald-500/40 hover:text-emerald-300 transition-colors"
-        aria-label={t("language")}
+        aria-label={`${t("language")}: ${localeLabels[locale]}`}
         aria-expanded={open}
         aria-haspopup="listbox"
       >
@@ -46,7 +46,7 @@ export default function LanguageSwitcher() {
       {open && (
         <ul
           role="listbox"
-          aria-label={t("language")}
+          aria-label={`${t("language")}: ${localeLabels[locale]}`}
           className="absolute right-0 top-full mt-2 min-w-[10rem] rounded-xl border border-zinc-700 bg-zinc-950 shadow-xl shadow-black/40 py-1 z-[60]"
         >
           {locales.map((loc) => (
