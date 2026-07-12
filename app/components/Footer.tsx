@@ -1,9 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { ArrowUp } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { scrollToTop } from "../data/navigation";
 
 const VisitorCounter = dynamic(() => import("./VisitorCounter"), { ssr: false });
 
@@ -27,15 +25,6 @@ export default function Footer() {
         </div>
         <VisitorCounter />
       </div>
-      <button
-        type="button"
-        onClick={scrollToTop}
-        className="absolute bottom-10 right-3 sm:right-6 md:right-10 lg:right-14 xl:right-20 inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-sm font-medium text-emerald-300 hover:bg-emerald-500/20 hover:border-emerald-400/50 hover:text-emerald-200 transition-colors touch-manipulation shrink-0 z-10"
-        aria-label={t("scrollTopAria")}
-      >
-        <ArrowUp size={16} aria-hidden />
-        {t("scrollTop")}
-      </button>
     </footer>
   );
 }

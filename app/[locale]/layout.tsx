@@ -8,6 +8,7 @@ import AnimatedBackground from "../components/AnimatedBackground";
 import DeferredEffects from "../components/DeferredEffects";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import ScrollToTopButton from "../components/ScrollToTopButton";
 import HashNavigationInit from "../components/HashNavigationInit";
 import { PerformanceProvider } from "../hooks/usePerformanceMode";
 import { routing, type Locale } from "../../i18n/routing";
@@ -69,6 +70,7 @@ export default async function LocaleLayout({ children, params }: Props) {
             <Navbar />
             <main className="relative w-full max-w-full overflow-x-hidden">{children}</main>
             <Footer />
+            <ScrollToTopButton />
           </PerformanceProvider>
         </NextIntlClientProvider>
       </body>
